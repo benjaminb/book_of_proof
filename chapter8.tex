@@ -3,8 +3,8 @@
 
 % Title
 \title{Your Document Title}
-\author{Your Name}
-\date{\today} % or specify a date like {December 2020}
+\author{Benjamin Basseri}
+
 
 \begin{document}
 
@@ -57,10 +57,10 @@ If $A, B$ and $C$ are sets, then $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)
 \end{problem}
 \textbf{Proof: use logic laws}
 \begin{align*}
-    A \cup (B \cap C) & = \{x \in A \lor (x \in B \land x \in C)\}                \\
-                      & = \{x \in A \lor x \in B \land x \in A \lor x \in C\}     \\
-                      & = \{x \in A \lor x \in B\} \land \{x \in A \lor x \in C\} \\
-                      & = (A \cup B) \cap (A \cup C)
+  A \cup (B \cap C) & = \{x \in A \lor (x \in B \land x \in C)\}                \\
+                    & = \{x \in A \lor x \in B \land x \in A \lor x \in C\}     \\
+                    & = \{x \in A \lor x \in B\} \land \{x \in A \lor x \in C\} \\
+                    & = (A \cup B) \cap (A \cup C)
 \end{align*}
 
 \begin{problem}
@@ -68,10 +68,10 @@ If $A, B$ and $C$ are sets, then $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)
 \end{problem}
 \textbf{Proof: use logic laws}
 \begin{align*}
-    A \cap (B \cup C) & = \{x \in A \land (x \in B \lor x \in C)\}                 \\
-                      & = \{x \in A \land x \in B \lor x \in A \land x \in C\}     \\
-                      & = \{x \in A \land x \in B\} \lor \{x \in A \land x \in C\} \\
-                      & = (A \cap B) \cup (A \cap C)
+  A \cap (B \cup C) & = \{x \in A \land (x \in B \lor x \in C)\}                 \\
+                    & = \{x \in A \land x \in B \lor x \in A \land x \in C\}     \\
+                    & = \{x \in A \land x \in B\} \lor \{x \in A \land x \in C\} \\
+                    & = (A \cap B) \cup (A \cap C)
 \end{align*}
 
 \begin{problem}
@@ -94,11 +94,11 @@ If $A, B$ are sets in a universal set $U$, then $\overline{A \cup B} = \overline
 \\
 Apply De Morgan's laws on sets: for any $x \in U$, let $\alpha(x)$ be the proposition that $x \in A$ and $\beta(x)$ be the proposition that $x \in B$.
 \begin{align*}
-    \overline{A \cup B} & = \{x \in U: x \not\in A \cup B\}                         \\
-                        & = \{x \in U: \neg(\alpha(x) \lor \beta(x))\}              \\
-                        & = \{x \in U: \neg\alpha(x) \land \neg\beta(x)\}           \\
-                        & = \{x \in U: x \not\in A\} \land \{x \in U: x \not\in B\} \\
-                        & = \overline{A} \cap \overline{B}
+  \overline{A \cup B} & = \{x \in U: x \not\in A \cup B\}                         \\
+                      & = \{x \in U: \neg(\alpha(x) \lor \beta(x))\}              \\
+                      & = \{x \in U: \neg\alpha(x) \land \neg\beta(x)\}           \\
+                      & = \{x \in U: x \not\in A\} \land \{x \in U: x \not\in B\} \\
+                      & = \overline{A} \cap \overline{B}
 \end{align*}
 
 \begin{problem}
@@ -116,12 +116,12 @@ If $A, B$, and $C$ are sets then $A - (B \cup C) = (A - B) \cap (A - C)$.
 \end{problem}
 \textbf{Proof: use logic and De Morgan's laws}
 \begin{align*}
-    A - (B \cup C) & = \{x \in A: x \not\in B \cup C\}                               & \text{Given}                        \\
-                   & = \{x \in A: \neg(x \in B \lor x \in C)\}                       & \text{Rewrite in logic}             \\
-                   & = \{x \in A: \neg x \in B \land \neg x \in C\}                  & \text{De Morgan}                    \\
-                   & = \{x \in A \land x \not\in B \land x \in A \land x \not\in C\} & x \in A = (x \in A) \land (x \in A) \\
-                   & = \{x \in A \land x \not\in B\} \cap \{x \in A: x \not\in C\}   & \text{Def. intersection}            \\
-                   & = (A - B) \cap (A - C)
+  A - (B \cup C) & = \{x \in A: x \not\in B \cup C\}                               & \text{Given}                        \\
+                 & = \{x \in A: \neg(x \in B \lor x \in C)\}                       & \text{Rewrite in logic}             \\
+                 & = \{x \in A: \neg x \in B \land \neg x \in C\}                  & \text{De Morgan}                    \\
+                 & = \{x \in A \land x \not\in B \land x \in A \land x \not\in C\} & x \in A = (x \in A) \land (x \in A) \\
+                 & = \{x \in A \land x \not\in B\} \cap \{x \in A: x \not\in C\}   & \text{Def. intersection}            \\
+                 & = (A - B) \cap (A - C)
 \end{align*}
 
 \begin{problem}

@@ -3,8 +3,8 @@
 
 % Title
 \title{Your Document Title}
-\author{Your Name}
-\date{\today} % or specify a date like {December 2020}
+\author{Benjamin Basseri}
+
 
 \begin{document}
 
@@ -63,9 +63,9 @@ If $A, B, C$ and $D$ are sets, then $(A \times B) \cap (C \times D) = (A \cap C)
 Both sets contain pairs whose first coordinate is in both $A$ and $C$ and whose second coordinate is in both $B$ and $D$. The statement is true and we can prove directly:
 
 \begin{align*}
-    (A \times B) \cap (C \times d) & = \{(x, y): (x, y) \in A \times B \land (x, y) \in C \times D\} \\
-                                   & = \{(x, y): x \in A \land x \in C \land y \in B \land y \in D\} \\
-                                   & = (A \cap C) \times (B \cap D).
+  (A \times B) \cap (C \times d) & = \{(x, y): (x, y) \in A \times B \land (x, y) \in C \times D\} \\
+                                 & = \{(x, y): x \in A \land x \in C \land y \in B \land y \in D\} \\
+                                 & = (A \cap C) \times (B \cap D).
 \end{align*}
 
 \begin{problem}
@@ -177,10 +177,10 @@ The statement seems true, the challenge will be to find $u$ for any $r$ and $s$.
 
 Start with $0 < \sqrt{2} < 2$:
 \begin{align*}
-     & 0 < \sqrt{2} < 2                  &                          \\
-     & 0 < \sqrt{2}(s-r) < 2(s-r)        & \text{multiply by $s-r$} \\
-     & 0 < \sqrt{2}\frac{s-r}{2} < s-r   & \text{divide by 2}       \\
-     & r < r + \sqrt{2}\frac{s-r}{2} < s & \text{add $r$}
+   & 0 < \sqrt{2} < 2                  &                          \\
+   & 0 < \sqrt{2}(s-r) < 2(s-r)        & \text{multiply by $s-r$} \\
+   & 0 < \sqrt{2}\frac{s-r}{2} < s-r   & \text{divide by 2}       \\
+   & r < r + \sqrt{2}\frac{s-r}{2} < s & \text{add $r$}
 \end{align*}
 
 \begin{problem}
@@ -219,10 +219,10 @@ If $x, y \in \R$ and $x^3 < y^3$, then $x < y$.
 
 Cubing is an order-preserving operation so this is true. Given $x^3 < y^3$, assume $y > 0$. Then we have:
 \begin{align*}
-    x^3                       & < y^3 \\
-    \frac{x^3}{y^3}           & < 1   \\
-    \sqrt[3]{\frac{x^3}{y^3}} & < 1   \\
-    \frac{x}{y}               & < 1   \\
+  x^3                       & < y^3 \\
+  \frac{x^3}{y^3}           & < 1   \\
+  \sqrt[3]{\frac{x^3}{y^3}} & < 1   \\
+  \frac{x}{y}               & < 1   \\
 \end{align*}
 
 Similar reasoning works for $y = 0$ and $y < 0$.
@@ -256,19 +256,19 @@ Sketching a venn diagram hints this is not true:
 
 
 \begin{center}
-    \begin{tikzpicture}
-        \fill[green!20, opacity=0.5] (0,0) circle (2cm);
-        \fill[blue!20, opacity=0.5] (2,0) circle (2cm);
-        \begin{scope} % Scope for 'clip' and 'fill'
-            \clip (0,0) circle (2cm);
-            \fill[red!30, opacity=0.5] (2,0) circle (2cm);
-        \end{scope}
-        \draw (0,0) circle (2cm);
-        \draw (2,0) circle (2cm);
-        \node at (-1.5,0) {$A$}; % Move the A label to the left
-        \node at (0.25, 0) {$B$};
-        \node at (3, 0) {$C$};
-    \end{tikzpicture}
+  \begin{tikzpicture}
+    \fill[green!20, opacity=0.5] (0,0) circle (2cm);
+    \fill[blue!20, opacity=0.5] (2,0) circle (2cm);
+    \begin{scope} % Scope for 'clip' and 'fill'
+      \clip (0,0) circle (2cm);
+      \fill[red!30, opacity=0.5] (2,0) circle (2cm);
+    \end{scope}
+    \draw (0,0) circle (2cm);
+    \draw (2,0) circle (2cm);
+    \node at (-1.5,0) {$A$}; % Move the A label to the left
+    \node at (0.25, 0) {$B$};
+    \node at (3, 0) {$C$};
+  \end{tikzpicture}
 \end{center}
 
 If $C$ contains elements not in $B$ then $A \cup C$ will have these elements but $B$ will not, so $B \neq A \cup C$.
