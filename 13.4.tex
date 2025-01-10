@@ -1,0 +1,67 @@
+\documentclass{article}
+\input{preamble.tex}
+
+% Title
+\title{Your Document Title}
+\author{Your Name}
+\date{\today} % or specify a date like {December 2020}
+
+\begin{document}
+
+\maketitle
+\begin{problem}
+Given two or more functions $f_1, f_2, \ldots, f_n$ suppose that $\lim\limits_{x\to c} f_i(x) $ exists for each $1 \leq i \leq n$. Prove that $\lim\limits_{x\to c} (f_1(x) + f_2(x) + \ldots + f_n(x)) = f_1(c) + f_2(c) + \ldots + f_n(c)$. Use induction on $n$, with Theorem 13.5 (sum rule for limits) as the base case.
+\end{problem}
+
+The base case is proven in Theorem 13.5. Now assume this holds for $n$ functions. Let $g(x) = f_1(x) + f_2(x) + \ldots + f_n(x)$, which is just another function. Then we can apply the base case again to $g(x) + f_{n+1}(x)$ and the result holds.
+
+\begin{problem}
+Given two or more functions $f_1, f_2, \ldots, f_n$, suppose that $\lim\limits_{x \to c}f_i(x)$ exists for each $1 \leq i \leq n$. Prove that $\lim\limits_{x \to c} (f_1(x) \cdot f_2(x) \cdot \ldots \cdot f_n(x)) = f_1(c) \cdot f_2(c) \cdot \ldots \cdot f_n(c)$. Use induction on $n$, with Theorem 13.7 (product rule for limits) as the base case.
+\end{problem}
+
+Following much the same as before, the theorem proves our base case for the product of two functions. Now suppose the result holds for the product of $n$ functions. Let $g(x) = f_1(x)\cdot \ldots \cdot f_n(x)$, and apply the base case to $g(x) \cdot f_{n+1}(x)$.
+
+\begin{problem}
+Use the previous two exercises adn the constant multiple rule to prove that if $f(x)$ is a polynomial, then $\lim\limits_{x \to c} f(x) = f(c)$ for any $c \in \R$.
+\end{problem}
+
+In other words, we're asked to prove that all real-variable polynomials are everwhere continuous. We can prove this by induction on the degree of a polynomial, since polynomials by definition have a finite degree but it can be arbitrarily large. For a base case assume the degree is 0 and we have a constant function. This is continuous everywhere. Now assume the result holds for a polynomial of degree $n$. If we add an $n+1$ degree term it takes the form $g(x) = ax^{n+1}$ for some nonzero coefficient $a$. With the exponent, this term is equivalent to $a\cdot \underbrace{x \cdot x \cdot \ldots \cdot x}_{\text{$n + 1$ times}}$. By the constant multiple rule and the product rule we have
+$$\lim_{x \to c} g(x) = \lim_{x \to c} a x \cdot x \ldots \cdot x = a \lim_{x \to c} x \cdot x \ldots \cdot x = a c \cdot c \ldots \cdot c = a c^{n+1} = g(c)$$
+
+By the inductive hypothesis the polynomial's first $n$ terms' sum is continuous, so we can sum the lower-degree terms in the limit as well and find that the $n+1$ degree polynomial is continuous.
+
+\begin{problem}
+Use Exercise 3 with a limit law to prove that if $\frac{f(x)}{g(x)}$ is a rational function (a polynomial divided by a polynomial), and $g(c) \neq 0$, then $\lim\limits_{x \to c} \frac{f(x)}{g(x)} = \frac{f(c)}{g(c)}$.
+\end{problem}
+
+To apply the division rule for limits it requires that the limits exist individually for the numerator and denominator. Since $f$ and $g$ are polynomials they are continuous everywhere and the limits exist at $c$ for them individually. Then by the division rule, as long as $g(c) \neq 0$, the limit divides here as well.
+
+\begin{problem}
+Use Definition 13.2 (epsilon-delta definition of the limit) to prove that limits are unique in the sense that if $\lim\limits_{x \to c} f(x) = L$ and $\lim\limits_{x \to c} f(x) = M$, then $L = M$.
+\end{problem}
+
+Suppose at least one limit exists and there are two symbols $L$ and $M$ for limits of $f$ as $x$ approaches $c$.
+
+ATAC that $L \neq M$. Then there is some distance between them, call it $\epsilon$. Since the limit of $f$ exists as $x$ approaches $c$, this requires for $\epsilon / 2$ there is some $\delta_1$ that $|x - c| < \delta_2$ implies that $|f(x) - L| < \epsilon/2$. In other words, $f(x) \in (L - \frac{\epsilon}{2}, L + \frac{\epsilon}{2})$.
+
+But we can say the same thing about $M$: that for $\epsilon / 2$ there is some $\delta_2$ where $|x - c| < \delta_2 \implies |f(x) - M| < \epsilon / 2$. So $f(x) \in (M - \frac{\epsilon}{2}, M + \frac{\epsilon}{2})$.
+
+In fact if we set the challenge at $\epsilon / 2$ and let $\delta = \min\{\delta_1, \delta_2\}$, then for any $x$ within $\delta$ of $c$ requires $f(x)$ to be in both intervals. But this is impossible because $L$ and $M$ are $\epsilon$ apart as we stated earlier, so the intervals
+$$\left(L - \frac{\epsilon}{2}, L + \frac{\epsilon}{2}\right) \quad \text{and} \quad \left(M - \frac{\epsilon}{2}, M + \frac{\epsilon}{2}\right)$$
+
+have no intersection and $f(x)$ can't be in both. Therefore $L = M$.
+
+\begin{problem}
+Prove the \textit{squeeze theorem}: Suppose $g(x) \leq f(x) \leq h(x)$ for all $x \in \R$ satisfying $0 < |x - c| < \delta$ for some $\delta > 0$. If $\lim\limits_{x \to c} g(x) = L = \lim\limits_{x \to c} h(x)$, then $\lim\limits_{x \to c} f(x) = L$.
+\end{problem}
+
+ATAC that $g$ and $h$ converge to $L$ as $x \to c$ but $f$ does not. It could be that $f$ diverges to infinity or it could be $f$ converges to some limit $M$ unequal to $L$. Both, however would lead at a contradiction.
+
+First consider the case that $f$ diverges to $\pm \infty$ as $x$ gets closer to $c$. This means that for any magnitude $M$, there is a small enough $\delta$ where $|x - c| < \delta$ implies $|f(x)| > M$. But we also know that $f(x) \leq h(x)$ and $h(x)$ is converging to $L$. So we could set the magnitude to beat be $L$ itself; then there's a $\delta_1$ that constrains $|f(x)| > L$ and a $\delta_2$ that constrains $|h(x) - L| < \epsilon$ for any $\epsilon > 0$. This is a contradiction because then for $\delta = \min\{\delta_1, \delta_2\}$ we have $f(x) > L$ and $h(x) < L$ for $|x - c| < \delta$, contradicting $f(x) \leq h(x)$ (a similar argument is made if $f$ diverges to $-\infty$, using the fact that $f(x) \geq g(x)$).
+
+Now consider the case that $f$ converges to some $M$ unequal to $L$. Then there is a distance between the two limits, call it $\epsilon$. Then for any $\epsilon > 0$ let $\delta_1$ be small enough that $|g(x) - L| < \epsilon / 2$ and $|h(x) - L | < \epsilon / 2$, and let $\delta_2$ be small enough that $|f(x) - M| < \epsilon / 2$. Now setting $\delta = \min\{\delta_1, \delta_2\}$, we have
+$$g(x) \in \left(L - \frac{\epsilon}{2}, L + \frac{\epsilon}{2}\right), h(x) \in \left(L - \frac{\epsilon}{2}, L + \frac{\epsilon}{2}\right), f(x) \in \left(M - \frac{\epsilon}{2}, M + \frac{\epsilon}{2}\right)$$
+
+This is a contradiction because it is violating the inequalities we started with. If $M > L$ then $f(x) > h(x)$, and if $M < L$ then $f(x) < g(x)$.
+
+\end{document}

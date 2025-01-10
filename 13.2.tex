@@ -1,0 +1,111 @@
+\documentclass{article}
+\input{preamble.tex}
+
+% Title
+\title{Your Document Title}
+\author{Your Name}
+\date{\today} % or specify a date like {December 2020}
+
+\begin{document}
+
+\maketitle
+\begin{problem}
+Prove that $\lim\limits_{x\to 5} (8x - 3) = 37$.
+\end{problem}
+
+For scratch work:
+\begin{align*}
+  |8x - 3 - 37| & < \epsilon           \\
+  |8x -40 |     & < \epsilon           \\
+  8|x - 5|      & < \epsilon           \\
+  |x - 5|       & < \frac{\epsilon}{8}
+\end{align*}
+
+Then for any $\epsilon > 0$ let $\delta < \frac{\epsilon}{8}$. Then if $|x - 5 | < \delta < \epsilon/8$ we have $8|x - 5| < \epsilon$ or $|8x - 3 - 37| < \epsilon$.
+
+\begin{problem}
+Prove that $\lim\limits_{x \to -1} (4x + 6) = 2$.
+\end{problem}
+
+
+For scratch work:
+\begin{align*}
+  |4x + 6 - 2| & < \epsilon           \\
+  |4x + 4|     & < \epsilon           \\
+  4|x + 1|     & < \epsilon           \\
+  4|x - (-1)|  & < \epsilon           \\
+  |x - (-1)|   & < \frac{\epsilon}{4}
+\end{align*}
+
+Then for any $\epsilon > 0$ use $\delta < \epsilon / 4$. If $|x - (-1)| < \delta < \epsilon / 4$ then $4|x + 1| < \epsilon$ or $|4x + 6 - 2| < \epsilon$.
+
+\begin{problem}
+Prove that $\lim\limits_{x\to 0}(x + 2) = 2$.
+\end{problem}
+
+For scratch work:
+\begin{align*}
+  |x + 2 - 2| & < \epsilon \\
+  |x|         & < \epsilon \\
+\end{align*}
+
+So for any $\epsilon > 0$ use $|x| < \epsilon$. Then $|x + 2 - 2| < \epsilon$
+
+\begin{problem}
+Prove that $\lim\limits_{x \to 8} (2x - 7) = 9$.
+\end{problem}
+
+Scratch work:
+
+\begin{align*}
+  |2x - 7 - 9| & < \epsilon           \\
+  |2x - 16|    & < \epsilon           \\
+  2|x - 8|     & < \epsilon           \\
+  |x - 8|      & < \frac{\epsilon}{2} \\
+\end{align*}
+
+So for any $\epsilon > 0$ use $\delta < \frac{\epsilon}{2}$. Then $|x - 8| < \delta$ implies $|x - 8| < \frac{\epsilon}{2}$ and $2|x - 8| = |2x - 7 -9| < \epsilon$.
+
+\begin{problem}
+Prove that $\lim\limits_{x\to 3} (x^2 - 2) = 7$.
+\end{problem}
+
+Scratch work:
+\begin{align*}
+  |x^2 - 2 - 7|  & < \epsilon \\
+  |x^2 - 9|      & < \epsilon \\
+  |x - 3||x + 3| & < \epsilon \\
+  |x - 3||x + 3| & < \epsilon \\
+\end{align*}
+
+Now as $x$ approaches 3, the $x + 3$ term approaches 6. We can constrain $|x - 3| < 1$ so that $x$ is within 1 unit of 3. Since $x$ is bounded above by 4, $x + 3$ must be less than 7. So we can continue the scratch work:
+\begin{align*}
+  |x - 3||x + 3| & < |x - 3|7           & < \epsilon \\
+  |x - 3|        & < \frac{\epsilon}{7}
+\end{align*}
+
+So for any $\epsilon > 0$ use $\delta < \min\{1, \epsilon/7\}$. Then
+
+$$|x - 3| < \delta \implies |x - 3| < \min\{1, \epsilon/7\}$$
+
+If $|x - 3| < \delta$ then $x$ is within 1 unit of 3 so $|x + 3| < 7$ and $7|x - 3| < \epsilon$, so $|x + 3||x - 3| < \epsilon$, or that $|x^ - 2 - 7| < \epsilon$.
+
+\begin{problem}
+Prove that $\lim\limits_{x \to 1} (4x^2 + 1) = 5$.
+\end{problem}
+
+Scratch work:
+
+\begin{align*}
+  |4x^2 + 1 - 5| & < \epsilon           \\
+  4|x^2 - 1|     & < \epsilon           \\
+  |x - 1||x + 1| & < \frac{\epsilon}{4}
+\end{align*}
+
+As $x$ approaches 1 $x + 1$ approaches 2, so we can force $x$ to be close enough to 1 that $x + 1$ is bounded above by 3, making
+$$|x - 1||x + 1| < 3|x - 1| < \frac{\epsilon}{4}$$
+$$\implies |x - 1| < \frac{\epsilon}{12}$$
+
+Then for any $\epsilon > 0$ choose $\delta < \min\{1, \epsilon/12\}$. If $|x - 1| < \delta$ then $x$ is within 1 unit of 1, making $|x + 1| < 3$ and $3|x - 1| < \epsilon/4$. Then $|x + 1||x - 1| < \epsilon$ and $|4x^2 + 1 - 5| < \epsilon$.
+
+\end{document}

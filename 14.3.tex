@@ -1,0 +1,97 @@
+\documentclass{article}
+\input{preamble.tex}
+
+% Title
+\title{Your Document Title}
+\author{Your Name}
+\date{\today} % or specify a date like {December 2020}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}
+Suppose $B$ is an uncountable set and $A$ is a set. Given that ther is a surjective function $f: A \to B$, what can be said about the cardinality of $A$?
+\end{problem}
+
+\textbf{Solution: recall key facts about surjections and injections.}
+
+Since there is a surjection from $A$ to $B$ there exists an injection from $B$ to $A$. Construct the injection using $f$: for any $b \in B$ there exists an $a \in A$ such that $f(a) = b$. There may be multiple such $A$ members though, but since $f$ is surjective there's guaranteed to be at least one. So for every $b \in B$ we can define a map back to $A$ by choosing some $a \in f^{-1}(b)$, the preimage of $b$. This map is injective because if some $a \in f^{-1}(b)$ it cannot be in the inverse image of any $b'$ distinct from $b$ or $f$ would not be a well-defined function and $f(a)$ would somehow equal both $b$ and $b'$.
+
+Since there's an injection from $B$ to $A$, and we don't know about a bijection, we can say that $|B| \leq |A|$. Thus a surjection from $A$ to $B$ gives us the relation $|B| \leq |A|$.
+
+\begin{problem}
+Prove that the set $\C$ of complex numbers is uncountable.
+\end{problem}
+
+\textbf{Solution: use a theorem to simplify the problem.} We have a theorem that if $A$ is uncountable and $A \subseteq B$, then $B$ must be uncountable as well. In this case we have $\R \subseteq \C$ and $\R$ is uncountable, which implies $\C$ is uncountable as well.
+
+\begin{problem}
+Prove or disprove: If $A$ is uncountable, then $|A| = |R|$
+\end{problem}
+
+This is not true. Even though we don't yet know about cardinalities beyond uncountably infinite, we know that there are infinite cardinalities since $|A| < |\mathscr{P}(A)|$. This applies to $\R$ as well, and $|\R| < |\mathscr{P}(\R)|$. So if $A = \mathscr{P}(\R)$ then it would not be true that $A$ has the same cardinality as $\R$.
+
+\begin{problem}
+Prove or disprove: if $A \subseteq B \subseteq C$ and $A$ and $C$ are countably infinite, then $B$ is countably infinite.
+\end{problem}
+
+\textbf{Solution: direct proof.}
+
+Claim that $B$ must be at least countably infinite. If it was less than countably infinite then it would be finite, and then $B$ could not contain $A$. Therefore $B$ must be infinite, countable or uncountable. Next, observe that $B$ is contained in a countably infinite set. An uncountable set cannot be contained in a countable set, therefore, $B$ is at most uncountably infinite.
+
+\begin{problem}
+Prove or disprove: the set $\{0, 1\} \times \R$ is uncountable.
+\end{problem}
+
+\textbf{Solution: prove by comparing to a subset.}
+
+We have $\R$ as basically a subset of this: take the subset $P = \{(0, x), x \in \R\}$, this is in bijection with $\R$ by just taking its second coordinate. Therefore $|P| = |\R|$ and is uncountable. Since $P$ is a subset of our set in question, the parent set must be uncountable as well.
+
+\begin{problem}
+Prove or disprove: Every infinite set is a subset of a countably infinite set.
+\end{problem}
+
+\textbf{Solution: apply a handy theorem}.
+
+An infinite set can mean countable or uncountable. We have a theorem that demonstrates an uncountable set cannot be contained in a countable set. Therefore the statement is false.
+
+\begin{problem}
+Prove or disprove: if $A \subseteq B$ and $A$ is countably infinite and $B$ is uncountable, then $B - A$ is uncountable.
+\end{problem}
+
+The statement asks if we take a countably infinite set out of an uncountably infinite set, is the result countable or uncountable? The result is still uncountable.
+
+ATAC that $B - A$ is countable. Then there is a bijective function $f: \N to B - A$. We also know that $A$ is countable so there is a bijection $g: \N to A$. Now we could interleave $f$ and $g$ to construct a bijective function $h: \N to B$:
+$$h(n) = \begin{cases}
+    f(\frac{n+1}{2}) & , n \text{ even} \\
+    g(\frac{n}{2})   & , n \text{ odd}  \\
+  \end{cases}$$
+
+which implies $B$ is countable, contradicting the statement that it is uncountable.
+
+\begin{problem}
+Prove or disprove: the set $\{(a_1, a_2, a_3, \ldots): a_i \in \Z\}$ of infinite sequences of integers is countably infinite.
+\end{problem}
+
+This is uncountably infinite. Suppose for contradiction that the set is countably infinite. Then we can enumerate the sequences as $s_1, s_2, \ldots$ and package the sequences as rows in a table. Now we are in precisely the same situation as in Cantor's diagonalization argument on the uncountability of the real numbers.
+
+\begin{problem}
+Prove that if $A$ and $B$ are finite sets with $|A| = |B|$, then any infection $f: A \to B$ is also a surjection. Show this is not necessarily true if $A$ and $B$ are not finite.
+\end{problem}
+
+If $A$ and $B$ are both finite and $|A| = |B|$ then the pigeonhole principle states that any injection is also a surjection. Prove by induction on the size of the sets. If $|A| = |B| = 1$, then there is just one map from $A$ to $B$ and it is both injective and surjective.
+
+Now assume the property holds up to some size $n$ and consider sets $A$ and $B$ size $n + 1$. If we remove one element from each set (an $a \in A$ and $b \in B$) then they are both size $n$ and the inductive hypothesis gives us an injection $f$ from $A$ to $B$. We can then extend $f$ to include mapping $a$ to $b$ (the removed elements). So having an injection on sets size $n$ leads to an injection on sets size $n + 1$ that is also a surjection.
+
+However if the sets are infinite, an injection doesn't necessarily mean there is a surjection. To find a counterexample, let's look for sets between which we know there cannot be a surjection. For instance, $\N \to \R$. We know there cannot be a surjection from $\N$ to $\R$ however there are many injections, such as the inclusion map $f(n) = n$.
+\begin{problem}
+Prove that if $A$ and $B$ are finite sets with $|A| = |B|$, then any surjection $f: A \to B$ is also an injection. Show this is not necessarily true if $A$ and $B$ are not finite.
+\end{problem}
+
+\textbf{Proof: induction on set size}.
+
+Proceed by induction on the size of the sets. For sets size 1 there is only one map between them which is a bijection, and hence both injective and surjective. Assume this holds for sets up to size $n$ and consider $|A| = |B| = n+1$. Take some $a\in A, b\in B$ and remove them from the sets: $A - \{a\}$ and $B - \{b\}$ are both sets size $n$, so any surjection $f$ from $A - \{a\}$ to $B - \{b\}$ is also an injection. Now we can extend $f$ to $f_A$, mapping from $A$ to $B$ by defining $f_A(a) = b$ (and $f_A = f$ otherwise). The extension $f_A$ is injective and surjective.
+
+This property doesn't generally hold for infinite sets. Like before, there is no injection from $\R$ to $\N$ even though there are any number of surjections, such as $g(x) = x$ if $x \in \N$ and 1 otherwise.
+\end{document}

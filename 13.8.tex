@@ -1,0 +1,87 @@
+\documentclass{article}
+\input{preamble.tex}
+
+% Title
+\title{Your Document Title}
+\author{Your Name}
+\date{\today} % or specify a date like {December 2020}
+
+\begin{document}
+
+\maketitle
+\begin{problem}
+A geometric series is one having the form $a + ar + ar^2 + ar^3 + \ldots$, where $a, r \in \R$. (The first term in the sum is $a$, and beyond that the $k$th terms i $r$ times the previous term.) Prove that if $|r| < 1$, then the series converges to $\frac{a}{1 - r}$. Also, if $a \neq 0$ and $|r| \geq 1$, then the series diverges.
+\end{problem}
+
+First we need to prove the radius of convergence. Use the root test:
+$$\alpha = \lim \sup |ar^n|^{1/n} = |r| \lim \sup |a|^{1/n} = |r|$$
+
+We have $\lim \sup |a|^{1/n} = 1$ for any nonzero $a$ because taking higher roots of a nonzero number drives it to 1. The root test tells us that when $\alpha < 1$ the series converges. Since $\alpha = |r|$, we equivalently say the series converges when $|r| < 1$. Likewise if $|r| > 1$ then the series diverges.
+
+If $|r| = 1$ then and $a \neq 0$ then the series simplifies to
+$$a + a(1) + a(1^2) + a(1^3) = \ldots = a + a + a + \ldots$$
+
+which will diverge to positive or negative infinity, depending on the sign of $a$.
+
+When the series does converge, prove it converges to $\frac{a}{1 - r}$, let $s = \sum ar^k$. In longhand:
+$$s = a + ar + ar^2 + \ldots$$
+
+If we multiply this by $r$ we get
+$$sr = ar + ar^2 + ar^3 + \ldots$$
+
+which is nearly the same as $s$ but omitting the first term. Therefore we can write
+$$s - sr = a \implies s = \frac{a}{1 - r}$$
+
+\begin{problem}
+Prove the comparison test: Suppose $\sum a_k$ and $\sum b_k$ are series. If $0 \leq a_k \leq b_k$ for each $k$, and $\sum b_k$ converges, then $\sum a_k$ converges. Also, if $0 \leq b_k \leq a_k$ for $k$, and $\sum b_k$ diverges, then $\sum a_k$ diverges.
+\end{problem}
+
+This benefits from the \textbf{Cauchy criterion} for series: a series converges if and only if for all $\epsilon > 0$ there exists an $N$ such that $m, n > N$ imply
+$$\left|\sum_{k = m}^n a_k\right| < \epsilon$$
+
+which is to say that eventually, the series' tail gets arbitrarily small. From here we apply this to the series $b_k$, and since $a_k$ is termwise less than $b_k$ and bounded below by 0, we get the following:
+
+For any $\epsilon > 0$ let $N$ be so large that $m, n > N$ imply that $\left|\sum_{k = m}^n b_k\right| < \epsilon$. Then
+$$\left|\sum_{k = m}^n a_k\right| \leq \left|\sum_{k = m}^n b_k\right| < \epsilon$$
+
+therefore $a_k$ satisfies the Cauchy criterion and it converges by comparison.
+
+To prove the divergence statement, start with $b_k$ being divergent. Then it fails the Cauchy criterion and its tail cannot become arbitrarily small. The $a_k$ series is termwise greater than $b_k$ which is bounded below by 0, therefore the tail of $a_k$ cannot be less than the $b_k$ tail and $a_k$ must also fail the Cauchy criterion.
+
+\begin{problem}
+Prove the limit comparison test: Suppose $\sum a_k$ and $\sum b_k$ are series for which $a_k, b_k > 0$ for each $k$. If $\lim\limits_{k \to \infty} \frac{a_k}{b_k} = 0$ and $\sum b_k$ converges, then $\sum a_k$ converges.
+\end{problem}
+
+Intuitively, this means the denominator is growing faster than the numerator, causing the ratio to shrink to 0. More formally, we're given that $\frac{a_k}{b_k} \to 0$. So for any $\epsilon > 0$ there exists an $N$ so large that any $n > N$ implies $\frac{a_n}{b_n} < \epsilon$. This means $a_n < \epsilon b_n$. More generally, no matter how small an $\epsilon$ we choose, $b_n$ will eventually be larger than $a_n$ termwise. By the comparison test, we have $a_n < b_n$ (for $\epsilon < 1$) and $\sum b_n$ converges, therefore $\sum a_n$ converges.
+
+\begin{problem}
+Prove the absolute convergence test: Let $\sum a_k$ be a series. If $\sum |a_k|$ converges, then $\sum a_k$ converges.
+\end{problem}
+
+Apply the Cauchy criterion: since $\sum |a_k|$ converges, it must satisfy the Cauchy criterion: for any $\epsilon > 0$ there is an $N$ large enough that $m, n > N$ imply:
+$$\sum_{k = m}^n |a_k| < \epsilon$$
+
+By the triangle inequality, this is larger than summing the terms first then taking the absolute value:
+$$\left|\sum_{k=m}^{n} a_k \right| \leq \sum_{k=m}^{n} |a_k| < \epsilon$$
+
+Therefore $\sum a_k$ also satisfies the Cauchy criterion and converges.
+
+\begin{problem}
+Prove the ratio test: Given a series $\sum a_k$ with each $a_k$ positive, if $\lim\limits_{n\to\infty} \frac{a_{k + 1}}{a_k} = L < 1$, then $\sum a_k$ converges. Also, if $L > 1$, then $\sum a_k$ diverges.
+\end{problem}
+
+We're given that the limit of $\frac{a_{n+1}}{a_n} = L < 1$. This means that eventually the ratio gets arbitrarily close to $L$ which is less than 1; so the ratio will eventually be less than 1 and stay less than 1. For all terms in the tail, $a_{n+1} < a_n$.
+
+More formally, for any $\epsilon > 0$ there exists an $N$ so large that $n > N$ implies $|a_{n+1}/a_n - L| < \epsilon$. Viewed another way:
+$$\frac{a_{n+1}}{a_n} \in (L - \epsilon, L + \epsilon) \implies \frac{a_{n+1}}{a_n} < L + \epsilon$$
+
+which we can write:
+$$a_{n+1} < (L + \epsilon) a_n$$
+
+Now let $\epsilon$ be so small that $L + \epsilon < 1$, and say $L + \epsilon = r$. For all subsequent terms in the tail we have $a_{n+1} < ra_n$ and applying this repeatedly we get:
+$$a_{n+2} < r a_{n+1} < r^2 a_n$$
+$$a_{n + k} < r^k a_n$$
+
+And since $|r| < 1$ this is a convergent geometric series as $k \to \infty$. Therefore the tail satisfies the Cauchy criterion and the series converges. Alternatively we can also assert the series converges because we have a convergent geometric series $\sum\limits_{k = N +1 }^{\infty} a_N r^{k - N}$ preceded by a finite series $\sum\limits_{k=1}^N a_k$, which is simply a sum of two finite terms.
+
+\end{document}

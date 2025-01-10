@@ -1,0 +1,120 @@
+\documentclass{article}
+\input{preamble.tex}
+
+% Title
+\title{Your Document Title}
+\author{Your Name}
+\date{\today} % or specify a date like {December 2020}
+
+\begin{document}
+
+\maketitle
+\begin{problem}
+$\lim\limits_{x\to \infty} \frac{1}{x^n} = 0$ if $n \in \N$.
+\end{problem}
+
+To prove this for all $n\in\N$ use induction. For the base case $n=1$ we want to show $\lim\limits_{x\to\infty} \frac{1}{x} = 0$. For any $\epsilon > 0$ let $N > 1/\epsilon$. Then for $x > N$ we have
+\begin{align*}
+  x   & > N > 1/\epsilon \\
+  1/x & < \epsilon
+\end{align*}
+
+Now for the inductive step suppose the result holds up to an arbitrary $n$. Then using the limit law for products, take the inductive step:
+$$\lim_{x\to\infty} \frac{1}{x^{n+1}} = \lim_{x\to\infty} \frac{1}{x^n} \cdot \frac{1}{x} = \left(\lim_{x\to\infty} \frac{1}{x^n}\right)\left(\lim_{x \to \infty} \frac{1}{x}\right) = 0 \cdot 0 = 0$$
+
+\begin{problem}
+$\lim\limits_{x\to\infty} \frac{3x + 2}{2x - 1} = \frac{3}{2}$.
+\end{problem}
+
+We can prove this using limit laws by multiplying the function by $\frac{1/x}{1/x}$:
+$$\lim_{x\to\infty} \frac{3x + 2}{2x - 1} = \lim_{x\to\infty} \frac{3 + 2/x}{2 - 1/x} = \frac{\lim_{x\to\infty} 3 + 2/x}{\lim_{x\to\infty} 2 - 1/x} = \frac{3 + 0}{2 - 0} = \frac{3}{2}$$
+
+Alternatively we can do an $\epsilon-\delta$ proof starting with scratchwork:
+\begin{align*}
+  \left|\frac{3x + 2}{2x - 1} - \frac{3}{2}\right| & < \epsilon                          \\
+  \left|\frac{6x + 4 - 6x + 3}{4x - 2}\right|      & < \epsilon                          \\
+  \left|\frac{7}{4x - 2}\right|                    & < \epsilon                          \\
+  \frac{7}{2}\left|\frac{1}{2x - 1}\right|         & < \epsilon                          \\
+  \frac{1}{2x - 1}                                 & < \frac{2\epsilon}{7}               \\
+  2x - 1                                           & > \frac{7}{2\epsilon}               \\
+  2x                                               & > \frac{7}{2\epsilon}+1             \\
+  x                                                & > \frac{7}{4\epsilon} + \frac{1}{2}
+\end{align*}
+
+Note that we can drop the absolute value bars since for sufficiently large $x$ the fraction $\frac{1}{2x - 1}$ will be positive. Now for any $\epsilon > 0$, let $x > \frac{7}{4\epsilon} + \frac{1}{2}$. Then follow the scratchwork above to arrive at the limit.
+
+\begin{problem}
+If $a \in \R$, then $\lim\limits_{x\to\infty} a = a$.
+\end{problem}
+
+This says that constant functions have limits at infinity. To formalize this let $f(x) = a$ be the constant $a$ function. Then $|f(x) - a| = |a - a| = 0$ which is necessarily less than any $\epsilon > 0$, regardless of a delta or the location of $x$. So for any domain value $c$, any $\epsilon > 0$ let $\delta = \epsilon$ and if $|x - c| < \delta$ then $|f(x) - a| < \epsilon$ (and we don't even need the `if' part).
+
+\begin{problem}
+If $\lim\limits_{x\to\infty} f(x)$ exists, and $a \in \R$, then $\lim\limits_{x\to\infty}a(f(x)) = a \lim\limits_{x\to\infty} f(x)$.
+\end{problem}
+
+This says that constants factor out of limits. Prove this by applying the limit law for products:
+$$\lim_{x\to\infty} af(x) = \left(\lim_{x\to\infty} a\right) \left(\lim_{x\to\infty} f(x)\right) = a \lim_{x\to\infty} f(x)$$
+
+\begin{problem}
+If both $\lim\limits_{x\to\infty} f(x)$ and $\lim\limits_{x\to\infty} g(x)$ exist, then $\lim\limits_{x\to\infty} (f(x) + g(x)) = \lim\limits_{x\to\infty} f(x) + \lim\limits_{x\to\infty} g(x)$.
+\end{problem}
+
+This is the sum rule for limits. Prove this by using the $\epsilon/2$ trick. Call
+$$\lim_{x\to\infty}f(x) = L, \lim_{x\to\infty}g(x) = M$$
+
+For any $\epsilon > 0$, choose $x$ sufficiently large that $|f(x) - L| < \epsilon/2$ and $|g(x) - M| < \epsilon/2$. Then
+$$|f(x) + g(x) - (L + M)| \leq |f(x) - L| + |g(x) - M| < \epsilon/2 + \epsilon/2 = \epsilon$$
+
+\begin{problem}
+If both $\lim\limits_{x\to\infty} f(x)$ and $\lim\limits_{x\to\infty} g(x)$ exist, then $\lim\limits_{x\to\infty} (f(x) \cdot g(x)) = \lim\limits_{x\to\infty} f(x) \cdot \lim\limits_{x\to\infty} g(x)$.
+\end{problem}
+
+This is the product rule for limits. Prove this by adding and subtracting a form of zero in the scratchwork:
+\begin{align*}
+  \left|f(x)g(x) - L \cdot M\right|      & < \epsilon \\
+  |f(x)g(x) - f(x)M + f(x)M - L \cdot M| & < \epsilon \\
+  |f(x)(g(x) - M) + M(f(x) - L)|         & < \epsilon \\
+  |f(x)(g(x) - M)| + |M(f(x) - L)|       & < \epsilon \\
+\end{align*}
+
+From here we need to use a little trickery to account for cases where $L, M$ might be negative or zero. But first notice that $f(x)$ is still in the inequality. Since $f(x) \to L$ we can bound this value by $|L| + 1$, i.e. $f(x) < |L| + 1$ for sufficiently large $x$. This with Cauchy-Schwarz gives us
+$$|f(x)(g(x) - M)| + |M(f(x) - L)| < (|L| + 1)|g(x) - M| + |M||f(x) - L|$$
+
+Make $g(x) - M$ and $f(x) - L$ so small that even with their multipliers, the term will still come out smaller than $\epsilon / 2$. For $|f(x) - L|$ that would be $\epsilon / 2|M|$ except that $M$ might be zero. To avoid this we can add 1 to the denominator so that $|f(x) - L| < \epsilon / 2(|M| + 1)$.
+
+Now we can state the formal proof: for any $\epsilon > 0$ choose $x$ sufficiently large so that $|f(x) - L| < \epsilon / 2(|M| + 1)$ and $|g(x) - M| < \epsilon / 2(|L| + 1)$. Then the scratchwork above shows that $|f(x)g(x) - LM| < \epsilon$.
+
+\begin{problem}
+If both $\lim\limits_{x\to\infty} f(x)$ and $\lim\limits_{x\to\infty} g(x)$ exist, then $\lim\limits_{x\to\infty} (f(x) - g(x)) = \lim\limits_{x\to\infty} f(x) - \lim\limits_{x\to\infty} g(x)$.
+\end{problem}
+
+This statement is equivalent to the limit rule for sums but where the function is $-g(x)$. By the previously proven results for sums and constant multipliers:
+
+$$\lim_{x\to\infty} (f(x) - g(x)) = \lim_{x\to\infty} f(x) + (-g(x)) = \lim_{x\to\infty} f(x) + \lim_{x\to\infty} -g(x) = \lim_{x\to\infty} f(x) - \lim_{x\to\infty} g(x)$$
+
+\begin{problem}
+If both $\lim\limits_{x\to\infty} f(x)$ and $\lim\limits_{x\to\infty}g(x)$ exist, and $\lim\limits_{x\to\infty}g(x) \neq 0$, then $\lim\limits_{x\to\infty} \frac{f(x)}{g(x)} = \frac{\lim\limits_{x\to\infty} f(x)}{\lim\limits_{x\to\infty} g(x)}$.
+\end{problem}
+
+If we can prove that $\lim\limits_{x\to\infty} 1/g(x) = 1/\lim\limits_{x\to\infty} g(x)$ then we can apply the product rule for limits to the function $f(x) \cdot 1/g(x)$. For scratchwork:
+\begin{align*}
+  \left|\frac{1}{g(x)} - \frac{1}{M}\right| & < \epsilon            \\
+  \left|\frac{g(x) - M}{Mg(x)}\right|       & < \epsilon            \\
+  \left|g(x) - M\right|                     & < \epsilon |Mg(x)|    \\
+  \left|g(x) - M\right|                     & < \epsilon |M||M + 1| \\
+\end{align*}
+
+At the end there, we bind $|g(x)| < |M + 1|$ since for sufficiently large $x$, $g(x)$ gets arbitrarily close to $M$. So we can choose $x$ large enough that $|g(x) - M| < \epsilon |M||M + 1|$ and follow the scratchwork to prove that $\lim\limits_{x\to\infty} 1/g(x) = 1/\lim\limits_{x\to\infty} g(x)$. This proves the quotient rule for limits to infinity.
+
+\begin{problem}
+This was already proven as Theorem 13.9.
+\end{problem}
+
+\begin{problem}
+Prove that $\lim\limits_{x\to\infty} \sin(x)$ does not exist.
+\end{problem}
+
+Of course the sine function oscillates forever and does not converge to any limit as $x \to \infty$. To formalize this, derive a contradiction. Suppose $\lim\limits_{x\to\infty} \sin(x) = L$. Whatever value $L$ is there of course will exist some increment $x + y$ such that $\sin(x + y) \neq L$, which can show the contradiction. To formalize, we can note that $\sin(x + \pi) = -\sin(x) = -L$. If $L = 0$ then $x$ is a multiple of $\pi$ and then $\sin(x + \frac{\pi}{2}) = \pm 1$, which cannot pass the $\epsilon-\delta$ test. If $L \neq 0$ then there is an interval of length $2|L|$ between $L$ and $-L$ and we can use that to derive a contradiction as well. Let $\epsilon < |L|/2$. Then supposedly there is an $N$ sufficiently large that $x > N$ ensures $|\sin(x) - L| < |L|/2$. However, for such an $x$ consider $\sin(x + \pi) = -L$. Then $|\sin(x + \pi) - L| = 2|L| > |L|$, which is a contradiction.
+
+\end{document}

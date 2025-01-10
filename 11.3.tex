@@ -1,0 +1,155 @@
+\documentclass{article}
+\input{preamble.tex}
+
+% Title
+\title{Your Document Title}
+\author{Your Name}
+\date{\today} % or specify a date like {December 2020}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}
+Let $A = \{1, 2, 3, 4, 5, 6\}$, and consider the following equivalence relation on $A$:
+$$R = \{(1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6),$$
+$$(2, 3), (3, 2), (4, 5), (5, 4), (4, 6), (6, 4), (5, 6), (6, 5)\}$$
+
+List the equivalence classes of $R$.
+\end{problem}
+
+We see that 1 doesn't have any relations except to itself, so we have $[1] = \{1\}$. However 2 and 3 have a relation, and nothing else relates to 2 or 3 but each other. So we have a second equivlance class $[2] = \{2, 3\}$. Finaly, 4, 5, and 6 all have relations with each other so our last equivalence class is $[4] = \{4, 5, 6\}$.
+
+\begin{problem}
+Let $A = \{a, b, c, d, e\}$. Suppose $R$ is an equivalence relation on $A$. Suppose $R$ has two equivalence classes. Also $aRd, bRc$, and $eRd$. Write out $R$ as a set.
+\end{problem}
+
+Since $R$ is an equivalence relation it must be reflexive and contain the diagonal of $A$. It must also be transitive so $a, d$, and $e$ must all be in the same class. We see none of those elements have a relationship with $b$ or $c$, although $b$ and $c$ relate to each other. So the two equivalence classes are $\{a, d, e\}$ and $\{b, c\}$. Writing out $R$:
+$$R = \{(a, a), (b, b), (c, c), (d, d), (e, e), $$
+$$(a, d), (d, a), (a, e), (e, a), (d, e), (e, d), (b, c), (c, b)\}$$
+
+\begin{problem}
+Let $A = \{a, b, c, d, e\}$. Suppose $R$ is an equivalcence relation on $A$. Suppose $R$ has three equivalence classes. Also $aRd$ and $bRc$. Write out $R$ as a set.
+\end{problem}
+
+First let's identify the equivalence classes. There is a clas containing $a$ and $d$, and two more classes. If $b$ and $c$ are in the same class as $a$ and $d$ then the only remaining element to form a new class is $e$ and there would only be two equivlance classes. Therefore $b$ and $c$ must be in a different equivalcence class and $e$ must be a singleton class for the third one. This makes the classes $\{a, d\}, \{b, c\}, \{e\}$
+$$R = \{(a, a), (b, b), (c, c), (d, d), (e, e), $$
+$$(a, d), (d, a), (b, c), (c, b)\}$$
+
+\begin{problem}
+Let $A= \{a, b, c, d, e\}$. Suppose $R$ is an equivalence relation on $A$. Suppose that $aRd$ and $bRc$, $eRa$ and $cRe$. How many equivalence classes does $R$ have?
+\end{problem}
+
+Since transitivity and symmetry holds in each equivalence class, $aRd$ implies $a$ and $d$ are in the same class, $eRa$ implies $e$ is also in the class, $cRe$ means $c$ is in the class too, and $cRb$ means $b$ is in the class. So all elements are in the class and there is just one big equivalence class.
+
+\begin{problem}
+There are two difference equivalence relations on the set $A = \{a, b\}$. Describe them.
+\end{problem}
+
+Either we have one big clump and $R = \{(a, a), (b, b), (a, b), (b, a)\}$ or we have complete separation and $R = \{(a, a), (b, b)\}$.
+
+\begin{problem}
+There are five different equivalence relations on the set $A = \{a, b, c\}$. Describe them all.
+\end{problem}
+
+We could have either one, two, or three equivalence classes. There's only one may to have one equivalence class and that's the one big clump relation $R = A^2$. There's also only one way to have three equivalence classes, and that's with complete separation, $R = \{(a, a), (b, b), (c, c)\}$. Then there are $\binom{3}{2} = 3$ ways to choose 2 of the 3 elements to be equivalent and these are the remaining three equivalence relations:
+$$[1] = \{a, b\}, [2] = \{c\}$$
+$$[1] = \{a, c\}, [2] = \{b\}$$
+$$[1] = \{b, c\}, [2] = \{a\}$$
+
+\begin{problem}
+Define a relation $R$ on $\Z$ as $xRy$ if and only if $3x - 5y$ is even. Prove $R$ is an equivalence relation. Describe its equivalence classes.
+\end{problem}
+
+There will be two equivalence classes total: one for elements $(x, y)$ where $3x - 5y$ are even and the other for when the difference is odd. Now let's check the relation properties. To see if it's reflexive we test $xRx$ for any integer $x$, which exists if $3x - 5x = -2x$ is even and it is. Therefore $R$ is reflexive. Now we test symmetry: suppose $xRy$ so $3x - 5y$ is even. The only way this difference could be even is if $3x$ and $5y$ have the same parity, otherwise it would be (odd) $-$ (even) or (even) $-$ (odd) which would be odd. Now consider $3y - 5x$. This differs from the first expression by $-8x$, which must be even, and $8x$ which must also be even. That is
+$$3y - 5x = 3x - 5y + 2(4y - 4x)$$
+This means $3y - 5x$ is an even number plus an even number, which is even. Therefore we have $yRx$ and the relation is symmetric.
+
+Finally to test transitivity suppose we have $xRy$ and $yRz$. Then $3x - 5y$ is even as is $3y - 5z$. Then $3x - 5y = 2a$ for some integer $a$ and $3y - 5z = 2b$ for some integer $b$. By multiplying the first equation by 3 and second equation by 5, then adding them together, we obtain:
+$$9x + 5z = 6a - 10b$$
+If we subtract $6x$ and $10z$ from both sides we get
+$$9x + 5z -6x - 10z = 6a - 10b - 6x - 10z$$
+$$\implies 3x - 5z = 2(3a - 5b - 3x - 5z)$$
+which is even.
+
+
+\begin{problem}
+Define a relation $R$ on $\Z$ as $xRy$ if and only if $x^2 + y^2$ is even. Prove $R$ is an equivalence relation. Describe the equivalence classes.
+\end{problem}
+
+There are two classes: one where the sum is even and one where the sum is odd. Reflexive:
+$$x^2 + x^2 = 2x^2 \text{ (even) } \implies xRx$$
+
+We also have symmetry since if $x^2 + y^2$ is even then by commutative addition this equals $y^2 + x^2$, which will also be even. If we have $xRy$ and $yRz$ then I claim $x^2$, $y^2$ and $z^2$ all have the same parity. First, since $x^2 + y^2$ is even this means either both $x^2$ and $y^2$ are even or they're both odd. Then for $y^2 + z^2$ to be even, $z^2$ must have the same parity as $y^2$. Then $z^2$ has the same parity as $x^2$ (as parity is itself an equivalence relation and hence transitive) and $x^2 + z^2$ is even, giving us $xRy \land yRz \implies xRz$.
+
+\begin{problem}
+Define a relation $R$ on $\Z$ as $xRy$ if and only if $4 \mid (x + 3y)$. Prove $R$ is an equivalence relation. Describe its equivalcence classes.
+\end{problem}
+
+There are two equivalence classes: $\{(x, y): 4 \mid (x + 3y) \}$ and its complement (those $x, y$ such that $4 \not\mid (x + 3y)$).
+
+The relation is reflexive since for any $x$ have $x + 3x = 4x$ which is divisble by 4. The relation is symmetric: suppose we have $xRy$ so 4 divides $x + 3y$. Then $x + 3y = 4a$ for some integer $a$. Multiplying the equation by 3 gives $3x+ 9y = 12a$, and subtracting $8y$ gives $3x + y = 4(3a - 2y)$. Therefore 4 divides $y + 3x$ and we have $yRx$. The relation is transitive: suppose $xRy$ and $yRz$. Then $x + 3y = 4a$ for some $a$ and $y + 3z = 4b$ for some $b$. Multiply that second equation by 3 and subtract it from the first equation to obtain:
+$$x + 3y - 3y - 9z = x - 9z = 4a - 12b$$
+$$\implies x + 3z = 4a - 12b + 12z = 4(a - 3b + 3z)$$
+which is divisible by 4.
+
+\begin{problem}
+Suppose $R$ and $S$ are two equivalence relations on a set $A$. Prove that $R \cap S$ is also an equivalence relation.
+\end{problem}
+
+Since both $R$ and $S$ are equivalence relations. Then they both contain the diagonal of $A \times A$ and so does their intersection. Therefore $R \cap S$ is reflexive. Now suppose there is an $(x, y)$ in the intersection. Then $(x, y)$ is in both $R$ and $S$ and by their symmetry, $(y, x)$ is also in both $R$ and $S$. Therefore $(y, x)$ is in $R \cap S$ and the intersection is symmetric. Likewise, if $(x, y), (y, z)$ is in the intersection then both those relationships are in $R$ and $S$ as well. Since those relations are transitive they both contain $(x, z)$ and $(x, z)$ is in the intersection, so $R \cap S$ is transitive.
+
+\begin{problem}
+Prove or disprove: If $R$ is an equivalence relation on an infinite set $A$, then $R$ has infinitelyi many equivalence classes.
+\end{problem}
+
+This is false. Consider the same parity relation on $\Z$, which is an infinite set. There are only two equivalence classes: $\{\ldots, -4, -2, 0, 2, -4, \ldots \}$ and $\{\ldots, -3, -1, 1, 3, \ldots\}$.
+
+\begin{problem}
+Prove or disprove: If $R$ and $S$ are two equivalence relations on a set $A$, then $R \cup S$ is also an equivalence relation on $A$.
+\end{problem}
+
+$R \cup S$ will be reflexive since both $R$ and $S$ contain the diagonal, so their union certainly contains it as well. Now suppose $(x, y)$ is in the union. Then it is either a member of $R$ or $S$ (or both). Then $(y, x)$ is also in the base set hence it is in the union. Likewise if $(x, y)$ and $(y, z)$ are in the union, it is not necessarily true that the transitive relationship $(x, z)$ is in the union. For example it could be that $(x, y)$ in the union came from $R$ and has not transitive relationships (such as $R$ is just the diagonal, $(x, y)$, and $(y, x)$) and $(y, z)$ originates in $S$ with the same setup that $S$ is just the diagonal, $(y, z)$, and $(z, y)$. Then $(x, z)$ is not in either $R$ or $S$ and not in the union, so the union is not transitive.
+
+\begin{problem}
+Suppose $R$ is an equivalence relation on a finite set $A$, and every equivalence class has the same cardinality $m$. Express $|R|$ in terms of $m$ and $|A|$.
+\end{problem}
+
+Each equivalence class has $m$ elements which means it corresponds to $m^2$ pairs in $R$, since each element in the class has a relation to every other element including itself. There are $|A|/m$ total equivalence classes because equivalence classes partition the set. Therefore $|R| = m^2 |A| / m = m|A|$.
+
+\begin{problem}
+Suppose $R$ is a reflexive and symmetric relation on a finite set $A$. Define a relation $S$ on $A$ by declaring $xSy$ if and only if for some $n \in \N$ there are elements $x_1, x_2, \ldots, x_n \in A$ satisfying $xRx_1, x_1 R x_2, \ldots, x_{n-1} R x_n$, and $x_n R y$. Show that $S$ is an equivalence relation and $R \subseteq S$. Prove that $S$ is the unique smallest equivalence relation on $A$ containing $R$.
+\end{problem}
+
+First let's show $S$ is an equivalence relation. $S$ has relations $xSy$ if and only if a finite chain of relations can be made in $R$ from $x$ to $y$. For reflexivity, can we make a `chain' from $x$ to itself in $R$? Even if we require that $n$ be at least 1, then we need some $x_1$ such that $xRx_1, x_1Rx$. Of course, nothing prevents us from using $x$ itself as $x_1$, so we check if $xRx$ is a relation and since $R$ is reflexive, it has all self-relations. Therefore $S$ is reflexive.
+
+$S$ is symmetric because $xSy$ implies $xRx_1, \ldots, x_n R y$ and since $R$ is symmetric, the reverse relations exist in $R$ as well: $yRx_n, x_n R x_{n-1}, \ldots , x_1 R x$. This implies $ySx$ and $S$ is symmetric.
+
+$S$ is transitive for similar reasons. Suppose $xSy, ySz$. Then in $R$ we have:
+$$xRa_1, xRa_2, \ldots , xRa_n, a_n R y$$
+$$yRb_1, yRb_2, \ldots yRb_m, b_m R z$$
+
+This means we have a finite chain of relations from $x$ to $z$ in $R$, which means we have $xSz$ and $S$ is transitive. Therefore $S$ is an equivalence relation.
+
+To prove $R \subset S$, for any $xRy$ since $R$ is symmetric we could form the chain $xRy, yRx, xRy$ (assuming we require $n \geq 1$) which implies $xSy$. Therefore any $(x, y) \in R \implies (x, y) \in S$ and $S$ contains $R$.
+
+To show $S$ is the unique smallest equivalence relation on $A$ containing $R$, consider taking $R$ which is already reflexive and symmetric and closing it under transitive relations to form an equivalence relation $S$. Then $(x, x_1)$ and $(x_1, x_2) \in S$ would require $(x, x_2) \in S$. If there's an $(x_2, x_3) \in R$ then we would also have $(x, x_3) \in S$. Continuing this way we see that any equivalence relation containin $R$ must have the chaining property. This means any equivalence relation containing $R$ must contain $S$, so $S$ is the smallest possible set that's an equivalence relation containing $R$. And since sets are defined by their membership $S$ is unique.
+
+\begin{problem}
+Suppose $R$ is an equivalence relation on a set $A$, with four equivalence classes. How many different equivalence relations $S$ on $A$ are there for which $R \subset S$?
+\end{problem}
+
+To contain $R$ any other relation $S$ would have to keep all the equivalence relations already present in $R$. These are partitioned into 4 classes, call them $[1], [2], [3], [4]$. So the only thing we can do is 'merge' one or more equivalency classes. Let's check that this preserves $R$.
+
+Suppose to form $S$ we merge classes $[1]$ and $[2]$. For any $a, b \in [1]$ this indicates $(a, b), (b, a) \in R$. Merging the classes still maintains $a, b \in [1\mid 2]$, so $(a, b), (b, a) \in S$. In fact all relations stemming from equivalence class 1 or 2 are still preserved in $S$. Now suppose $a \in [1], b \in [2]$. If we merge these two classes this requires $(a, b), (b, a) \in S$, and any other transitive relations that need to be present for the elements of $[1]$ and $[2]$ to be considered equivalent. These are relations not present in $R$, for if they were $[1]$ and $[2]$ would already have the same elements and would in fact be the same subset of $A$. Therefore merging equivalence classes still contains all previous relations in $R$ while creating new ones, and the merges would all be distinct from each other since equivalency classes contain distinct elements.
+
+So all this boils down to how many and which equivalency classes we choose to merge in order to create an equivalency relation containing $R$. In other words, it's the number of ways to partition a set of 4 objects, which is 15.
+
+\begin{problem}
+Show that the relation $\doteq$ defined on page 213 is transitive.
+\end{problem}
+
+This relation states $\frac{a}{b}\doteq\frac{c}{d}$ when $ad = bc$. This is reflexive, since $ab = ba \implies \frac{a}{b}\doteq\frac{a}{b}$. This is also clearly symmetric since $ad = bc \implies bc = ad$. For transitivity, suppose $\frac{a}{b}\doteq\frac{c}{d}$ and $\frac{c}{d}\doteq\frac{e}{f}$. Then $ad = bc$ and $cf = de$. Take $cf = de$, multiply the left by $ad$ and the right by $bc$ (these are in fact the same value from the first relation above, so this multiplication preserves equality). Then we get $adcf = bcde$. Canceling $c$ and $d$ from both sides leaves $af = be$, implying $\frac{a}{b}\doteq\frac{e}{f}$.
+
+
+\end{document}

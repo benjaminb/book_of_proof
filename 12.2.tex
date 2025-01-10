@@ -1,0 +1,229 @@
+\documentclass{article}
+\input{preamble.tex}
+
+% Title
+\title{Your Document Title}
+\author{Your Name}
+\date{\today} % or specify a date like {December 2020}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}
+Let $A = \{1, 2, 3, 4\}$ and $B = \{a, b, c\}$. Give an example of a function $f: A \to B$ that is neither injective nor surjective.
+\end{problem}
+
+One such function would be the constant $a$ function. All elements in $A$ map to $a$ so it is not injective, as $A$ has more than one element. Neither is it surjective since $b$ and $c$ are not in the image.
+
+\begin{problem}
+Consider the logarithm function $\ln : (0, \infty) \to \R$. Decide whether this function is injective and whether it is surjective.
+\end{problem}
+
+The function is injective: suppose $\ln x = y$. This means that $e^y = x$. If there is some other element $x'$ such that $\ln x' = y$ then $e^y = x'$. But $e^y = x$ so it must be $x' = x$. It is also surjective since for any $y \in \R$ there is some value $x$ such that $e^y = x$ implying $\ln x = y$.
+
+\begin{problem}
+Consider the cosine function $\cos: \R \to \R$. Decide whether this function is injective and whether it is surjective. What if it had been defined as $\cos: \R to [-1, 1]$?
+\end{problem}
+
+The cosine function is not injective as there are many distinct inputs mapping ot the same output. For example 0 and $2pi$ both map to 1. It is also not surjective in $\R$ since cosine can only evaluate to values between -1 and 1 inclusive. But it is surjective if the codomain is restricted to $[-1, 1]$.
+
+\begin{problem}
+A function $f: \Z \to \Z \times \Z$ is defined as $f(n) = (2n, n + 3)$. Verify whether this is injective and whether it is surjective.
+\end{problem}
+
+It is injective because if $n \neq m$ then $2n \neq 2m$ and $n +3 \neq m + 3$. However it cannot be surjective because the first coordinate cannot be an odd integer.
+
+\begin{problem}
+A function $f: \Z \to \Z$ is defined as $f(n) = 2n + 1$. Verify whether this function is injective and whether it is surjective.
+\end{problem}
+
+The function is injective:
+\begin{align*}
+  m      & \neq n      \\
+  2m     & \neq 2n     \\
+  2m + 1 & \neq 2n + 1
+\end{align*}
+
+It is not surjective because for any input $n$, the output is necessarily odd with the form $2n + 1$. This means there are no even integers in the image.
+
+\begin{problem}
+A function $f: \Z \times \Z \to \Z$ is defined as $f(m, n) = 3n - 4m.$ Verify whether this function is injective and whether it is surjective.
+\end{problem}
+
+The function is not injective because there are multiple ways to form any given output. For example if $3n - 4m = 0$ it could be $n = 4, m = 3$. It could also be $n = 8, m = 6$. However it is surjective because for any target value $x = 3n - 4m$, the input $(-x, -x)$ evaluates to
+$$3(-x) - 4(-x) = 4x - 3x = x$$
+
+\begin{problem}
+A function $f: \Z \times \Z \to \Z$ is defined as $f(m, n) = 2n - 4m$. Verify whether this function is injective and whether it is surjective.
+\end{problem}
+
+It is neither injective nor surjective. To see it fails injectivity we can note that any function value is the difference between two even integers which will be even. Therefore the function doesn't map to any odd integers. It is not surjective since there are infinite ways to map to 0, for example. Any time $n = 2m$ we have $f(2m, m) = 2(2m) - 4m = 0$.
+
+\begin{problem}
+A function $f: \Z \times \Z \to \Z \times \Z$ is defined as $f(m, n) = (m+n, 2m + n)$. Verify whether this function is injective and whether it is surjective.
+\end{problem}
+
+It is both. To show injectivity, Suppose there is an $(m, n)$ and $(x, y)$ that map to the same value on $f$:
+$$f\cmat{m\\n} = \cmat{m + n\\2m + n} = \cmat{x + y\\2x = y} = f\cmat{x\\y}$$
+
+Then
+$$2m + n - (m + n) = 2x + y - (x + y) \implies m = x$$
+
+Then substituting $x$ for $m$ we have
+$$2m + n = 2m + y \implies n - y$$
+
+and therefore $(m, n) = (x, y)$.
+
+To show surjectivity, for any $(x, y)$ we wish $f$ to evaluate to the input $(y - x, 2x - y)$ will do.
+
+\begin{problem}
+Prove that the function $f: \R - \{2\} \to \R - \{5\}$ defined by $f(x) = \frac{5x + 1}{x-2}$ is bijective.
+\end{problem}
+
+To show it is bijective we show it is injective and surjective. Suppose we have $f(x) = f(y)$. Then
+$$\frac{5x+1}{x-2} = \frac{5y+1}{y-2}$$
+$$\implies (5x+1)(y-2) = (5y+1)(x-2)$$
+$$\implies -11x + 11y = 0 \implies x = y$$
+
+To show it is surjective, suppose there is some $y$ in the codomain:
+\begin{align*}
+  y        & = \frac{5x + 1}{x-2}    \\
+  xy - 2y  & = 5x + 11               \\
+  xy - 5x  & = 2y + 11               \\
+  x(y - 5) & = 2y + 11               \\
+  x        & = \frac{2y + 11}{y - 5}
+\end{align*}
+
+So for any $y \neq 5$ there is an $x$ such that $f(x) = y$.
+
+\begin{problem}
+Prove the function $f: \R - \{1\} \to \R - \{1\}$ defined by $f(x) = \left(\frac{x+1}{x-1}\right)^3$ is bijective.
+\end{problem}
+
+Since the cubing function is bijective, and composition of bijections is bijective, all that remains is to determine if $g(x) = \frac{x + 1}{x - 2}$ is bijective.
+
+To show it is injective, suppose $g(x) = g(y)$:
+$$\frac{x+1}{x-1} = \frac{y + 1}{y - 1}$$
+then:
+$$(x + 1)(y - 1) = (x - 1) (y + 1)$$
+$$\implies -x + y = -y + x$$
+further algebra shows $x = y$ or you can see it here that $-x + y$ is equal to its own negative, and 0 is the only number with that property meaning $-x + y = 0$.
+
+To show it is surjective we can solve $f(x) = y$ for $x$:
+\begin{align*}
+  f(x)                & = y        \\
+  \frac{x + 1}{x - 1} & = y        \\
+  x + 1               & = y(x - 1) \\
+  x + 1               & = xy - y   \\
+  y + 1               & = yx - x   \\
+  \frac{y + 1}{y - 1} & = x
+\end{align*}
+
+\begin{problem}
+Consider the function $\theta: \{0, 1\} \times \N \to \Z$ defined as $\theta(a, b) = (-1)^a b.$ Is $\theta$ injective? Is it surjective? Bijective? Explain.
+\end{problem}
+
+If we count 0 as a natural number then $\theta$ is not injective because two elements map to 0: $\theta(0, 0), \theta(1, 0)$. However if we don't count 0 as a natural number then it is injective, because for every other integer there is only one domain value that can map to it: the first coordinate encodes the integer's sign and the second its magnitude.
+
+Surjectivity also depends on whether or not we include 0 in the naturals. If we do then yes, any integer can be reached by the tuple (sign, magnitude) as input (say, 0 for negative and 1 for positive). But if we don't include 0 in the naturals then there is no domain element $b$ such that $(-1)^a b = 0$.
+
+\begin{problem}
+Consider the function $\theta: \{0, 1\} \times \N \to \Z$ defined as $\theta(a, b) = a - 2ab + b$. Is $\theta$ injective? Is it surjective? Bijective? Explain.
+\end{problem}
+
+In $\theta(a, b)$, $a$ can only be 0 or 1. If $a$ is 0 the the function simplifies to $\theta(0, b) = b$. If $a$ is 1 then $\theta(1, b) = 1 - b$.
+
+The function is surjective, because we can reach any positive integer with $\theta(0, x)$ and large enough $x$, and any non-positive integer $\theta(1, x)$ for large enough $x$.
+
+If we consider $0 \in \N$ then the function is not injective since $\theta(0, 0) = \theta(1, 1) = 0$.
+
+\begin{problem}
+Consider the function $f: \R^2 \to \R^2$ defined by the formula $f(x, y) = (xy, x^3).$ Is $f$ injective? Is it surjective? Bijective? Explain.
+\end{problem}
+
+The function is not injective. Suppose the $x$ argument is 0. Then we have $f(0, y) = (0y, 0)$ and any $y$ maps to the same value. So we could have $y \neq y'$ and $f(0, y) = f(0, y')$, meaning the function isn't injective.
+
+The function is surjective. We saw that it can reach (0, 0). Now suppose we wish to reach any nonzero second coordinate $w$ in the codomain. Its cube root $w^{1/3}$ is nonzero and unique since the cube root function is bijective.
+
+Now suppose the first coordinate in the function value should be some $z$. For $z = w^{1/3}y$ we can solve for $y$ and get $y = z/w^{1/3}$.
+
+\begin{problem}
+Consider the function $\theta: \mathcal{P}(\Z) \to \mathcal{P}(\Z)$ defined as $\theta(X) = \overline{X}.$ Is $\theta$ injective? Is it surjective? Bijective? Explain.
+\end{problem}
+
+The function $\theta$ is injective and bijective since every subset of $\Z$ has exactly one complement. This means it's bijective.
+
+To formally show injectivity, suppose $\theta(X) = \theta(Y)$. This means $\overline{X} = \overline(Y)$ which is to say the elements not in $X$ are the same set as the elements not in $Y$. Taking the complement again we get $\overline{\overline{X}} = \overline{\overline{Y}} = X = Y$.
+
+To formally show surjectivity, for any set $X \in \mathcal{P}(\Z)$, we can reach it on $\theta$ on the argument $\overline{X}$. That is, $\theta(\overline{X}) = \overline{\overline{X}} = X$.
+
+\begin{problem}
+This question concerns function $f: \{A, B, C, D, E, F, G\} \to \{1, 2, 3, 4, 5, 6, 7\}. $ How many such functions are there? How many of these functions are injective? How many are surjective? How many are bijective?
+\end{problem}
+
+
+We have 7 elements in the domain and 7 elements in the codomain. Now for each of the 7 domain elements we have 7 choices where it can map on $f$. We repeat this for each domain element to get $7^7 = 823543$ possible functions.
+
+For any function to be injective, each domain element must map to a different codomain value. To count the injective mappings, we have 7 choices for $A$'s mapping, then 6 choices for $B$, 5 choices for $C$ and so on leaving $7! = 5040$ injective functions. Similarly, the process to count bijective functions wouldu be identical since we don't have any `extra' domain elements to map to the same values in the codomain; each of the 7 domain elements must map to a unique codomain element in order to cover the whole codomain and $f$ be surjective. Therefore the injective and surjective functions have the same count and are indeed the same functions, and therefore they are bijective.
+
+\begin{problem}
+This question concerns functions $f: \{A, B, C, D, E\} \to \{1, 2, 3, 4, 5, 6, 7\}.$ How many such functions are there? How many of these functions are injective? How many are surjective? How many are bijective?
+\end{problem}
+
+To count the number of function we have 7 choices for each of 5 domain elements to map to, making $7^5 = 16807$ total possible functions. To count the number of injective functions, we have 7 choices for $A$'s mapping, 6 choices for $B$, and so on until 3 choices for $E$ making the number of injective functions
+$$7\cdot6\cdot5\cdot4\cdot3 = 2520$$. However no function can be surjective because we don't have enough domain elements to cover all the codomain elements. And since no function can be surjective, no function can be bijective.
+
+\begin{problem}
+This question concerns functions $f: \{A, B, C, D, E, F, G\} \to \{1, 2\}$. How many such functions are there? How many of these functions are injective? How many are surjective? How many are bijective?
+\end{problem}
+
+We have 2 choices for each of 7 domain elements to construct a function, making the total number of functions $2^7 = 128$. I claim that no function between these sets is injective. To see this, suppose $f(A) = 1$. Then if $f(B) = 1$ injectivity is violated, but if $f(B) = 2$ then no matter what $f(C)$ equals it will map to the same value as $f(A)$ or $f(B)$.
+
+To count the number of surjective maps, we need at least 1 element to map to 1 but it cannot be all 7 elements map to 1 (or to 2). Let $X$ be the set of surjective functions with this domain and codomain. We can partition it to $X_0, \ldots X_7$ where the index $k$ indicates the functions in that set have exactly $k$ elements mapping to 1. This means we can remove $X_0, X_7$ from considering since they will be empty and their size will be 0. For any remaining $X_k$, the number of surjective functions will be the number of ways to choose $k$ out 7, so we have:
+$$\sum_{k=1}^6 \binom{7}{k}$$
+
+Or we can say $2^7 - 2 = 126$ since it's the full sum of all binomials $(2^7)$ minus 7 choose 0 and 7 choose 1 (1 each).
+
+Another way to count this is to ask how many functions are not surjective: the only way to fail to be surjective is if all the elements map to 1 or all of them map to 2. There is only one function for each of those scenarios, so the number of surjective functions is all of them minus 2.
+
+\begin{problem}
+Prove that the function $f: \N \to \Z$ defined as $f(n) = \frac{(-1)^n (2n - 1) + 1}{4}$ is bijective.
+\end{problem}
+
+To show $f$ is bijective we'll show that it's injective and surjective.
+
+Suppose that $f(n) = f(m)$. Then
+$$\frac{(-1)^n (2n - 1) + 1}{4} = \frac{(-1)^m(2m-1) + 1}{4}$$
+which simplifies to
+$$(-1)^n (2n -1) = (-1)^m (2m - 1)$$
+
+First let's address some special cases. If $n = 0$ then the LHS is -1. This could equal the RHS if we set $m = 1$. Therefore for this function to be injective we must not be including 0 in the naturals.
+
+Since $n, m \in \N$ we have $2n - 1$ and $2m - 1$ must both be positive. Then both sides of the equality above must also have the same sign because they're equal. That means the first factor must match as well, otherwise one side would be odd and the other side would be even. So $(-1)^n = (-1)^m$. But this doesn't necessarily mean $n = m$ just yet, only that they have the same parity. This does leave us with
+$$2n - 1 = 2m - 1$$
+which does imply that $n = m$ so $f$ is injective.
+
+To show that $f$ is surjective, we can solve $f(n) = x$ for $n$. But it helps to break into cases if $x$ is positive, 0, or negative. If $x$ is positive then the $(-1)^n$ factor must be 1, so the function simplifies to:
+\begin{align*}
+  x  & = \frac{2n - 1 + 1}{4} \\
+  4x & = 2n                   \\
+  2x & = n
+\end{align*}
+
+So any positive $x$ can be reached by using $2x$ as the input. And for an output of 0 an input of 1 works:
+$$f(1) = \frac{(-1)(-1) + 1}{4} = \frac{0}{4} = 0$$
+
+For a negative output it must be that $(-1)^n = -1$, since all other factors are positive. Therefore $f(n) = \frac{2 - 2n}{4} = x$ which can likewise be solved for $x$. Thus for any $x \in \Z$ there is some input mapping to it on $f$.
+
+\begin{problem}
+Prove that $f: \N \times \N \to \N$ defined as $f(m, n) = 2^{m-1}(2n - 1)$ is bijective.
+\end{problem}
+
+We'll prove injectivity by arguing that if two function values are equal, the factors must be equal. Suppose $2^{m-1}(2n - 1) = 2^{x -1}(2y - 1)$. The first factor of both sides is a power of 2. The second factor of both sides cannot be a power or even a multiple of 2 because it is odd for any natural $n, y$. Therefore in the prime factorization of both sides, which must be the same, the exponent on 2 must be $m - 1$ and $x - 1$ meaning $m$ must equal $x$. Then $2n -1 = 2y - 1$ requires $n = y$ and the function is injective.
+
+To show that it is surjective, we can partition $\N$ into even and odd numbers. The function can reach any odd number $x$ by setting $m = 1$ and $n$ to the required number so that $x = 2n -1$. To see how it can reach any even number, again conside the prime factorization of any even number. It has a power of 2 at least 1, then any other factors which are all odd:
+$$x = 2^{e_2}\cdot 3^{e_3}\cdot 5^{e_5}\ldots p^{e_p}= 2^{e_2}\cdot k$$
+
+Since all other prime bases in the factorization are odd, we have a power of 2 times some odd number $k$ (product of odds is odd). Therefore $k$ has the form $2n - 1$ for some $n$. So for any even number, set $m$ to the required power so that $m - 1$ matches the exponent on 2 in its prime factorization, and set $n$ to the value such that $2n - 1$ equals the odd number for product of the odd primes.
+\end{document}

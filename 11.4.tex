@@ -1,0 +1,61 @@
+\documentclass{article}
+\input{preamble.tex}
+
+% Title
+\title{Your Document Title}
+\author{Your Name}
+\date{\today} % or specify a date like {December 2020}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}
+List all the partitions of the set $A = \{a, b\}$. Compare your answer to Exercise 5 of section 11.3
+\end{problem}
+
+First we could have $a$ and $b$ be in separate sets. The only other possibility is that they are in the same set. So the partitions of $A$ are $\{\{a\}, \{b\}\}$ and $\{\{a, b\}\}$.
+
+\begin{problem}
+List all the partitions of the set $A = \{a, b, c\}$. Compare your answer to Exercise 6 of section 11.3.
+\end{problem}
+
+First we can have each element in its own set.
+$$\{\{a\}, \{b\}, \{c\}\}$$
+
+Then we can have two elements in set and the third in the other:
+
+$$\{\{a, b\}, \{c\}\}, \{\{a, c\}, \{b\}\}, \{\{b, c\}, \{a\}\}$$
+
+Note on counting: there are 3 ways to choose the element to be a singleton, so there should be 3 possible partitions in this case, and there are.
+
+Finally we can have all three elements in one set:
+$$\{\{a, b, c\}\}$$
+
+\begin{problem}
+Describe the partition of $\Z$ resulting from the equivalence relation $\equiv \pmod{4}$.
+\end{problem}
+
+The equivalence classes are integers that have the remainder after division by 4:
+$$[0] = \{\ldots, -8, -4, 0, 4, 8, \ldots\}, [1] = \{\ldots, -5, -1, 1, 5, \ldots\}, [2] = \{\ldots, -6, -2, 2, 6, \ldots\}, [3] = \{\ldots, -7, -3, 3, 7, \ldots\}$$
+
+\begin{problem}
+Suppose $P$ is a partition of a set $A$. Define a relation $R$ on $A$ by declaring $xRy$ if and only if $x, y \in X$ for some $X \in P$. Prove $R$ is an equivalence relation on $A$. Then prove that $P$ is the set of equivalence classes on $R$.
+\end{problem}
+
+To prove $R$ is an equivalence relation, we need to show that it is reflexive, symmetric, and transitive. Since $P$ partitions the set, any $x \in A$ belongs to some partition $X$, which requires $xRx$. So $R$ is reflexive. Now suppose we have $xRy$, then it means $x, y \in X$ for some $X$. Or in other words, $y, x \in X \leftrightarrow yRx$, so $R$ is symmetric. Finally, suppose $xRy$ and $yRz$. Then $x, y \in X$ for some $X$ and $y, z \in Y$ for some $Y$. But since $P$ partitions the set $y$ is in exactly one partition so it must be $X = Y$. Then $x, y, z \in X$ which requires $xRz$, so $R$ is transitive.
+
+Now to show that $P$ is the set of equivalence classes. I claim that any set $X$ in the partition is an equivalence class, which contains all elements that relate to each other symmetrically and transitively. Consider the equivalence class $[x]$ for any $x \in A$. The element $x \in X$ for some $X$ in the partition as we saw before. Now if $y$ or $z$ relate to $x$, then $y, z \in X$ as well, as also seen before. Therefore $X$ contains all the elements that relate to $x$ symmetrically or transitively, and $X = [x]$.
+
+\begin{problem}
+Consider the partition $P = \left\{ \{\ldots, -4, -2, 0, 2, 4, \ldots\}, \{\ldots, -5, -3, -1, 1, 3, 5\}\right\}$ of $\Z$. Let $R$ be the equivalence relation whose equivalence classes are the two elements of $P$. What familiar equivalence relation is $R$?
+\end{problem}
+
+We see all the even numbers are in one set and all the odd numbers are in the other. So we could call this the 'same parity' relation or more congruence modulo 2.
+
+\begin{problem}
+Consider the partition $P = \left\{ \{0\}, \{-1, 1\}, \{-2, 2\}, \{-3, 3\}, \ldots\right\}$ of $\Z$. Describe the equivalence relation whose equivalence classes are the elements of $P$.
+\end{problem}
+
+We see that each class contains the integers that are each other's additive inverse. Another way of thinking about this is each set in the partition has numbers the same distance from 0. So we could call this the 'same distance from 0' relation or the absolute value.
+\end{document}

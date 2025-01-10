@@ -1,0 +1,122 @@
+\documentclass{article}
+\input{preamble.tex}
+
+% Title
+\title{Your Document Title}
+\author{Your Name}
+\date{\today} % or specify a date like {December 2020}
+
+\begin{document}
+
+\maketitle
+\begin{problem}
+Check that $f: \Z \to \Z$ defined by $f(n) = 6 - n$ is bijective. Then compute $f^{-1}$.
+\end{problem}
+
+To show that it is bijective, show that it is injective and surjective. Injectivity: suppose $f(n) = f(n)$. Then $6 - m = 6 - n$ and $m = n$. Surjectivity: for any $y \in Z$ you want to reach, we solve $y = 6 - n$ for $n$, obtaining $n = 6 -y$. To check, $f(6 - y) = 6 - (6 - y) = y$. Since any $y$ can be reached on $f$, the function is surjective.
+
+To find the inverse, set $y = 6 - n$ and solve for $n$. We just did that, so $f^{-1}(y) = 6 - y$. To check:
+$$f^{-1}(f(n)) = f^{-1}(6 - n) = 6 - (6 - n) = n$$
+Since $f^{-1} \circ f$ is the identity, this confirms $f^{-1}$ is the correct inverse function.
+
+\begin{problem}
+In Exercise 9 of Section 12.2 you proved that $f: \R - \{2\} \to \R - \{5\}$ defined by $f(x) = \frac{5x + 1}{x -2}$ is bijective. Now find its inverse.
+\end{problem}
+
+
+Write $f(x) = y$ and solve for $y$:
+
+\begin{align*}
+  \frac{5x + 1}{x - 2} & = y       \\
+  5x + 1               & = xy - 2y \\
+  2y + 1               & = xy - 5x \\
+  2y + 1               & = x(y-5)  \\
+  \frac{2y + 1}{y - 5} = x
+\end{align*}
+
+Now we can say $f^{-1}(x) = \frac{2x + 1}{x - 5}$. To check:
+
+\begin{align*}
+  f(f^{-1}(x)) & = f\left(\frac{2x + 1}{x - 5}\right)                                    \\
+               & = \frac{5\left(\frac{2x + 1}{x - 5}\right) + 1}{\frac{2x + 1}{x - 5}-2} \\
+               & = \frac{11x}{11}                                                        \\
+               & = x
+\end{align*}
+
+\begin{problem}
+Let $B = \{2^n : n \in \Z\} = \{\ldots, \frac{1}{4}, \frac{1}{2}, 1, 2, 4, 8, \ldots\}$. Show that the function $f: \Z \to B$ defined as $f(n) = 2^n$ is bijective. Then find $f^{-1}$.
+\end{problem}
+
+To show bijectivity we could show the inverse, but let's show it's injective and surjective. Injectivity: suppose $f(m) = f(n)$. Then $2^m = 2^n$ and $m$ must equal $n$. The function is surjective by the construction of $B$: the set is all integer powers of 2 and the domain of $f$ is all integers, so any integer power of 2 is in the image of $f$.
+
+The inverse function must map $2^n$ back to $n$, and the $\log_2$ function does this:
+$$\log_2 2^n = n \log_2 2 = n\cdot 1 = n$$
+
+\begin{problem}
+The function $f: \Z \times\Z \to \Z \times \Z$ defined by the formula $f(m, n) = (5m + 4n, 4m + 3n)$ is bijective. Find its inverse.
+\end{problem}
+
+We can solve a system of equations:
+\begin{align*}
+  5m +  4n & = x \\
+  4m +  3n & = y
+\end{align*}
+
+Solving the system for $m, n$ gives $m = 4y - 3x, n = 4x - 5y$. Checking we see
+\begin{align*}
+  f(f^{-1}(m, n)) & = f(4y - 3x, 4x - 5y)                                \\
+                  & = (5(4y - 3x) + 4(4x - 5y), 4(4y - 3x) + 3(4x - 5y)) \\
+                  & = (20y - 15x + 16x - 20y, 16y - 12x + 12x - 15y)     \\
+                  & = (x, y)
+\end{align*}
+\begin{problem}
+Show that the function $f: \R^2 \to \R^2$ defined by the formula $f(x, y) = ((x^2+ 1)y, x^3)$ is bijective. Then find its inverse.
+\end{problem}
+
+To show bijectivity, we can show the inverse, but let's show injectivity and surjectivity.
+
+Injectivity: suppose $f(a,b) = f(x, y)$. This means $((a^2 + 1)b, a^3) = ((x^2 + 1)y, x^3)$. But since the coordinates must match this gives $a^3 = x^3$. Since the cubing function is bijective, this means $a = x$. Then the first coordinates being equal means $(a^2 + 1)b = (x^2 + 1)y$. Since $a = x$ we can write this as $(x^2 + 1)b = (x^2 + 1)y$, and by the cancelation law $b = y$.
+
+For surjectivity, the second coordinate can reach any real value by choosing the corresponding cube root for $x$. For the first coordinate, if it is 0 let $y = 0$. Otherwise $(x^2 + 1)y \neq$ which means $x^2 + 1 \neq 0$. Then for any desired value $z$ on the first coordinate, let $y = \frac{z}{x^2 + 1}$. So any value in $\R^2$ can be reached by $f$.
+
+To find the inverse where $f(x, y) = (a, b)$, we must have $x^3 = b$ or $x = b^{1/3}$. To solve for $y$ we have $(x^2 + 1)y = a$, or by substition $(b^{2/3} + 1)y = a$ so that $y = \frac{a}{b^{2/3} + 1}$. Checking we see
+\begin{align*}
+  f(f^{-1}(a, b)) & = f(b^{1/3}, \frac{a}{b^{2/3} + 1})       \\
+                  & = ((b^{2/3} + 1)\frac{a}{b^{2/3} + 1}, b) \\
+                  & = (a, b)
+\end{align*}
+
+\begin{problem}
+Is the function $\theta: \mathcal{P}(\Z) \to \mathcal{P}(\Z)$ defined as $\theta(X) = \overline{X}$ bijective? If so, find its inverse.
+\end{problem}
+
+It is bijective because it has an inverse function: itself. The complement of a complement is the original set. Therefore $\theta(\theta(X)) = X$ and $\theta$ composed with $\theta$ is the identity function.
+
+\begin{problem}
+Consider the function $f: \R \times \N \to \N \times \R$ defined as $f(x, y) = (y, 3xy)$. Check that this is bijective; find its inverse.
+\end{problem}
+
+Injectivity: suppose $f(a, b) = f(x, y)$. Then $(b, 3ab) = (y, 3xy)$. This means $b = y$ and $3ab = 3xb$, so $a = x$. Surjectivity: for any $y \in \N$ needed in the codomain's first coordinate, choose that $y$ as the second input. Then for any $z \in \R$ needed in the codomain's second coordinate, $z$ must equal $3xy$. Then $x = z/3y$ (assuming $0 \not\in \N$). Therefore the function's image is all of $\N \times \R$.
+
+This also give us the inverse function $f^{-1}(x, y) = (y/3x, x)$. Checking:
+$$f(f^{-1}(x, y)) = f(y/3x, x) = (x, 3(y/3x)) = (x, y)$$
+
+\begin{problem}
+Consider $f: \N \to \Z$ defined as $f(n) = \frac{(-1)^n(2n - 1) + 1}{4}$. Find its inverse.
+\end{problem}
+
+Evaluating the first few function values we get:
+\begin{align*}
+  f(1) & = 0  \\
+  f(2) & = 1  \\
+  f(3) & = -1 \\
+  f(4) & = 2  \\
+  f(5) & = -2
+\end{align*}
+
+So we see that negative integers come from odd naturals and positive integers come from even ones. From this we can form a piecewise function:
+$$f^{-1}(x) = \begin{cases}
+    2x,     & x > 0    \\
+    1 - 2x, & x \leq 0
+  \end{cases}$$
+\end{document}

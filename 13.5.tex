@@ -1,0 +1,54 @@
+\documentclass{article}
+\input{preamble.tex}
+
+% Title
+\title{Your Document Title}
+\author{Your Name}
+\date{\today} % or specify a date like {December 2020}
+
+\begin{document}
+
+\maketitle
+\begin{problem}
+Prove that the function $f(x) = \sqrt{x}$ is continuous at any number $c > 0$. Deduce that $\lim\limits_{x\to c}\sqrt{g(x)} = \sqrt{\lim\limits_{x \to c} g(x)}$, provided $\lim\limits_{x \to c} g(x)$ exists and is greater than 0.
+\end{problem}
+
+First we show $\sqrt{x}$ is continuous using and $\epsilon-\delta$ proof. For scratchwork:
+\begin{align*}
+  |\sqrt{x} - \sqrt{c} |                                                       & < \epsilon                      \\
+  |(\sqrt{x} - \sqrt{c})\cdot \frac{\sqrt{x} + \sqrt{c}}{\sqrt{x} + \sqrt{c}}| & < \epsilon                      \\
+  |\frac{x - c}{\sqrt{x} + \sqrt{c}}|                                          & < \epsilon                      \\
+  |x - c|                                                                      & < \epsilon(\sqrt{x} + \sqrt{c}) \\
+  |x - c|                                                                      & < \epsilon\sqrt{c}              \\
+\end{align*}
+
+At the last line, we can drop the $\sqrt{x}$ term multiplying $\epsilon$ because we can make $x$ as close to $c$ as we like, and since the domain is positive numbers the roots are positive. Therefore $\epsilon\sqrt{c} < \epsilon(\sqrt{x} + \sqrt{c})$ for any $x > 0$. Now write the formal proof: for any $\epsilon > 0$ set $\delta < \epsilon\sqrt{c}$. Then for $0 < |x - c| < \delta$ we have
+\begin{align*}
+  |f(x) - f(c)| & = |\sqrt{x} - \sqrt{c}|               \\
+                & = \frac{|x - c|}{\sqrt{x} + \sqrt{c}} \\
+                & < \frac{\delta}{\sqrt{c}}             \\
+                & < \frac{\epsilon\sqrt{c}}{\sqrt{c}}   \\
+                & = \epsilon
+\end{align*}
+
+Now that we know the square root function is continuous at any positive real number, we can apply the theorem that
+$$\lim_{x \to c} \sqrt{g(x)} = \sqrt{\lim_{x \to c} g(x)}$$
+
+provided the root function is continuous at $g(c)$.
+
+\begin{problem}
+Show that the condition of continuity in Theorem 13.9 is necessary by finding functions $f$ and W$g$ for which $\lim\limits_{x\to c}g(x) = L$, and $f$ is \textit{not} continuous at $x = L$, and $\lim\limits_{x \to c} f(g(x)) \neq f\left(\lim\limits_{x \to c} g(x)\right)$.
+\end{problem}
+
+Theorem 13.9 is that continuous functions compose:
+$$\lim_{x \to c} f(g(x)) = f\left(\lim_{x \to c} g(x)\right)$$
+
+The problem statement asks to show a function that is not continuous at $L$. One simple solution is to define a piecewise function with a point discontinuity:
+$$f(x) = \begin{cases} x & x \neq 0 \\ \pi & x = 0 \end{cases}$$
+
+This $f$ is almost the identity function except at 0, it jumps to $\pi$. Combine that with $g(x) = x$, the actual identity function. Then
+$$\lim_{x \to 0} f(g(x)) = \lim_{x \to 0} f(x) = 0$$
+
+Since as $x$ approaches 0 (but does not equal 0), $f(x)$ using the `identity' branch, approaches 0 as well. However if we take the limit of $g$ before sending to $f$ we get $f(0) = \pi$.
+
+\end{document}

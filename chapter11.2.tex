@@ -1,0 +1,158 @@
+\documentclass{article}
+\input{preamble.tex}
+
+% Title
+\title{Your Document Title}
+\author{Your Name}
+\date{\today} % or specify a date like {December 2020}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}
+Consider the relation $R = \{(a, a), (b, b), (c, c), (d, d), (a, b), (b, a)\}$ on set $A = \{a, b, c, d\}$. Is $R$ reflexive? Symmetric? Transitive? If a property does not hold, say why.
+\end{problem}
+
+$R$ is reflexive since it contains all the `self pairs' $(a, a)$ through $(d, d)$ (the diagonal). It's also symmetric; the diagonal is automatically symmetric and the only other relationships are $(a, b), (b, a)$. So we can say for any pair $(x, y) \in R, (y, x) \in R$. It is also transitive: with $(a, b)$ we must have $a$ have the relationship to anything $b$ goes to: however the only things $b$ relate to are $b$ and $a$, and we do have $(a, b)$ as mentioned as well as $(a, a)$. Likewise for $(b, a)$. Besides these relationships, the remaining members of $R$ are all the diagonal, so they don't require additional relationships to make transitivity hold.
+
+\begin{problem}
+Consder the relation $R =\{(a, b), (a, c), (c, c), (b, b), (b, c)\}$ on the set $A = \{a, b, c\}$. Is $R$ reflexive? Symmetric? Transitive? If a property does not hold, say why.
+\end{problem}
+
+It's not reflexive because $(a, a) \not\in R$. It's not symmetric because $(a, b) \in R$ but not $(b, a)$ (and other cases fail symmetry as well).
+
+It is, however, transitive. Take each element $a, b, c$ in turn and check that $aRx, xRy \implies aRy$. We have $aRb$ and $aRc$. Now $b$ has the relation to $b$ and $c$, so we need $aRb$ and $aRc$ to preserve transitivity, but as just mentioned we do have them. Moving on to $c$, this relates to $b$ and $c$ which again only requires $aRb$ and $aRc$ which are in the relation.
+
+Starting next with $b$ we have $bRb, bRc$. Since $c$ only relates to $b$ and $c$ we require $bRb, bRc$ in the relation which again as was just mentioned, we do. Finally starting with $c$ we have $cRc$ and $cRb$, so anything $b$ relates to it must be $c$ relates to as well to preserve transitivity. As we say, $b$ only relates to $b$ and $c$, and we do have $cRc, cRb$. So transitivity holds.
+
+\begin{problem}
+Consder the relation $R = \{(a, b), (a, c), (c, b), (b, c)\}$ on the set $A = \{a, b, c\}$. Is $R$ reflexive? Symmetric? Transitive? If a property does not hold, say why.
+\end{problem}
+
+$R$ is definitely not reflexive since it doesn't contain any of the diagonal elements. It's also not symmetric since it contains $(a, b)$ but not $(b, a)$. It's not transitive either since although we have $cRb$ and $bRc$, we do not have $cRc$.
+
+\begin{problem}
+Let $A = \{a, b, c, d\}$. Suppose $R$ is the relation
+\[ R = \{(a, a), (b, b), (c, c), (d, d), (a, b), (b, a), (a, c), (c, a), (a, d), (d, a), (b, c), (c, b), (b, d), (d, b), (c, d), (d, c)\}. \]
+Is $R$ reflexive? Symmetric? Transitive? If a property does not hold, say why.
+\end{problem}
+
+$R$ is reflexive since it contains the diagonal. It's symmetric since besides the diagonal it has $yRx$ for every relation $xRy$. It's also transitive: $a$ relates to $b$, then $b$ can relate to $c$ and $d$, and likewise we have $(a, c), (a, d)$ in the relation. The same logic applies for the remaining transitive relations.
+
+Another way to see this is that $R$ contains 16 relations which is all possible ordered pair relations: there are 4 base elements in $A$ so for each of those 4 elements as the first coordinate there are 4 possible elements for the second coordinate making $4 \times 4$ possible pairs. Since $R$ contains all these it must have any reflexive, symmetric, or transitive relation.
+
+\begin{problem}
+Consider the relation $R = \{(0, 0), (\sqrt{2}, 0), (0, \sqrt{2}), (\sqrt{2}, \sqrt{2})\}$ on $\R$. Is $R$ reflexive? Symmetric? Transitive? If a property does not hold, say why.
+\end{problem}
+
+$R$ is not reflexive since it doesn't contain the entire diagonal on $\R^2$ (e.g. $(1, 1) \not\in R$). It is however symmetric since it's closed under coordinate reversal. It's also transitive because 0 only relates to itself and $\sqrt{2}$ and $\sqrt{2}$ also relates back to 0 and itself, so all transitive relations within $R$ are upheld.
+
+\begin{problem}
+Consider the relation $R = \{(x, x) : x \in \Z\}$ on $\Z$. Is this $R$ reflexive? Symmetric? Transitive? If a property does not hold, say why. What familiar relation is this?
+\end{problem}
+
+$R$ is the diagonal on $\Z$ and so it is reflexive. It contains nothing else, so all symmetric and transitive relations are somewhat trivially fulfilled. This is the equality relation.
+
+\begin{problem}
+There are 16 possible different relations $R$ on the set $A = \{a, b\}$. Describe all of them. Which ones are reflexive? Symmetric? Transitive?
+\end{problem}
+
+\begin{enumerate}
+  \item $R = \varnothing$. Since this doesn't contain the diagonal it cannot be reflexive. Vacuously, it is symmetric and transitive.
+  \item $R = \{(a, a)\}$. This isn't reflexive because it's missing $(b, b)$. It is symmetric and transitive because $a$ only relates to itself.
+  \item $R = \{(b, b)\}$. Same as the previous case.
+  \item $R = \{(a, b)\}$. This is not reflexive since it doesn't contain the diagonal. It's not symmetric because it lacks $(b, a)$. It is however transitive since there is no second relationship $(b, x)$ to require a third transitive relationship $(x, y)$.
+  \item $R = \{(b, a)\}$. Same situation as the previous case
+  \item $R = \{(a, a), (a, b)\}$. Not reflexive for lacking the diagonal. It is not symmetric for lack of $(b, a)$. It is however transitive because there is no $(b, x)$ relation that would require another $(a, x)$ relation for transitivity to hold.
+  \item $R = \{(a, a), (b, a)\}$. Same situation as previous case.
+  \item $R = \{ (a, a), (b, b)\}$. This is reflexive because it contains the diagaonal. It is also symmetric and transitive because it contains nothing else; this is the equlaity relation.
+  \item $R = \{ (b, b), (a, b)\}$. Not reflexive or symmetric. It is transitive since the only non-self-relation is $(a, b)$ and the only other relation for $b$ is $(b, b)$. So transitivity holds.
+  \item $R = \{(b, b), (b, a)\}$. Same as previous case
+  \item $R = \{(a, b), (b, a)\}$. Not reflexive or symmetric. It is transitive.
+  \item $R = \{(a, a), (a, b), (b, a)\}$. Symmetric and transitive.
+  \item $R = \{(b, b), (a, b), (b, a)\}$. Same as previous case
+  \item $R = \{(a, a), (b, b), (a, b)\}$. Reflexive (contains the diagonal), not symmetric (lacks $(b, a)$) but it is transitive since all paths are also directly connected.
+  \item $R = \{(a, a), (b, b), (b, a)\}$. Same as previous case
+  \item $R = \mathcal{P}(A)$. All possible pairs in $R$ so $R$ has all three properties.
+\end{enumerate}
+
+\begin{problem}
+Define a relation on $\Z$ as $xRy$ if $|x-y|<1$. Is $R$ reflexive? Symmetric? Transitive? If a property does not hold, say why. What familiar relation is this?
+\end{problem}
+
+Simply put, this relation are all points within 1 unit of distance from each other. However this is over the integers. This is reflexive since for any $x$, $|x - x| = 0 < 1$. Over the integers for any specific integer $x$ there are no other elements that will be strictly less than 1 away. So this relation is the diagonal, which is also transitive and symmetric, and is the equality relation.
+
+\begin{problem}
+Define a relation on $\Z$ by declaring $xRy$ if and only if $x$ and $y$ have the same parity. Is $R$ reflexive? Symmetric? Transitive? If a property does not hold, say why. What familiar relation is this?
+\end{problem}
+
+$R$ is reflexive since every element has the same parity as itself. If two elements $x$ and $y$ have the same parity then we'd have $xRy$ and $yRx$ making it symmetric as well. It's transitive since if $x$ has the same parity as $y$ and $y$ has the same parity as $z$ then $x$ has the same parity as $z$. Another way of saying `same parity' is congruent modulo 2, although `same parity' sounds clearer to me.
+
+\begin{problem}
+Suppose $A \neq \varnothing$. Since $\varnothing \subset A \times A$, the set $R = \varnothing$ is a relation on $A$. Is $R$ reflexive? Symmetric? Transitive? If a property does not hold, say why.
+\end{problem}
+
+$R$ is not reflexive because it lacks the diagonal of $A$. It is vacuously symmetric and transitive because there are no relations to contradict this.
+
+\begin{problem}
+Let $A = \{a, b, c, d\}$ and $R = \{(a, a), (b, b), (c, c), (d, d)\}$. Is $R$ reflexive? Symmetric? Transitive? If a property does not hold, say why.
+\end{problem}
+
+$R$ is exactly the diagonal of $A$ so it's the equality relation and has all three properties.
+
+\begin{problem}
+Prove that the relation $\mid$ (divides) on the set $\Z$ is reflexive and transitive.
+\end{problem}
+
+For any $x \in \Z$, $x$ divides itself (re the integer 0: if we define that an integer $a$ divides $b$ if and only if $b = c\cdot a$ for some integer $a$ then $0 = 0 \cdot 0$ and we can say that 0 divides itself). So $\mid$ is reflexive. To see that it is transitive, suppose $a \mid b$ and $b \mid c$. Then $b = xa$ and $c = yb = yxa$. Therefore $c$ is divisible by $a$.
+
+\begin{problem}
+Consder the relation $R = \{(x, y) \in \R \times \R: x - y \in \Z\}$. Prove that this relation is reflexive, symmetric, and transitive.
+\end{problem}
+
+For any $x \in \R$, $x - x = 0$ which is an integer. Therefore $R$ contains the diagonal, all $(x, x)$ relations, and is reflexive. Now suppose $x - y$ is an integer $n$, then $y - x = -n$ which is also an integer. So $R$ is symmetric. Now suppose $x - y = n$ and $y - z = m$ for integers $n, m$. Then $z = y - m$ and
+$$x - z = x - (y - m) = (x - y) + m = n + m$$
+
+and $n + m$ is an integer, so the relation is transitive.
+
+\begin{problem}
+Suppose $R$ is a symmetric and transitive relation on a set $A$, and there is an element $a \in A$ for which $aRx$ for every $x \in A$. Prove that $R$ is reflexive.
+\end{problem}
+
+For any $x \in A$ we have some $aRx$. Since $R$ is symmetric we also have $xRa$ and since $R$ is transitive, $xRa$ and $aRx$ implies $xRx$. Therefore $R$ is reflexive.
+
+\begin{problem}
+Prove of disprove: if a relation is symmetric and transitive, then it is also reflexive.
+\end{problem}
+
+This is false in general: to be reflexive a relation needs to contain the diagonal. However the relation could be vacuously symmetric and transitive, such as $\varnothing$.
+
+\begin{problem}
+Define a relation $R$ on $\Z$ by declaring that $xRy$ if and only if $x^2 \equiv y^2 \pmod{4}$. Prove that $R$ is reflexive, symmetric, and transitive.
+\end{problem}
+
+Any number has the same mod as itself, so $x^2 \equiv x^2 \pmod{4}$. For any $x, y$, if $x^2 \equiv y^2 \pmod{4}$ this means their squares have the same remainder after division by 4, so $y^2 \equiv x^2 \pmod{4}$ and the relation is symmetric. Likewise if $x^2 \equiv y^2 \pmod{4}$ then $x^2$ and $y^2 = n \pmod{4}$ for some integer $n$. Then if $y^2 \equiv z^2 \pmod{4}$ then $z^2 = n \pmod{4}$ as well. Then $x^2$ and $z^2$ have the same remainder after division by 4 and $x^2 \equiv z^2 \pmod{4}$ and the relation is transitive.
+
+\begin{problem}
+Modifying Exercise 8 (above) slightly, define a relation $\sim$ on $\Z$ as $x \sim y$ if and only if $|x - y | \leq 1$. Say whether $\sim$ is reflexive. Is it symmetric? Transitive?
+\end{problem}
+
+$R$ is reflexive since any integer has a distance of 0 from itself. It is also symmetric since if $|x - y| \leq 1$ then $|y - x| \leq 1$ as well (values at most one away from each other). It is not however transitive, since we have $0R1$ and $1R2$ but 0 is not within 1 unit of 2.
+
+\begin{problem}
+The table on page 205 shows that relations on $\Z$ may obey various combinations of the reflexive, symmetric, and transitive properties. In all, there are $2^3 = 8$ possible combinations, and the table shows 5 of them. (There is some redundancy, as $\leq$ and $\mid$ have the same type.) Complete the table by finding examples of relations on $\Z$ for the three missing combinations.
+\end{problem}
+
+The three missing combinations are (reflexive, symmetric), (symmetric, transitive), and only reflexive.
+
+We saw earlier that bounded distance is a reflexive and symmetric relation but not transitive:
+$$R = \{(x, y): |x - y| < 1\}$$
+
+A relation that's symmetric and transitive but not reflexive would be the empty relation.
+
+A relation that is reflexive must contain the diagonal. However it if only contains the diagonal then it would the equality relation and it would be symmetric and transitive as well. So we can add some pairs that violate these properties: $(0, 1)$ and $(1,2)$. Since the relation lacks $(1, 0)$ it's not symmetric, and since it lacks $(0, 2)$ it's not transitive. More generally we could say
+$$R = \{(x, y) \in \Z \times \Z: x - y \in \{0, 1\}\}$$
+
+
+\end{document}

@@ -1,0 +1,265 @@
+\documentclass{article}
+\input{preamble.tex}
+
+% Title
+\title{Your Document Title}
+\author{Your Name}
+\date{\today} % or specify a date like {December 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{Use the method of proof by contradiction to prove the following statements.}
+
+\begin{problem}
+Suppose $n \in \Z$. If $n$ is odd then $n^2$ is odd.
+\end{problem}
+
+\begin{solution}{Use proof by contradiction.}
+    Suppose $n \in \Z$ is odd but $n^2$ is not odd. Then $n^2$ is even and equals $2k$ for some integer $k$. But since $n$ is odd it equals $2j + 1$ for some integer $j$, and
+    $$n^2 = (2j + 1)^2 = 4j^2 + 4j + 1 = 2(2j^2 + 2j) + 1.$$
+    This means $n^2$ has the form of an odd integer, which contradicts the assumption it was even.
+
+    Although the book asks us to make this a proof by contradiction, it would be simpler as a direct proof: $n = 2j + 1$ for some $j \in \Z$, then $n^2 = 2(2j^2 + 2j) + 1$, which is odd.
+\end{solution}
+
+\begin{problem}
+    Suppose $n \in \Z$. If $n^2$ is odd then $n$ is odd.
+\end{problem}
+
+\begin{solution}{Use proof by contradiction}
+    Let's assume towards a contradiction that $n^2$ is odd but $n$ is not odd. Since $n$ is even it equals $2k$ for some $k \in \Z$, but then $n^2 = 4k^2 = 2(2k^2)$ which is even. This contradicts the assumption that $n^2$ was odd.
+\end{solution}
+
+\begin{problem}
+    Prove that $\sqrt[3]{2}$ is irrational.
+\end{problem}
+
+\begin{solution}{Use proof by contradiction}
+    Similar to the proof that $\sqrt{2}$ is irrational, let $\sqrt[3]{2} = a/b$ with $a/b$ in lowest terms. This means $a$ and $b$ have no common factors. Cube this to get 
+    $$2 = a^3 / b^3 \implies 2b^3 = a^3.$$
+    This means that $a^3$ is even and what's more, it must be that $a$ is even. Otherwise $a^3$ would be the product of three odds which is odd. Since $a$ is even it has a factor of $2$ and therefore $a^3$ must have a factor of 8. So we can write $a^3 = 8k$ for some integer $k$. This gives
+    $$2b^3 = 8k \implies b^3 = 4k.$$
+    Now we see $b^3$ is even as well and by the same argument, $b$ must be even and have a factor of 2. So both $a$ and $b$ must have a factor of two, but this contradicts the assumption that $a/b$ was in lowest terms.
+\end{solution}
+
+\begin{problem}
+    Prove that $\sqrt{6}$ is irrational.
+\end{problem}
+\begin{solution}{Use proof by contradiction}
+    Again similar to the proof that $\sqrt{2}$ is irrational, assume towards a contradiction that $\sqrt{6} = a/b$ with $a/b$ in lowest terms. Then $6 = a^2/b^2$ and $6b^2 = a^2$. This means both 2 and 3 divide $a^2$ since it is a multiple of 6. Since both 2 and 3 are primes, if they are factors of $a^2$ they must be factors of $a$ as well. And since 2 and 3 both divide $a$, $2^2$ and $3^2$ must divide $a^2$. So $a^2 = 2^2 \cdot 3^3 \cdot k$ for some integer $k$. We can then write $b^2$ in terms of $k$:
+    $$6b^2 = 2^2 \cdot 3^2 \cdot k \implies b^2 = 2\cdot 3 \cdot k.$$
+    By the same logic as above, 2 and 3 must divide $b$. But $a$ also had those factors, and this contradicts the assumption that $a/b$ was in lowest terms.
+\end{solution}
+
+\begin{problem}
+    Prove that $\sqrt{3}$ is irrational.
+\end{problem}
+\begin{solution}{Use proof by contradiction}
+    Again similar to the proof that $\sqrt{2}$ is irrational, assume towards a contradiction that $\sqrt{3} = a/b$ with $a$ and $b$ in lowest terms. 
+
+    $$\sqrt{3} = \frac{a}{b} \implies 3 = \frac{a^2}{b^2} \implies 3b^2 = a^2.$$
+    This shows 3 divides $a^2$, and since 3 is prime if it factors $a^2$ it must factor $a$ as well. Then 9 divides $a^2$ and we can write $a^2 = 9k$ for some integer $k$. Substituting this in the last equality above, $3b^2 = 9k$, simplifies to $b^2 = 3k$. This shows that 3 divides $b$ as well. But if $a$ and $b$ both have a factor of 3 this contradicts the assumption that $a/b$ was in lowest terms.
+
+\end{solution}
+
+\begin{problem}
+    If $a, b \in\Z$, then $a^2 - 4b - 2 \neq 0$.
+\end{problem}
+\begin{solution}{Use divisibility properties to derive a contradiction}
+   Assume towards a contradiction that $a^2 - 4b -2 = 0$. Rewrite this as $a^2 = 4b + 2$. Notice that $a^2$ is even so 2 must divide it. But since 2 is prime, if it divides $a^2$ then it must divide $a$ as well. So in fact $a^2$ is a multiple of 4. However, 4 does not divide $4b + 2$, since $4b$ will be a multiple of 4 for any integer $b$, dividing $4b + 2$ by 4 will leave a remainder of 2. So $4 \mid a^2$ but $4 \nmid 4b + 2$, contradicting the equality $a^2 = 4b + 2$.
+\end{solution}
+
+\begin{problem}
+    If $a, b \in \Z$, then $a^2 - 4b - 3 \neq 0$.
+\end{problem}
+\begin{solution}{Use parity to derive a contradiction}
+
+    
+\end{solution}
+
+\begin{problem}
+    Suppose $a, b, c \in \Z$. If $a^2 + b^2 = c^2$, then $a$ or $b$ is even.
+\end{problem}
+\begin{solution}{Use divisibility properties to derive a contradiction}
+    Assume towards a contradiction that $a^2 + b^2 = c^2$ and that both $a$ and $b$ are odd. Write $a = 2k + 1$ and $b = 2j + 1$. This makes:
+    $$4k^2 + 4k + 1 + 4j^2 + 4j + 1 = c^2$$
+    $$4(k^2 + j^2 + k + j) + 2 = c^2.$$
+
+    Next, $c^2$ must be even as the sum of two odds. This means $c$ must be even and divisible by 2, so $c^2$ has a factor of 4, making it $4z$ for some $z$. Therefore we have:
+    $$4(k^2 + j^2 + k + j) + 2 = 4z$$
+
+    Now note that the RHS is divisible by 4 but the LHS is not: it is a multiple of 4 plus 2. So for any integer values of $j, k$, dividing the LHS by 4 will leave a remainder of 2. This contradicts the notion that the two sides are equal.
+\end{solution}
+
+\begin{problem}
+    Suppose $a, b, \in \R$. If $a$ is rational and $ab$ is irrational, then $b$ is irrational.
+\end{problem}
+\begin{solution}{Use proof by contradiction}
+    Suppose $a$ is rational, $ab$ is irrational, but $b$ is rational. Since both $a, b \in \Q$, $a = c/d$ and $b = x/y$ for some $c, d, x, y \in \Z$. Then $ab = cx/yz$ which is rational, contradicting the assumption $ab$ is irrational.
+\end{solution}
+
+\begin{problem}
+    There exist no integers $a$ and $b$ for which $21a + 30b = 1$. 
+\end{problem}
+\begin{solution}{Use proof by contradiction}
+    Assume towards a contradiction that integers $a, b$ exist such that $21a + 30b = 1$. Rewrite as:
+    \begin{align*}
+        3(7a + 10b) &= 1 \\
+        \implies 7a + 10b &= \frac{1}{3} \\
+    \end{align*}
+    We $7a + 10b$  equals 1/3, contradicting the fact that it should be an integer, as it is the sum of integers.
+\end{solution}
+
+\begin{problem}
+    There exist no integers $a$ and $b$ for which $18a + 6b = 1$.
+\end{problem}
+\begin{solution}{Use proof by contradiction}
+    Assume towards a contradiction that there are integers $a, b$ such that $18a + 6b = 1$. Factoring out a 6 gives $6(3a + b) = 1$ and $3a + b = 1/6$. This contradicts the fact that $3a + b$ should be an integer.
+\end{solution}
+
+\begin{problem}
+    For every positive $x \in \Q$, there is a positive $y \in \Q$ for which $y < x$.
+\end{problem}
+\begin{solution}{Use proof by contradiction}
+    Assume towards a contradiction that there exists a positive rational $x$ such that for any other positive rational $y$, $y \geq x$. In other words, $x$ is a minimum in the set of positive rationals. Since $x$ is rational and positive write it as $a/b$ with both $a$ and $b$ positive. Then let $y = \frac{a}{2b}$. This $y$ is also a positive rational but less than $x$, contradicting the assumption that $x$ was a minimum of positive rationals.
+\end{solution}
+
+\begin{problem}
+    For every $x \in [\pi/2, \pi], \sin x - \cos x \geq 1$.
+\end{problem}
+\begin{solution}{Use trig functions' sign behavior in quadrant II to derive a contradiction}
+    Assume towards a contradiction that $\sin x - \cos x < 1$ over the interval $[\pi/2, \pi]$. First, let's square the inequality to make $\sin^2$ and $\cos^2$ appear, allowing us to make use of the Pythagorean theorem:
+    \begin{align*}
+       \sin x - \cos x &< 1 \\
+       (\sin x - \cos x)^2 &< 1 \\
+       \sin^2 x - 2\sin x \cos x + \cos^2 x &< 1 \\
+       (\sin^2 x + cos^2 x) - 2\sin x \cos x &< 1 \\ 
+       -2\sin x \cos x &< 0 \\
+        \sin x \cos x &> 0
+    \end{align*}
+    Now thing about the sign of $\sin$ and $\cos$ over this interval. At $x = \pi / 2$, $\sin x \cos x = 0$, and it equals 0 when $x = \pi$ as well. So we have a contradiction on the interval's boundary. Inside the interval, $\sin$ is strictly positive and $\cos$ is strictly negative. Therefore their product must be negative, again contradicting the inequality. Since we can derive an inequality for any $x$ in the interval, it must be that $\sin x - \cos x \geq 1$ here. 
+\end{solution}
+
+\begin{problem}
+    If $A$ and $B$ are sets, then $A \cup (B - A) = \varnothing$.
+\end{problem}
+\begin{solution}{Use direct proof}
+    Although the book asks for proof by contradition here, there is a very straightforward direct proof:
+    The set $B - A$ cannot have any members of $A$ in it. Therefore it cannot have any members in common with $A$, and $A \cap (B - A)$ must be empty.
+\end{solution}
+
+\begin{problem}
+    If $b \in \Z$ and $b \nmid k$ for every $k \in \N$, then $b = 0$.
+\end{problem}
+\begin{solution}{Use proof by contradiction}
+    Suppose $b\neq 0$. Then $b$ is either positive or negative. Take the case that $b$ is positive; then it's also a natural number. However we'd have $b \mid b$, which contradicts the assumption that $b$ does not divide any real number. Taking the case that $b$ is negative, the $-b$ is positive and a natural number. Again, $b \mid -b$ which contradicts the assumption that $b$ doesn't divide any naturals.
+\end{solution}
+
+\begin{problem}
+    If $a$ and $b$ are positive real numbers, then $a + b \geq 2\sqrt{ab}$.
+\end{problem}
+\begin{solution}{Use proof by contradiction}
+   Assume towards a contradiction that $a$ and $b$ are both postiive but $a + b < 2\sqrt{ab}$. Squaring both sides gives:
+   \begin{align*}
+        (a + b)^2 < 4ab \\
+        a^2 + 2ab + b^2 < 4ab \\
+        a^2 - 2ab + b^2 < 0 \\
+        (a - b)^2 < 0
+    \end{align*}
+    Here we have a contradiction, since the square of a real number cannot be negative.
+\end{solution}
+
+\begin{problem}
+    For every $n \in \Z, 4 \nmid (n^2 + 2)$.
+\end{problem}
+\begin{solution}{Use proof by contradiction with key fact about squares mod 4}
+    Assume towards a contradiction that $n \in \Z$ and $4 \mid (n^2 + 2)$. Then $n^2 + 2 \equiv 0 \pmod{4}$, which means $n^2 \equiv 2 \pmod{4}$. But squared integers can only be 0 or 1 mod 4: an even number squared has a factor of 4 making it 0 mod 4 and an odd number $2j + 1$ squared is $4j^2 + 4j + 1$ which is 1 mod 4. Therefore we have a contradiction that $n^2$ is a squared integer but also equivalent to $2 \pmod{4}$.
+\end{solution}
+
+\begin{problem}
+    Suppose $a, b \in \Z$. If $4 \mid (a^2 + b^2)$, then $a$ and $b$ are not both odd.
+\end{problem}
+\begin{solution}{Use proof by contradiction with key fact about squares mod 4}
+    Assume towards a contradiction that $a$ and $b$ are both odd. Then $a^2$ and $b^2$ are both 1 mod 4. Adding together gives $a^2 + b^2 = 2 \pmod{4}$, which contradicts the assumption that $4 \mid (a^2 + b^2)$.
+\end{solution}
+
+
+\section{Prove the following statements using any method from Chapters 4, 5, or 6.}
+
+\begin{problem}
+    The product of any five consecutive integers is divisible by 120. (For example, the product of 3, 4, 5, 6, and 7 is 2520, and $2520 = 120 \cdot 21$.)
+\end{problem}
+\begin{solution}{Use direct proof}
+    Any 5 consecutive integers must contain a multiple of 5. Take our consecutive integers $n, n+1, \ldots, n + 4$, but now consider them modulo 5. Suppose $n \pmod{5} = 0$. Then $n$ is a multiple of 5. If $n \pmod{5} = 1$, then $n + 4$ will be the multiple of 5. Continuing this way, we can prove that if $n$ has some remainder 1 through 4 after division by 5, some other member of our sequence will have no remainder.\\
+
+    By the same logic one of the sequence numbers must be divisible by 4, by 3, and by 2. Therefore The product $n(n+1)(n+2)(n+3)(n+4)$ can be written as $5(4)(3)(2)k$ for some integer $k$. Or in other words, $120k$, which is divisible by 120.
+
+\end{solution}
+
+\begin{problem}
+    We say that a point $P = (x,y)$ in $\R^2$ is \textbf{rational} if both $x$ and $y$ are rational. More precisely, $P$ is rational if $P = (x, y) \in \Q^2$. An equation $F(x,y)=0$ is said to have a \textbf{rational point} if there exists $x_0, y_0 \in \Q$ such that $F(x_0, y_0) = 0$. For example, the curve $x^2 + y^2 - 1 = 0$ has rational point $(x_0, y_0)=(1,0).$ Shot that the curve $x^2 + y^2 - 3 = 0$ has no rational points.
+\end{problem}
+\begin{solution}{Use proof by contradiction}
+    Assume towards a contradiction that the curve $x^2 + y^2 - 3 = 0$ has a rational point. Then there exists $x_0, y_0 \in \Q$ such that $x_0^2 + y_0^2 - 3 = 0$. Write $x_0 = a/b$ and $y_0 = c/d$ with $a, b, c, d \in \Z$ and both fractions in lowest terms. Then we have:
+    \begin{align*}
+        \frac{a^2}{b^2} + \frac{c^2}{d^2} - 3 &= 0 \\
+        \frac{a^2}{b^2} + \frac{c^2}{d^2} &= 3\\
+        a^2d^2 + c^2b^2 &= 3b^2d^2 \\
+        a^2 &= 3b^2 - \frac{b^2 c^2}{d^2}\\
+        a^2 &= b^2\left(3 - \frac{c^2}{d^2}\right) \\
+        a &= b\sqrt{3 - \frac{c^2}{d^2}}
+    \end{align*}
+    This shows that $a$ is a multiple of $b$, which contradicts the assumption that $a$ and $b$ are in lowest terms. Therefore the curve $x^2 + y^2 - 3 = 0$ has no rational points.
+    \\
+
+    Alternative: Assume towards a contradiction that $x_0 = n_x/d_x, y_0 = n_y/d_y$ all in lowest terms. And let $q = \text{lcm}(d_x, d_y)$. Then there exists $m, n \in \Z$ such that we can rewrite the equation as:
+    \begin{align*}
+    \frac{m^2}{q^2} + \frac{n^2}{q^2} &= 3\\
+    m^2 + n^2 &= 3q^2
+    \end{align*}
+
+    with $m, n$, and $q$ in lowest terms.
+    \\
+    Next we note that any integer squared is either 0 or 1 modulo 4: 0 if it is even, 1 if it is odd. For proof, consider if a number is even it has a factor of 2 and its square has a factor of 4, making it 0 mod 4. If it is odd, then it has the form $2k + 1$ and its square is $4k^2 + 4k + 1 = 4(k^2 + k) + 1$, which is 1 mod 4.\\
+
+    So $m^2$ and $n^2$ are either 0 or 1 mod 4, making the LHS either 0, 1, or 2 mod 4. Likewise $q^2$ is either 0 or 1 mod 4, so $3q^2$ is either 0 or 3 mod 4. The only possible case is that both sides are 0 mod 4. But this means that $m$, $n$, and $q$ were all even, contradicting the assumption that $m$ and $n$, and $q$ were in lowest terms.
+
+\end{solution}
+
+\begin{problem}
+    Exercise 20 (above) involved showing that there are no rational points on the curve $x^2 + y^2 - 3 = 0$. Use this fact to show that $\sqrt{3}$ is irrational.
+\end{problem}
+\begin{solution}{Use proof by contradiction}
+    Assume towards a contradiction that $\sqrt{3}$ is rational. Then we could set $x = \sqrt{3}$ and $y = 0$ to get a rational point on the curve $x^2 + y^2 - 3 = 0$. But we know from the previous exercise that there are no rational points on this curve. Therefore $\sqrt{3}$ is irrational.
+\end{solution}
+
+\begin{problem}
+    Explain why $x^2 + y^2 - 3 = 0$ not having any rational solutions (Exercise 20) implies $x^2 + y^2 - 3^k = 0$ has no rational solutions for $k$ an odd, positive integer.
+\end{problem}
+\begin{solution}{}
+    If $k$ is odd we can write it as $k = 2j + 1$. Then its square root is $\sqrt{3^k} = 3^{\frac{2j +1}{2}} = 3^{j + \frac{1}{2}} = 3^j \sqrt{3}$.
+    I claim this number is irrational. Otherwise, we could divide it by $3^j$ (a rational number) to get $\sqrt{3}$ which would also be rational. But if that were the case there would be rational solutions on the curve $x^2 + y^2 - 3 = 0$, which we know is not true.
+\end{solution}
+\begin{problem}
+    Use the above result to prove that $\sqrt{3^k}$ is irrational for all odd, positive $k$.
+\end{problem}
+\begin{solution}{}
+    Fully proven in previous exercise.
+\end{solution}
+
+\begin{problem}
+    The number $\log_2 3$ is irrational.
+\end{problem}
+\begin{solution}{Use proof by contradiction}
+    Assume towards a contradiction that $\log_2 3$ is rational and let it equal $a/b$. This gives:
+    \begin{align*}
+        2^{a/b} &= 3 \\
+        2^a 2^{1/b} &= 3 \\
+        \sqrt[b]{2^a} &= 3\\
+        2^a &= 3^b
+    \end{align*}
+This is a contradiction, since the LHS is even and the RHS is odd.
+\end{solution}
+\end{document}

@@ -1,0 +1,111 @@
+\documentclass{article}
+\input{preamble.tex}
+
+% Title
+\title{Your Document Title}
+\author{Your Name}
+\date{\today} % or specify a date like {December 2020}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}
+Suppose $A = \{0, 1, 2, 3, 4\}, B = \{2, 3, 4, 5\}$ and $f = \{(0, 3), (1, 3), (2, 4), (3, 2), (4, 2)\}$. State the domain and range of $f$. Find $f(2)$ and $f(1)$.
+\end{problem}
+
+The domain of $f$ is the set of all first coordinates in $f$'s set representation, which is $A$. The range of $f$ is another term for the image, meaning the set of all second coordinates in $f$'s set representation, which is $\{2, 3, 4\}$. Scanning through the set $f$ we find $f(2) = 4, f(1) = 3$.
+
+\begin{problem}
+Suppose $A = \{a, b, c, d\}, B = \{2, 3, 4, 5, 6\}$ and $f = \{(a, 2), (b, 3), (c, 4), (d, 5)\}$. State the domain and range of $f$. Find $f(b)$ and $f(d)$.
+\end{problem}
+
+The domain is $A$, the set of all first coordinates. The range is $\{2, 3, 4, 5\}$ which is not quite $B$ but a subset of $B$. Scanning the set $f$ we see $f(b) = 3, f(d) = 5$.
+
+\begin{problem}
+There are four different functions $f: \{a, b\} \to \{0, 1\}$. List them
+\end{problem}
+$$\begin{array}{c|c}
+    x & f(x) \\
+    \hline
+    a & 0    \\
+    b & 0    \\
+  \end{array}, \quad
+  \begin{array}{c|c}
+    x & f(x) \\
+    \hline
+    a & 1    \\
+    b & 1    \\
+  \end{array}, \quad
+  \begin{array}{c|c}
+    x & f(x) \\
+    \hline
+    a & 0    \\
+    b & 1    \\
+  \end{array}, \quad
+  \begin{array}{c|c}
+    x & f(x) \\
+    \hline
+    a & 1    \\
+    b & 0    \\
+  \end{array}
+$$
+
+\begin{problem}
+There are eight different functions $f: \{a, b, c\} \to \{0, 1\}$. List them
+\end{problem}
+
+Constant 0, constant 1, three functions where exactly one element in the domain maps to 0 while the others map to 1, and three functions where exactly two elements in the domain map to 0 and exactly one element maps to 1.
+
+\begin{problem}
+Give an example of a relation from $\{a, b, c, d\}$ to $\{d, e\}$ that is not a function.
+\end{problem}
+
+For a relation to *not* be a function it must fail the `vertical line test', which in the set view means we can't have two ordered pairs with the same first coordinate. So for example:
+$$R = \{(a, d), (a, e)\}$$
+is a relation from the first set to the second but $a$ relates to two different elements. As a function this would not be `well-defined'.
+
+\begin{problem}
+Suppose $f: \Z \to \Z$ is defined as $f = \{(x, 4x + 5): x \in \Z\}$. State the domain, codomain, and range of $f$. Find $f(10)$.
+\end{problem}
+
+The domain is $\Z$ since the first coordinate of all pairs in $f$ come directly from $\Z$. The codomain is also $\Z$ since for any integer $x$, $4x + 5$ will also be an integer. The range is $\{\ldots, -3, 1, 5, 9, \ldots\}$ or $\{4x + 5: x \in \Z\}$. By plugging in 10 we get $f(10) = 45$.
+
+\begin{problem}
+Consider the set W$f = \{(x, y) \in Z \times \Z: 3x + y = 4\}$. Is this a function from $\Z$ to $\Z$? Explain.
+\end{problem}
+
+It's certainly a relation from $\Z$ to $\Z$ since $f \subseteq \Z \times \Z$. For it to be a function, $f$ must have a unique $y$ for any $x$ in a pair $(x, y)$. I claim this is true for $f$. To prove this we'll use the 'set up two things and prove they're equal' technique.
+
+Suppose $(x, y) \in f$. Then $3x + y = 4$ or in terms of $y$ we have $y = 4 - 3x$. Now if there is another element $(x, z) \in f$ then $z = 4 - 3x$ which means $z = y$.
+
+\begin{problem}
+Consider the set $f = \{ (x, y) \in \Z \times \Z: x + 3y = 4\}$. Is this a function from $\Z$ to $\Z$? Explain.
+\end{problem}
+
+Yes, for precisely the same reasons as before. Set $f$ is a subset of $\Z \times \Z$ so it's a relation. By the same equality argument as before we can show that $f$ is well-defined. Therefore it's a function.
+
+\begin{problem}
+Consider the set $f = \{(x^2, x): x \in \R\}$. Is this a function from $\R$ to $\R$? Explain.
+\end{problem}
+
+No, because it's not well-defined. For example $(4, 2)$ and $(4, -2)$ satisfy the specification for $f$ and so are both members.
+
+\begin{problem}
+Consider the set $f = \{(x^3, x): x \in \R\}$. Is this a function from $\R$ to $\R$? Explain.
+\end{problem}
+
+Yes, this is a function. Another way of looking at the relation is that the second coordinate is the cube root of the first. Since every $x \in \R$ is a cube of some number, the first coordinate (domain) is all $\R$. And since every number has a unique cube root, there is only one possible $x$ for any $x^3$, making $f$ well-defined.
+
+\begin{problem}
+Is the set $\theta = \{(X, |X|): X \subseteq \Z_5\}$ a function? If so, what is its domain and range?
+\end{problem}
+
+If we consider $\Z_5 = \{[0], [1], [2], [3], [4]\}$ then $\Z_5$ is finite (even though its members aren't) and the subsets of $\Z_5$ are finite with well-defined size. So $\theta$ is a valid function. It's domain is the equivalence classes modulo 5 and its range is $\{0, 1, 2, 3, 4, 5\}$.
+
+\begin{problem}
+Is the set $\theta = \{\left((x, y), (3y, 2x, x + y)\right): x, y \in \R\}$ a function? If so, what is its domain and range? What can be said about the codomain?
+\end{problem}
+
+We can see that $\theta$ associates points in $\R^2$ to points in $\R^3$, and each second coordinate results from three linear component functions, therefore $f$ is a subset of $\R^2 \times \R^3$ and is well-defined, so it's a function.
+\end{document}

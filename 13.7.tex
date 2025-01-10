@@ -1,0 +1,124 @@
+\documentclass{article}
+\input{preamble.tex}
+
+% Title
+\title{Your Document Title}
+\author{Your Name}
+\date{\today} % or specify a date like {December 2020}
+
+\begin{document}
+
+\maketitle
+\begin{problem}
+Prove that $\left\{ \frac{2^n}{n!} \right\}$ converges to 0.
+\end{problem}
+
+Prove this using the product law for limits. View $2^n$ as $2 \times 2 \times \ldots \times 2$, which has $n$ factors. So does $n!$. Write the general term as
+$$\frac{2^n}{n!} = \frac{2}{1} \cdot \frac{2}{2} \cdot \frac{2}{3} \cdot \ldots \cdot \frac{2}{n-1} \cdot \frac{2}{n}$$
+
+See how after the first two factors, the denominator will always be larger than the numerator. Using the limit law for products, we get
+$$\lim_{n\to\infty}\frac{2^n}{n!} = \left(\lim_{n\to\infty}\frac{2}{1}\right) \cdot \left(\lim_{n\to\infty}\frac{2}{2}\right) \cdot \ldots \cdot \left(\lim_{n\to\infty} \frac{2}{n-1}\right) \cdot \left(\lim_{n\to\infty}\frac{2}{n}\right) = 2 \cdot 0 = 0$$
+
+\begin{problem}
+Prove that $\left\{5 + \frac{2}{n^2}\right\}$ converges to 5.
+\end{problem}
+
+Apply the limit sum rule to the general term:
+$$\lim_{n\to\infty} 5 + \frac{2}{n^2} = \lim_{n\to\infty} 5 + \lim_{n\to\infty} \frac{2}{n^2} = 5 + 0 = 5$$
+
+\begin{problem}
+Prove that $\left\{ \frac{2n^2 + 1}{3n - 1} \right\}$ diverges to $\infty$.
+\end{problem}
+
+Simplify the general term by multiplying by $\frac{1/n}{1/n}$ and applying limit laws:
+$$\lim_{n\to\infty} \frac{2n^2 + 1}{3n - 1}\cdot \frac{ \frac{1}{n}}{\frac{1}{n}} = \lim_{n\to\infty} \frac{2n - \frac{1}{n}}{3 - \frac{1}{n}} = \frac{\lim\limits_{n\to\infty}2n - \frac{1}{n}}{\lim\limits_{n\to\infty} 3 - \frac{1}{n}} = \frac{1}{3}\lim_{n\to\infty} 2n = +\infty$$
+
+\begin{problem}
+Prove that $\left\{ 1 - \frac{1}{2^n} \right\}$ converges to 1.
+\end{problem}
+
+Apply the limit sum rule to the general term:
+$$\lim_{n\to\infty} 1 - \frac{1}{2^n} = \lim_{n\to\infty} 1 - \lim_{n\to\infty} \frac{1}{2^n} = 1 - 0 = 1$$
+
+\begin{problem}
+Prove that $\left\{ \frac{2n + 1}{3n - 1} \right\}$ converges to $\frac{2}{3}$.
+\end{problem}
+
+Simplify the general term by multiplying by $\frac{1/n}{1/n}$ and applying limit laws:
+$$\lim_{n\to\infty} \frac{2n + 1}{3n - 1}\cdot \frac{ \frac{1}{n}}{\frac{1}{n}} = \lim_{n\to\infty} \frac{2 + \frac{1}{n}}{3 - \frac{1}{n}} = \frac{\lim\limits_{n\to\infty}2 + \frac{1}{n}}{\lim\limits_{n\to\infty} 3 - \frac{1}{n}} = \frac{2}{3}$$
+
+\begin{problem}
+Prove that $\left\{ \frac{5n^2 + n + 1}{4n^2 + 2} \right\}$ converges to $\frac{5}{4}$.
+\end{problem}
+
+Simplify the general term by multiplying by $\frac{1/n^2}{1/n^2}$ and applying limit laws:
+$$\lim_{n\to\infty} \frac{5n^2 + n + 1}{4n^2 + 2}\cdot \frac{ \frac{1}{n^2}}{\frac{1}{n^2}} = \lim_{n\to\infty} \frac{5 + \frac{1}{n} + \frac{1}{n^2}}{4 + \frac{2}{n^2}} = \frac{\lim\limits_{n\to\infty}5 + \frac{1}{n} + \frac{1}{n^2}}{\lim\limits_{n\to\infty} 4 + \frac{2}{n^2}} = \frac{5}{4}$$
+
+\begin{problem}
+Prove that if a sequence diverges to infinity, the it diverges.
+\end{problem}
+
+This is a tautology because `diverge to infinity' is contained in the definition of divergence. But to formalize it, suppose $a_n$ diverges to infinity. Then the sequence can obtain arbitrarily large values. ATAC that sequence does converge to some limit $L$. By assumption, for any $\epsilon > 0$ there exists an $N$ sufficiently large that $n > N$ implies $|a_n - L| < \epsilon$. But since the series diverges to infinity there is an $M$ sufficiently large that $n > M$ implies $a_n > L + \epsilon$. Then choose $P = \max(N, M)$ and any $n > P$ implies
+$$|a_n - L| \geq a_n - L > \epsilon \qquad \text {and} \qquad |a_n - L| < \epsilon$$
+which is a contradiction.
+
+\begin{problem}
+Prove that the \textbf{constant sequence} $c, c, c, c, \ldots$ converges to $c$ for any $c \in \R$.
+\end{problem}
+
+This can be done with an $\epsilon-\delta$ proof since viewing the sequence as a function, the difference between any function value and $c$ will always be 0. So for any $\epsilon > 0$ and any $c \in \R$, let $\delta = \epsilon$. Then for any $n > 0$ we have $|a_n - c| = 0 < \epsilon$.
+
+\begin{problem}
+Prove that if $\left\{a_n\right\}$ converges to $L$, and $c \in \R$, then the sequence $\{c a_n\}$ converges to $cL$.
+\end{problem}
+
+Apply the limit law for functions times constants:
+$$\lim_{n\to\infty} c \cdot a(n) = c \lim_{n\to\infty} a(n) = c \cdot \lim_{n\to\infty}a_n = cL$$
+
+\begin{problem}
+Prove that if $\{a_n\}$ converges to $L$ and $\{b_n\}$ converges to $M$ then the sequence $\{a_n + b_n\}$ converges to $L + M$.
+\end{problem}
+
+Apply the addition rule to the general term after viewing the sequences as functions: since $a_n \to L$ this means the function that $a(n)$ approaches $L$ as $n$ approaches infinity. Similarly $b(n)$ approaches $M$. Then
+$$\lim_{n\to\infty} a(n) + b(n) = \lim_{n\to\infty} a(n) + \lim_{n\to\infty} b(n) = L + M$$
+
+\begin{problem}
+Prove that if $\{a_n\}$ converges to $L$ and $\{b_n\}$ converges to $M$ then the sequence $\{a_n \cdot b_n\}$ converges to $L \cdot M$.
+\end{problem}
+
+Apply the product rule to the general term as in the previous problems. Since $a_n \to L$ this means that for any $\epsilon > 0$ there exists an $N$ sufficiently large that for $n > N$, $|a(n) - L| < \epsilon$. Likewise for $b_n$ there exists a threshold $M$ such that $n > M$ implies $|b(n) - M| < \epsilon$. Then for $n > \max(N, M)$. Then for scratchwork:
+\begin{align*}
+  |a(n)b(n) - LM|                  & < \epsilon \\
+  |a(n)b(n) - Lb(n) + Lb(n) - LM|  & < \epsilon \\
+  |b(n)(a(n) - L) + L(b(n) - M)|   & < \epsilon \\
+  |b(n)||a(n) - L| + |L||b(n) - M| & < \epsilon \\
+\end{align*}
+
+As in the previous section's proof, we can make $|a(n) - L|$ and $|b(n) - M|$ arbitrarily small, so each term ends up less than $\epsilon / 2$. For the first term, we want to bound $|b(n)|$ so it no longer depends on $n$. Since $b(n) \to M$, we can say for sufficiently large $n$ that $|b(n)| < |M| + 1$. Then if we make $|a(n) - L| < \epsilon / 2(|M| + 1)$ and $|b(n) - M| < \epsilon / 2(|L| + 1)$, then the sum of the two terms will be less than $\epsilon$.
+
+So the formal proof proceeds that for any $\epsilon > 0$, there exists an $N$ so large that $n > N$ implies $|a(n) - L| < \epsilon / 2(|M| + 1)$ and $|b(n) - M| < \epsilon / 2(|L| + 1)$. Then for $n > N$ we have $|a(n)b(n) - LM| < \epsilon$ by following the scratchwork above.
+
+\begin{problem}
+Prove that if $\{a_n\}$ converges to $L$ and $\{b_n\}$ converges to $M\neq 0$ then the sequence $\{a_n / b_n\}$ converges to $L / M$. (You may assum that $b_n \neq 0$ for each $n \in \N$.)
+\end{problem}
+
+Apply the division rule to the general term:
+$$\lim_{n\to\infty} \frac{a(n)}{b(n)} = \frac{\lim\limits_{n\to\infty} a(n)}{\lim\limits_{n\to\infty} b(n)} = \frac{L}{M}$$
+
+\begin{problem}
+For any sequence $\{a_n\}$, there is a corresponding sequence $\{|a_n|\}$. Prove that if $\{|a_n|\}$ converges to 0, then $\{a_n\}$ converges to 0. Give an example of a sequence $\{a_n\}$ for which $\{|a_n|\}$ converges to a number $L \neq 0$ but $\{a_n\}$ diverges.
+\end{problem}
+
+To find a sequence where $\{|a_n|\}$ converges to a number $L \neq 0$ but $\{a_n\}$ diverges, we need to find one where taking the terms' absolute value somehow makes the sequence more well-behaved. One example would be the alternating sequence $-1, 1, -1, 1, \ldots$ or $a_n = (-1)^n$. Then $\{|a_n|\}$ is the constant 1 sequence which converges to 1, but $\{a_n\}$ diverges because it oscillates between two values forever.
+
+\begin{problem}
+Suppose that $\{a_n\}, \{b_n\}$ and $\{c_n\}$ are sequences for which $a_n \leq b_n \leq c_n$ for all sufficiently large $n$. (That is, $a_n \leq b_n \leq c_n$ for all $n > M$ for some integer $M$.) Prove that if $\{a_n\}$ and $\{c_n\}$ converge to the same limit $L$, then $\{b_n\}$ also converges to $L$.
+\end{problem}
+
+While this `squeeze theorem' makes intuitive sense, let's prove it formally using $\epsilon-\delta$. For any $\epsilon > 0$ let $N_1$ be large enough that $n > N_1$ implies $|a_n - L| < \epsilon$ and $N_2$ be large enough that $n > N_2$ implies $|c_n - L| < \epsilon$. Choose $N = \max(N_1, N_2)$. Then for any $n > N$ we have
+$$a_n \in (L - \epsilon, L + \epsilon) \quad \text{and} \quad c_n \in (L - \epsilon, L + \epsilon)$$
+
+By the constraint that $a_n \leq b_n \leq c_n$, we must have $c_n$ in the same interval $(L - \epsilon, L + \epsilon)$. Written with absolute values this means $|b_n - L| < \epsilon$. So for any $\epsilon > 0$ there exists an $N$ such that $n > N$ implies $|b_n - L| < \epsilon$.
+
+
+\end{document}

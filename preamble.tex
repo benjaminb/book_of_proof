@@ -1,0 +1,45 @@
+\usepackage{amsmath} % for advanced math environments
+\usepackage{amsfonts} % for math fonts
+\usepackage{amssymb} % for math symbols
+\usepackage{amsthm} % for theorems and proofs
+\usepackage{mathtools} % for mathematical tools
+\usepackage{mathrsfs} % for script-like fonts in math
+\usepackage{bm} % for bold math symbols
+\usepackage{bbm} % for "blackboard-style" characters in math
+\usepackage{graphicx} % for including graphics
+\usepackage{hyperref} % for including hyperlinks
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\tcbuselibrary{theorems, breakable}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\pset}{\mathscr{P}}
+\DeclareMathOperator{\lcm}{lcm}
+
+% Define a shortcut for \begin{bmatrix} and \end{bmatrix}
+\newcommand{\bmat}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\cmat}[1]{\begin{pmatrix}#1\end{pmatrix}}
+
+\newtcolorbox[auto counter]{problem}%
+{
+    breakable,
+    colback=cyan!5,
+    colframe=cyan!35!black,
+    fonttitle=\bfseries,
+    title=Problem~\thetcbcounter,
+}
+
+\newtcolorbox{solution}[1]
+{
+    breakable,
+    colback=red!5,
+    colframe=red!75!black,
+    fonttitle=\bfseries,
+    title=Solution: #1,
+}

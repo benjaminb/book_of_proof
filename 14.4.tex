@@ -1,0 +1,83 @@
+\documentclass{article}
+\input{preamble.tex}
+
+% Title
+\title{Your Document Title}
+\author{Your Name}
+\date{\today} % or specify a date like {December 2020}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}
+Show that if $A \subseteq B$ and there is an injection $g: B \to A$, then $|A| = |B|$.
+\end{problem}
+
+\textbf{Use Schroeder-Bernstein.}
+
+If we show an injection $f: A \to B$ exists then we'll have injections both ways and can invoke Schroder-Bernstein. Since $A \subseteq B$, we can define $f$ as the inclusion map $f(a) = a$ in $B$. This map is injective since if $f(a) = f(a')$ then $a = a'$. Since we have injections both ways, there exists a bijection between $A$ and $B$ and they have equal cardinality.
+
+\begin{problem}
+Show that $|\R^2| = |\R|$.
+\end{problem}
+
+\textbf{Transform to easier sets and use Schroeder-Bernstein.}
+
+We can construct an injection from $\R \to \R^2$ by $x \mapsto (x, 0)$ or any number of simple maps like that. Going the other way seems trickier. However, we know from previous exercises that $|\R| = |(0, 1)|$. To construct an injection from $(0, 1) \times (0, 1)$ to $(0, 1)$ might be a bit more straightforward: any real number in this interval is 0 followed by an infinite decimal string. For $(0, 1) \times (0, 1)$ we can interleave the decimals to make one real in number in $(0, 1)$. For instance, for $(x, y) \in (0, 1)^2$ let $x = 0.x_1 x_2 x_3 \ldots$ and $y = 0.y_1 y_2 y_3 \ldots$. Then let $f(x, y) = 0.x_1 y_1 x_2 y_2 x_3 y_3 \ldots$.
+
+I claim that $f$ is injective. If $f(x, y) = f(z, w)$ then $x_1 = z_1, y_1 = w_1, x_2 = z_2, \ldots$ and so on for all decimal places. This means that $z$ matches $x$ on all decimal places as does $y$ match $w$, therefore $z = x, y = w$ and $f$ is injective.
+
+For the other injection we can just map $x \in (0, 1)$ to $(x, 1/2)$. Having injections both ways allows us to invoke Schroeder-Bernstein, and the sets have equal cardinality.
+
+\begin{problem}
+Let $\mathscr{F}$ be the set of all function $\N \to \{0, 1\}$. Show that $|\R| = |\mathscr{F}|$.
+\end{problem}
+
+Notice that $\mathscr{F}$ is the set of all binary sequences. If we allow the terms of a binary sequence to represent the decimals in base-2, then the binary sequence represents a real number between 0 and 1 inclusive. Therefore we have a bijection between $\mathscr{F}$ and $[0, 1]$ and they have equal cardinality. We have from previous results that the closed interval has equal cardinality to the open interval, which in turn has equal cardinality to $\R$. So altogether:
+$$|\mathscr{F}| = |[0, 1]| = |(0, 1)| = |\R|$$
+
+\begin{problem}
+Let $\mathscr{F}$ be the set of all function $\R \to \{0, 1\}$. Show that $|\R| < |\mathscr{F}|$.
+\end{problem}
+
+\textbf{Solution: recognize the similarity to another setting}.
+
+Another way to notate $\mathscr{F}$ is $2^\R$, meaning it is the set of all possible functions from $\R$ to a set size 2. This is equivalent to the size of its power set, which we know is strictly greater than $\R$:
+$$|\mathscr{F}| = |2^\R| = |\mathscr{P}(\R)| > |\R|$$
+
+\begin{problem}
+Consider the subset $B = \{(x, y): x^2 + y^2 \leq 1\} \subseteq \R^2$. Show that $|B| = |\R^|$.
+\end{problem}
+
+\textbf{Solution: convert to easier sets of equal cardinality}.
+
+Let's rewrite $B$ using polar coordinates: it's the same as $(r, \theta)$ where $r \in [0, 1]$ and $\theta = [0, 2\pi)$. The set $[0, 2\pi)$ has equal cardinality to $[0, 1)$ since the map $f(x) = x/2\pi$ is bijective. And we know from previous results that both $[0, 1]$ and $[0, 1)$ have equal cardinality to $\R$. Therefore:
+$$|B| = |[0, 1] \times [0, 1)| = |\R \times \R| = |\R^2|$$
+
+\begin{problem}
+Show that $|\mathscr{P}(\N \times \N)| = |\mathscr{P}(\N)|$.
+\end{problem}
+
+We might be tempted to write:
+
+$$|\mathscr{P}(\N \times \N)| = 2^{|\N \times \N|} = 2^{|\N|} = |\mathscr{P}(\N)|$$
+
+however this isn't really rigorous since it assumes without proof that if $|A| = |B|$ then the powerset of $A$ has the same cardinality as the powerset of $B$. To be more careful, we'll construct injections both ways and invoke Schroeder-Bernstein.
+
+For an injection $\N \to \N \times \N$ we can just map $n \in \N$ to $(n, 1) \in \N \times \N$. Defining this function on powersets, we get:
+$$f: \mathscr{P}(\N) \longrightarrow \mathscr{P}(\N \times \N)$$
+$$\{n_1, n_2, \ldots\} \longmapsto \{(n_1, 1), (n_2, 1), \ldots\}$$
+
+For an injection from $\mathscr{P}(\N \times \N)$ back to $\mathscr{P}(\N)$, consider that a subset of $\N \times \N$ is a collection of tuples $\{(a, b), (c, d), \ldots\}$. We want to map this to a set of natural numbers $\{n_1, n_2, \ldots\}$ injectively. One approach would be to leverage the uniqueness of every natural number's prime decomposition. For every tuple $(n, m) \in X \in \mathscr{P}(\N \times \N)$, map it to the $n$th prime with exponent $m$. I claim this map $\phi$ is injective. If $\phi(X) = \phi(Y)$ then both values are subsets of $\N$ containing the exact same natural numbers which are primes to some exponent:
+$$\phi(X) = \phi(Y) = \{(p_{n_1})^{m_1}, (p_{n_2})^{m_2}, \ldots\}$$
+
+Since each element of this set is a prime to a power $(p_i)^{m_i}$ there is only one tuple that could have mapped to it, $(n_i, m_i)$. Therefore $X = \{(n_1, m_1), (n_2, m_2), \ldots\} = Y$ and $\phi$ is injective.
+
+\begin{problem}
+Prove or disprove: If there is an injection $f: A \to B$ and a surjection $g: A \to B$, then there is a bijection $h: A \to B$.
+\end{problem}
+
+This is not in general true since smaller cardinality sets will have injections to strictly larger cardinality sets, and the larger sets have surjections to the smaller sets; it doesn't mean they have the same cardinality. For example, there are injections $\N \to \R$ and surjections $\R \to \N$ but $|\N| \neq |\R|$.
+
+One injection $\N \to \R$ is the inclusion map. For a surjection from $\R \to \N$ consider $f(x) = \lfloor|x| + 1\rfloor$.

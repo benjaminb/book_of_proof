@@ -1,0 +1,97 @@
+\documentclass{article}
+\input{preamble.tex}
+
+% Title
+\title{Your Document Title}
+\author{Your Name}
+\date{\today} % or specify a date like {December 2020}
+
+\begin{document}
+
+\maketitle
+Prove that the following limits do not exist.
+\begin{problem}
+$\lim\limits_{x \to 0} \log_{10} |x|$
+\end{problem}
+Looking at the graph, this diverges to $-\infty$ as $x \to 0$. Using Ross' sequence definition of the limit, we can show that the sequence $(1/n)$ goes to 0 as $n \to \infty$. However
+$$\log_{10} \frac{1}{n} = \log_{10} n^{-1} = - \log_{10} n$$
+
+which decreases without bound as $n \to \infty$.
+
+
+Using Hammack's approach:
+
+Assume towards a contradiction that a limit $L$ exists, so for $\epsilon = 1$ there exists $\delta > 0$ such that $|x| < \delta$ implies $|\log_{10} |x| - L | < 1$. Knowing that the function decreases without bound we can derive a contradiction by making $x$ even closer to 0. We'll have a contradiction if we also show that $|\log_{10}|x| - L | \geq 1$. If we set up
+$$|\log_{10} |x| - L | > 1$$
+
+Some scratch work:
+\begin{align*}
+  |\log_{10} |x| - L | & > 1                     \\
+  \log_{10} |x| - L    & < -1 \ \text{(perhaps)} \\
+  \log_{10} |x|        & < L - 1                 \\
+  |x|                  & < 10^{L - 1}
+\end{align*}
+
+So if we set $|x| < \min\{\delta, 10^{L -1 }\}$, then $|x| < 10^{L - 1}$. Then $|\log_{10} |x| - L| > 1$ following the steps above in reverse. Only this time, we don't have to worry about the assumption on line 2 since we are free to make $|x|$ as small as we like. Therefore we have a contradiction.
+
+\begin{problem}
+$\lim\limits_{x \to 0} \frac{|x|}{x}$
+\end{problem}
+
+This limit doesn't exist because of the discontinuity at $x = 0$; on the right hand side the function is a constant 1 and on the left side it's a constant -1. This is easy to prove using the sequence definition of the limit but we'll use a proof by contradiction. Let $f(x) = \frac{|x|}{x}$ and assume that a limit $L$ exists. Then for any $\epsilon > 0$ there exists a $\delta > 0$ such that $|x| < \delta$ means $|f(x) - L| < \epsilon$. But this also means $|-x| < \delta$ implies $|f(-x) - L| < \epsilon$. Consider that for any $x \neq 0$ the distance between $f(x)$ and $f(-x)$ will always be 2:
+$$|f(x) - f(-x)| = 2$$
+
+since one of them evaluates to 1 and the other to -1. Now choose an $\epsilon < 1$ and for $|x| < \delta$, by adding a form of 0 and the triangle inequality we can write:
+$$2 = |f(x) - f(-x)| = |f(x) - L + L - f(-x)| \leq |f(x) - L| + |L - f(-x)| < 2\epsilon$$
+
+This is a contradition because 2 cannot be less than 2 times any number less than 1.
+
+\begin{problem}
+$$\lim\limits_{x \to 0} \frac{1}{x^2}$$
+\end{problem}
+
+Assume towards a contradiction that a limit $L$ exists. Then for any $\epsilon > 0$ there exists a $\delta > 0$ so that $|x| < \delta$ implies $|f(x) - L| < \epsilon$. Set $\epsilon = 1$, so there is some $\delta$ that makes the implication true. Notice if $|x| < \delta $ then $|\frac{x}{2}| < \delta $ as well. So we have:
+$$|f(x) - L| < 1, \qquad |f(x/2) - L| < 1$$
+
+Combining these we have:
+$$|f(x) - L| + |L - f(x/2)| < 2$$
+
+Apply the triangle inequality:
+$$|f(x) - f(x/2)| = |f(x) - L + L - f(x/2)| \leq |f(x) - L| + |L - f(x/2)| < 2$$
+
+Substitute the definition of $f$ for the first term:
+$$|f(x) - f(x/2)| = \left|\frac{1}{x^2} - \frac{1}{\left(x/2\right)^2}\right| = \left|\frac{1}{x^2} - \frac{4}{x^2}\right| = \left|\frac{3}{x^2}\right|$$
+
+Use this to derive a contradiction: we have required that $|x| < \delta$ for some unknown $\delta$, but for the implication to hold it must be true for $|x|$ equal to every value less than $\delta$, including when $|x| < 1$ (or more precisely, when $|x| < \min\{1, \delta\}$). So when $|x| < 1$ we'd have $\left|\frac{3}{x^2}\right| > 3$, and this would form our contradiction:
+
+$$3 < |f(x) - f(x/2)| < 2$$
+
+\begin{problem}
+$$\lim\limits_{x\to 0} \cos\left(\frac{1}{x}\right)$$
+\end{problem}
+
+Of course, the function will oscillate increasingly rapidly as $x \to 0$, and we'll use this to derive the contradiction. ATAC that the limit $L$ exists. Choose $\epsilon = 1/2$ and for any $\delta > 0$, if $|x| < \delta$ then $|cos(1/x) - L| < \epsilon$. There exists a $2k$ for $k \in \N$ large enough that $\frac{1}{2k\pi} < \delta$, and therefore the implication should hold that $|\cos(k \pi) - L| < 1/2$. Since $\cos(2k) = 1$ this means that $L$ must be in the interval $(1/2, 3/2)$. However, consider $\frac{1}{(2k+1)\pi}$ is also less than $\delta$ so the implication should hold, but $\cos((2k + 1)\pi) = -1$, which means $L$ is in the interval $(-3/2, -1/2)$, contradicting the earlier interval we found.
+
+\begin{problem}
+$$\lim\limits_{x\to 0} x \cot \left(\frac{1}{x}\right)$$
+\end{problem}
+
+Notice that we can make the cotangent 1 by choosing $x = \frac{1}{\frac{\pi}{4} + 2k\pi}$ and make $k$ sufficiently large. Then as $k$ increases $x$ goes to 0, making the limit apparently 0.
+
+However as $x \to 0$ there are an infinite number of values $y \in (0, x)$ such that $\cot(1/y)$ blows up to infinity. More precisly, for any value $M$ there is a $y \in (0, x)$ where $\cot(1/y) > M$. So it cannot be that for all values in $(0, \delta)$ that the function is within an epsilon band of $L$.
+
+\begin{problem}
+$$\lim\limits_{x \to 1} \frac{1}{x^2 - 2x + 1}$$
+\end{problem}
+
+We can factor the fraction to get
+$$\frac{1}{(x - 1)^2}$$
+
+Let's rephrase the limit as:
+$$\lim_{x \to j} \frac{1}{(x - j)^2}$$
+
+We're given $j = 1$, but the limit will be the same for any value of $j$ since that is just horizontal translation in plane, the $y$ values remain the same, symmetric about $j$. Therefore this limit is equivalent to
+$$\lim_{x \to 0} \frac{1}{(x - 0)^2} = \lim_{x \to 0} \frac{1}{x^2}$$
+
+which we have previously proven diverges to infinity.
+\end{document}

@@ -1,0 +1,134 @@
+\documentclass{article}
+\input{preamble.tex}
+
+% Title
+\title{Your Document Title}
+\author{Your Name}
+\date{\today} % or specify a date like {December 2020}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}
+Prove that the set $A = \{\ln(n): n \in \N\}$ is countably infinite.
+\end{problem}
+
+$A$ is in bijection with $\N$ since $\ln$ is invertible over positive numbers. Take any $a \in A$ and $a = \ln(n)$ for some $n \in \N$. Therefore $e^a = n$ and we can recover the original $n$ from any $a$.
+
+Alternatively, $A$ can be written as a sequence $(a_n)$ where each term $a_k = \ln(k)$. Since $A$ can be written as a sequence, it is in bijection with $\N$ and has the same cardinality.
+
+\begin{problem}
+Prove that the set $A = \{(m, n) \in \N \times \N: m \leq n\}$ is countably infinite.
+\end{problem}
+
+In the previous section we proved that $|A| = |\N \times \N|$. We also know the product of $\aleph_0$ sets is $\aleph_0$, so $|\N \times \N| = |\N| = \aleph_0$. Altogether:
+$$|A| = |\N \times \N| = |\N|$$
+
+\begin{problem}
+Prove that the set $A = \{(5n, -3n): n \in \Z\}$ is countably infinite.
+\end{problem}
+
+The two coordinate functions $f(n) = 5n$ and $g(n) = -3n$ are both bijective, so we have a bijection between $A$ and $\Z$:
+$$h: \Z \longrightarrow A$$
+$$n \longmapsto (5n, -3n)$$
+
+\begin{problem}
+Prove that the set of all irrational numbers is uncountable.
+\end{problem}
+
+We know that the set of real numbers is uncountable. Partition $\R$ into rational numbers $\Q$ and irrational numbers $\R - \Q$. Assume towards a contradiction that $\R - \Q$ is countable. Then
+$$(\R - \Q) \cup \Q = \R$$
+the union of the irrationals and rationals is the union of two countable sets, which is countable. But these two sets union to the reals, which is uncountable. Therefore we have a contradiction and it must be that $\R - \Q$ is not countable.
+
+\begin{problem}
+Prove or disprove: there exists a countably infinite subset of the set of irrational numbers.
+\end{problem}
+
+This is true and we can achieve this by adjoining an irrational number to some countably infinite set. For instance, we could take the natural numbers and add $\sqrt{2}$ to each:
+$$A = \{\sqrt{2} + n: n \in \N\}$$
+
+Now each number in $A$ is irrational, since the sum of an irrational and rational is irrational. Since every $a \in A$ is irrational, $A$ is a subset of the irrational numbers. However, $A$ is also in bijection with $\N$ since for any $a \in A$, subtract $\sqrt{2}$ to obtain the original $n \in \N$. Therefore $|A| = |\N|$.
+
+\begin{problem}
+Prove or disprove: there exists a bijective function $f: \Q \to \R$
+\end{problem}
+
+This is false since if there was a bijection from $\Q $ to $\R$ then they would have the same cardinality. But we know $\Q$ is countably infinite and $\R$ is uncountable. Therefore no bijection can exist.
+
+\begin{problem}
+Prove or disprove: The set $\Q^{100}$ is countably infinite.
+\end{problem}
+
+This is true as the product of countable sets is countable. $\Q$ is countable, as is $\Q \times \Q$. Inductively, $\Q^{99} \times \Q$ is also countable and equals $\Q^{100}$.
+
+\begin{problem}
+Prove or disprove: The set $\Z \times \Q$ is countably infinite.
+\end{problem}
+
+Both $\Z$ and $\Q$ are countably infinite, and the product of countably infinite sets is countably infinite. Therefore $\Z \times \Q$ is countably infinite.
+
+\begin{problem}
+Prove or disprove: the set $\{0, 1\} \times \N$ is countably infinite.
+\end{problem}
+
+In the previous section we showed a bijection between this set and $\Z$. And since $\Z$ is countably infinite, so is this set.
+
+\begin{problem}
+Prove or disprove: The set $A = \{\frac{\sqrt{2}}{n}: n \in \N\}$ is countably infinite.
+\end{problem}
+
+The map $f(n) = \sqrt{2}/n$ sends $\N$ members to $A$. The invers map is then $f^{-1}(a) = \sqrt{2}/a$. Since this map is invertible, it is a bijection between $A$ and $\N$, and the sets have the same cardinality.
+
+\begin{problem}
+Describe a partition of $\N$ that divides $\N$ into eight countably infinite subsets.
+\end{problem}
+
+One partition that comes to mind results from the mod 8 map. For any value $a \in \{0, \ldots, 7\}$ there are infinite natural numbers congruent to $a$ modulo 8. Therefore each congruence class is a countably infinite equivalence class. There are 8 equivalency classes, hence this partitions $\N$ into 8 countably infinite subsets.
+
+\begin{problem}
+Describe a partition of $\N$ that divides $\N$ into $\aleph_0$ countably infinite subsets.
+\end{problem}
+
+When looking for a countably infinite `basis' by which to partition the naturals, the fundamental theorem of arithmetic comes to mind. There are countably infinite primes, so we might use these to form our equivalence classes. Then for each prime number, we can raise it to any power $n \in \N$, which gives us countably infinite numbers. So for each prime $p$ we can form an equivalency class $C_p$ that is all the natural powers of $p$:
+
+$$C_p = \{p^n: n \in \N, p \text{ prime}\}$$
+
+The class $C_p$ is countably infinite since the map $p^n$ is invertible by $\log_p$. And since there are countably infinite primes, this partitions $\N$ into a countably infinite set of countably infinite subsets.
+
+\begin{problem}
+Prove or disprove: If $A = \{X \subseteq \N: X \text{ is finite}\}$ then $|A| = \aleph_0$.
+\end{problem}
+
+This set is $\aleph_0$. The set $A$ contains all finite subsets of $\N$. Imagine we convert any subset to a bitstring where the numbers present in subset $X$ flip those bits to 1. E.g. if $X = \{1, 3, 4\}$ then the corresponding bitstring (left to right) is 1011. Reading this left to right as a binary number makes it the natural number 13; so every $X \in A$ uniquely determines a natural number by corresponding to bits in a binary string.
+
+\begin{problem}
+Suppose $A = \{(m,n) \in \N \times \R: n = \pi m\}$. Is it true that $|\N| = |A|$?
+\end{problem}
+
+We can simplify the set constructor a bit:
+$$A = \{(n, \pi n): n \in \N\}$$
+$A$ is a subset of $\N \times \R$ as indicated but more importantly, both coordinate functions are invertible. The first coordinate is just the identity function on $\N$ so we can map back to $\N$ by projecting onto the first coordinate. Therefore this map is invertible and $A$ is in bijection with $\N$.
+
+\begin{problem}
+Theorem 14.5 implies that $\N \times \N$ is countably infinite. Constrcut an alternate proof of this fact by showing that the function $\varphi: \N \times \N \to \N$ defined as $\varphi(m, n) = 2^{n-1}(2m - 1)$ is bijective
+\end{problem}
+
+We can simplify the set constructor a bit:
+$$A = \{(n, \pi n): n \in \N\}$$
+$A$ is a subset of $\N \times \R$ as indicated but more importantly, both coordinate functions are invertible. The first coordinate is just the identity function on $\N$ so we can map back to $\N$ by projecting onto the first coordinate. Therefore this map is invertible and $A$ is in bijection with $\N$.
+
+\begin{problem}
+Theorem 14.5 implies that $\N \times \N$ is countably infinite. Constrcut an alternate proof of this fact by showing that the function $\varphi: \N \times \N \to \N$ defined as $\varphi(m, n) = 2^{n-1}(2m - 1)$ is bijective.
+\end{problem}
+
+If we look at this function with the fundamental theorem of arithmetic in mind things become clearer: $n$ controls the power of 2 and $m$ controls which odd number $2m -1 $ evaluates to. In the FTOA, every natural number is the product of primes to certain powers:
+$$a = 2^{e_1}\cdot 3^{e_2} \cdot 5^{e_3} \cdot \ldots$$
+
+Since 2 is the only even prime, all the other primes multiply to some odd number, so any natural $a$ is equal to
+$$a = 2^{e_1}(2m-1)$$
+for some natural $m$ and a non-negative integer $e_1$. So replacing $e_1$ with $n -1$ for $n \in \N$.
+
+Altogether, with a free choice of $n$ and $m$ we can reach any natural number, so this proves that $\varphi$ is surjective. To prove injectivity, suppose $\varphi(a, b) = \varphi(c, d)$. Then we'd have $2^{a-1}(2b-1) = 2^{c-1}(2d-1)$. Again viewing this through the FTOA, these two numbers have the same power of 2 in their prime decomposition which means $a = c$. This then simplifies to $2b - 1 = 2d -1$ which means $b = d$. Therefore $\varphi$ is injective and surjective, and is a bijection between $\N \times \N$ and $\N$.
+
+\end{document}

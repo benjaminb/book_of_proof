@@ -1,0 +1,272 @@
+\documentclass{article}
+\input{preamble.tex}
+
+% Title
+\title{Your Document Title}
+\author{Your Name}
+\date{\today} % or specify a date like {December 2020}
+
+\begin{document}
+
+\maketitle
+
+
+\begin{problem}
+Prove that \(\{12n : n \in \Z\} \subseteq \{2n : n \in \Z\} \cap \{3n : n \in \Z\}\).
+\end{problem}
+
+\textbf{Proof: use direct proof}
+Any multiple of 12 can be written \(12n = 2\cdot3\cdot4 n\), which means it is a multiple of both 2 and 3, and therefore in the intersection of the two sets on the right.
+
+\begin{problem}
+Prove that \(\{6n: n \in \Z\} = \{2n : n \in \Z\} \cap \{3n : n \in \Z\}\).
+\end{problem}
+Any \(n \in \{6n: n \in \Z\}\) can be written as \(6k = 2\cdot 3k\) for some \(k \in \Z\). Therefore \(n\) is divisible by both 2 and 3, making it a member of both \(\{2n : n \in \Z\}\) and \(\{3n : n \in \Z\}\).
+
+\begin{problem}
+If \(k \in \Z\), then $\{n \in \Z: n \mid k\} \subseteq \{n \in \Z: n \mid k^2\}$.
+\end{problem}
+Suppose $n$ divides $k$. Then $n$ divides $k\cdot k = k^2$. Therefore $n \in \{n\in \Z: n \mid k^2\}$.
+
+\begin{problem}
+If $m, n \in \Z$, then $\{x \in \Z: mn | x\} \subseteq \{x \in \Z: m | x\} \cap \{x \in \Z: n | x\}$.
+\end{problem}
+\textbf{Proof: use direct proof and a relevant theorem}
+Recall the theorem that if $a \mid b$ and $b \mid c$ then $a \mid c$. Then for any $x \in \Z$ such that $mn \mid x$, it must be that $m \mid x$ and $n \mid x$ by this theorem. Therefore $x$ is a member of both sets $\{x \in \Z: m | x\}$ and $\{x \in \Z: n | x\}$, which means it is in their intersection.
+
+\begin{problem}
+If $p$ and $q$ are positive integers, then $\{pn : n \in \N\} \cap \{qn : n \in \N\} \neq \varnothing$.
+\end{problem}
+\textbf{Proof: directly show the intersection is nonemtpy}
+Since $p$ and $q$ are positive integers they are both in $\N$. Therefore $pq$ is both in $\{pn : n \in \N\}$ and $\{qn : n \in \N\}$, so the intersection is nonempty.
+
+\begin{problem}
+Suppose $A, B$, and $C$ are sets. Prove that if $A \subseteq B$, then $A - C \subseteq B - C$.
+\end{problem}
+\textbf{Proof: use direct proof}
+Suppose $a \in A - C$, then $a \in A$ and $a \not\in C$. Given $A \subseteq B$, we know $a \in B$ as well. And since $a \not\in C$, $a$ will be in the set difference $B - C$. Therefore $A - C \subseteq B - C$.
+
+\begin{problem}
+Suppose $A, B$, and $C$ are sets. Prove that if $B \subseteq C$, then $A \times B \subset A \times C$.
+\end{problem}
+\textbf{Proof: use direct proof}
+Suppose $(a, b) \in A \times B$. Then $a \in A$ and $b \in B$. Given $B \subseteq C$, we know $b \in C$ as well. Therefore $(a, b) \in A \times C$.
+
+\begin{problem}
+If $A, B$ and $C$ are sets, then $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$.
+\end{problem}
+\textbf{Proof: use logic laws}
+\begin{align*}
+    A \cup (B \cap C) & = \{x \in A \lor (x \in B \land x \in C)\}                \\
+                      & = \{x \in A \lor x \in B \land x \in A \lor x \in C\}     \\
+                      & = \{x \in A \lor x \in B\} \land \{x \in A \lor x \in C\} \\
+                      & = (A \cup B) \cap (A \cup C)
+\end{align*}
+
+\begin{problem}
+If $A, B$ and $C$ are sets, then $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$.
+\end{problem}
+\textbf{Proof: use logic laws}
+\begin{align*}
+    A \cap (B \cup C) & = \{x \in A \land (x \in B \lor x \in C)\}                 \\
+                      & = \{x \in A \land x \in B \lor x \in A \land x \in C\}     \\
+                      & = \{x \in A \land x \in B\} \lor \{x \in A \land x \in C\} \\
+                      & = (A \cap B) \cup (A \cap C)
+\end{align*}
+
+\begin{problem}
+If $A$, and $B$ are sets in a universal set $U$, then $\overline{A \cap B} = \overline{A} \cup \overline{B}$.
+\end{problem}
+\textbf{Proof: show inclusion both ways}
+Although using pure logic laws might be more concise, let's prove this by mutual inclusion.
+\\
+
+Consider $x \in \overline{A \cap B}$. Then $x$ does not belong to both $A$ and $B$. This means $x$ does not belong to $A$ or it does not belong to $B$ (or both): $\overline{A \cap B} \subseteq \overline{A} \cup \overline{B}$.
+\\
+
+Now consider $x \in \overline{A} \cup \overline{B}$. If $x \not\in A$ then $x$ cannot belong to the intersection $A \cap B$, and $x \in \overline{A \cap B}$. Similarly, if $x \not\in B$ then $x \in \overline{A \cap B}$. Therefore $\overline{A} \cup \overline{B} \subseteq \overline{A \cap B}$.
+
+
+\begin{problem}
+If $A, B$ are sets in a universal set $U$, then $\overline{A \cup B} = \overline{A} \cap \overline{B}$.
+\end{problem}
+\textbf{Proof: use logic laws}
+\\
+Apply De Morgan's laws on sets: for any $x \in U$, let $\alpha(x)$ be the proposition that $x \in A$ and $\beta(x)$ be the proposition that $x \in B$.
+\begin{align*}
+    \overline{A \cup B} & = \{x \in U: x \not\in A \cup B\}                         \\
+                        & = \{x \in U: \neg(\alpha(x) \lor \beta(x))\}              \\
+                        & = \{x \in U: \neg\alpha(x) \land \neg\beta(x)\}           \\
+                        & = \{x \in U: x \not\in A\} \land \{x \in U: x \not\in B\} \\
+                        & = \overline{A} \cap \overline{B}
+\end{align*}
+
+\begin{problem}
+If $A, B,$ and $C$ are sets, then $A - (B \cap C) = (A - B) \cup (A - C)$.
+\end{problem}
+\textbf{Proof: use direct proof}
+\\
+
+A logic or mutual inclusion proof might be more convincing but for variety here is a direct proof that demonstrates both sets specify the same membership criteria:
+
+Suppose $a \in (A - B) \cup (A - C)$. Any element $a$ in this set must belong to $A$. If it belongs to $B$ but not $C$ then $a$ gets removed from $A - B$ but will remain in $A - C$, and then will remain in any union. Likewise if $a$ belongs to $C$ but not $B$, it will remain in $A - B$. Only if it $a$ belongs to both $B$ and $C$ will it be removed from $(A - B) \cup (A - C)$. Therefore the members of $(A - B) \cup (A - C)$ are exactly the members of $A$ with elements belongong to both $B$ and $C$ removed, which is the same as $A - (B \cap C)$.
+
+\begin{problem}
+If $A, B$, and $C$ are sets then $A - (B \cup C) = (A - B) \cap (A - C)$.
+\end{problem}
+\textbf{Proof: use logic and De Morgan's laws}
+\begin{align*}
+    A - (B \cup C) & = \{x \in A: x \not\in B \cup C\}                               & \text{Given}                        \\
+                   & = \{x \in A: \neg(x \in B \lor x \in C)\}                       & \text{Rewrite in logic}             \\
+                   & = \{x \in A: \neg x \in B \land \neg x \in C\}                  & \text{De Morgan}                    \\
+                   & = \{x \in A \land x \not\in B \land x \in A \land x \not\in C\} & x \in A = (x \in A) \land (x \in A) \\
+                   & = \{x \in A \land x \not\in B\} \cap \{x \in A: x \not\in C\}   & \text{Def. intersection}            \\
+                   & = (A - B) \cap (A - C)
+\end{align*}
+
+\begin{problem}
+If $A, B$, and $C$ are sets then $(A \cup B) - C = (A - C) \cap (B - C)$.
+\end{problem}
+\textbf{Proof: use direct proof}
+
+For variety let's use a direct proof. The set $(A \cup B) - C$ contains all elements belonging to either $A$ or $B$, but not belonging to $C$. This is the same as taking the $C$ members out of $A$, then taking the $C$ members out of $B$, then putting the results together (i.e. $(A - C) \cap (B - C)$).
+
+\begin{problem}
+If $A, B$, and $C$ are sets then $(A \cap B) - C = (A - C) \cap (B - C)$
+\end{problem}
+\textbf{Proof: use direct proof to show logical equivalence}
+\\
+The set $(A \cap B) - C$ first collects elements belonging to both $A$ and $B$, then removes $C$ members. Equivalently, you can first remove $C$ members from $A$ to make $A - C$, then remove $C$ members from $B$ to make $B - C$, then form the set of elements belonging to both $A - C$ and $B - C$, which is the intersection $(A - C) \cap (B - C)$).
+
+\begin{problem}
+If $A, B$, and $C$ are sets then $A \times (B \cup C) = (A \times B) \cup (A \times C)$.
+\end{problem}
+\textbf{Proof: use logic laws}
+This is an application of logic's distribution laws. For any $(a, b) \in A \times (B \cup C)$ you have $a \in A$ and $b \in B \cup C$. Logically:
+$$(a \in A) \land (b \in B \lor b \in C)$$
+By the distributive properties, rewrite this as:
+$$((a \in A) \land (b \in B)) \lor ((a \in A) \land (b \in C))$$
+which specifies the set $(A \times B) \cup (A \times C)$.
+
+\begin{problem}
+If $A, B$, and $C$ are sets then $A \times (B \cap C) = (A \times B) \cap (A \times C)$.
+\end{problem}
+\textbf{Proof: use logic laws}
+This is another application of a logical distribution law. For any $(a, b) \in A \times (B \cap C)$ you have $a \in A$ and $b \in B \cap C$. Logically:
+$$ (a \in A) \land (b \in B \land b \in C)$$
+which equals
+$$((a \in A) \land (b \in B)) \lor ((a \in A) \land (b \in C))$$
+
+\begin{problem}
+If $A, B$, and $C$ are sets then $A \times (B - C) = (A \times B) - (A \times C)$.
+\end{problem}
+\textbf{Proof: use direct proof}
+The set $A \times (B - C)$ contains all pairs $(a, b)$ where $a \in A$ and $b \in B$ but not in $C$. The set $A \times B$ contains all pairs $(a, b)$ for any $b \in B$. But subtracting the set $A \times C$ removes any pair $(a, c)$ where $c \in C$ and $c \in B$ as well. Therefore $(A \times B) - (A \times C)$ contains all pairs $(a, b)$ where $a \in A$ and $b \in B$ but not in $C$.
+
+\begin{problem}
+Prove that $\{9^n : n \in \Z\} \subseteq \{3^n : n \in \Z\}$, but $\{9^n : n \in \Z\} \neq \{3^n : n \in \Z\}$.
+\end{problem}
+\textbf{Proof: use direct proof.}
+\\
+
+These expressions say that every power of 9 is also a power of 3, but not every power of 3 is a power of 9.
+\\
+
+Using exponent rules, $9^n = (3^2)^n = 3^{2n}$ which proves $\{9^n : n \in \Z\} \subseteq \{3^n : n \in \Z\}$. However, $3^1 = 3$ is not a power of 9. Since there is an element in the second set that is not in the first, the sets are not equal.
+
+\begin{problem}
+Prove that $\{9^n : n \in \Q\} = \{3^n : n \in \Q\}$.
+\end{problem}
+\textbf{Proof: show inclusion both ways.}
+\\
+
+Any $9^n = (3^2)^n = 3^{2n}$. Since $n$ is rational, so is $2n$ and $3^{2n} \in \{3^n : n \in \Q\}$. Therefore $\{9^n : n \in \Q\} \subseteq \{3^n : n \in \Q\}$. Likewise, any $3^n$ can be written as $(9^{1/2})^n = 9^{n/2}$, which is also rational. Therefore $\{3^n : n \in \Q\} \subseteq \{9^n : n \in \Q\}$.
+
+\begin{problem}
+Suppose $A$ and $B$ are sets. Prove $A \subseteq B$ if and only if $A - B = \varnothing$.
+\end{problem}
+\textbf{Proof: chain biconditionals}
+$B$ contains $A$ if and only if every element of $a$ belongs to $B$ as well. This occurs if and only if removing every element of $B$ from the set $A$ would leave $A$ empty, i.e. $A - B = \varnothing$.
+
+\begin{problem}
+Let $A$ and $B$ be sets. Prove that $A \subseteq B$ if and only if $A \cap B = A$.
+\end{problem}
+\textbf{Proof: prove implication both ways}
+\\
+
+\textbf{Forward direction:} Suppose $A \subseteq B$. Then any $a \in A$ belongs to $B$ as well, and $a \in A \cap B$ which means $A \subseteq A \cap B$. For any intersection we have $A \cap B \subset A$. Since we have mutual inclusion, $A \cap B = A$.
+\\
+
+\textbf{Reverse direction:} Suppose $A \cap B = A$. Then any $a \in A$ must be in $B$ as well for it to survive the intersection. Therefore $A \subseteq B$.
+
+\begin{problem}
+For each set $a \in \R$, let $A_a = \{(x, a(x^2 -1)) \in \R^2 : x \in \R\}.$ Prove that $\bigcap_{a \in \R} A_a = \{(-1, 0), (1, 0)\}$.
+\end{problem}
+
+\textbf{Proof: show inclusion both ways}
+\\
+
+\textbf{Forward direction: use the contrapositive statement.} Let's prove that if $(x, y)$ does not equal (1, 0) or (-1, 0) then it cannot be in every $A_a$. Suppose $x \neq \pm 1$ and consider the set $A_a, A_b$, where $b \neq a$. Then the only pair with $x$ on the first coordinate in $A_a$ is $(x, a(x^2 - 1))$, but the only pair with $x$ on the first coordinate in $B_b$ is $(x, b(x^2 - 1))$. Since $x$ is not 1 or $-1$, $(x^2 - 1) \neq 0$. And since $a \neq b$, it cannot be that $a(x^2 - 1) = b(x^2 - 1)$. Therefore if $x \neq \pm 1$ then $(x, a(x^2 - 1))$ cannot be in every $A$.
+\\
+
+\textbf{Reverse direction: use direct proof.} Since $a(x^2 - 1)$ factors to $a(x + 1)(x - 1)$, its roots are $\pm 1$ regardless of the factor $a$. Therefore (1, 0) and (-1, 0) satisfy $a(x^2 - 1)$ for any $a$, and appear in every $A_a$.
+
+\begin{problem}
+Prove that $\bigcap_{x \in \R} [3 - x^2, 5 + x^2] = [3, 5]$.
+\end{problem}
+
+\textbf{Proof: show inclusion both ways}
+\\
+\textbf{Forward direction: direct proof.} Note that $x^2$ is everywhere at least 0. So $3 - x^2$ is at most 3 and decreases as $x$ gets further from 0. Similarly, $5 + x^2$ is at least 5 and increases as $x$ gets further from 0. So at $x = 0$ the interval is at [3, 5] exactly. For any nonzero $x$, the lower boundary decreases and the upper boundary increases. Therefore all intervals in the intersection contain [3, 5]. For any wider interval $[3 - a^2, 5 + a^2]$ there is some $b$ closer 0 than $a$ (i.e. $|b| < |a|$) so that the wider interval gets trimmed to the shorter one during intersection. Since this is true of any nonzero number, the only sub-interval common to all intervals is $[3, 5]$.
+
+\begin{problem}
+Suppose $A, B, C$ and $D$ are sets. Prove that $(A \times B) \cup (C \times D) \subseteq (A \cup C) \times (B \cup D)$.
+\end{problem}
+
+\textbf{Proof: use direct proof}
+\\
+
+For any $(a, b) \in (A \times B) \cup (C \times D)$, it must be that $(a, b) \in A \times B$ or $(a, b) \in C \times D$. So $a$ belongs to $A$ or $C$, and $b$ belongs to $B$ or $D$, and $a \in A \cup C, b \in B \cup D$. Therefore $(a, b) \in (A \cup C) \times (B \cup D)$.
+
+\begin{problem}
+Prove that $\{4k + 5: k \in \Z\} = \{4k + 1: k \in \Z\}$.
+\end{problem}
+
+\textbf{Proof: show inclusion both ways}
+\\
+Suppose $x = 4k + 5$ for some $k \in \Z$. Then $x = 4k + 4 + 1 = 4(k + 1) + 1$ implying $x \in \{4k + 1: k \in \Z\}$. If $x = 4k + 1$ for some $k \in \Z$ then $x = 4(k - 1) + 5$ implying $x \in \{4k + 5: k \in \Z\}$.
+
+\begin{problem}
+Prove that $\{12a + 4b : a, b \in \Z\} = \{4c: c \in \Z\}$
+\end{problem}
+
+\textbf{Proof: show inclusion both ways}. $12a + 4b = 4(3a + b)$. Since $a, b$ are integers, $3a + b$ is in integer as well. Therefore any element in the left set also belongs to the right set. Conversely, for any $4c$ let $a = 0$ so $4c = 12(0) + 4c$, which matches the criteria for the left set.
+
+\begin{problem}
+Prove that $\{12a + 25b : a, b \in \Z\} = \Z$.
+\end{problem}
+\textbf{Proof: show inclusion both ways}. For the forward direction, the result of $12a + 4b$ for any integers $a, b$ results in an integer, so the left set is contained in the integers. For the reverse direction, any integer $n$ can be written as $12(-2n) + 25n$, therefore the left set contains all integers.
+
+\begin{problem}
+Suppose $A \neq \varnothing$. Prove that $A \times B \subset A \times C$ if and only if $B \subset C$.
+\end{problem}
+
+\textbf{Proof: show implication both ways}
+Suppose that $A \times B \subseteq A \times C$. Then $(a, b) \in A \times B$ implies $(a, b) \in A \times C$ and therefore $b \in C$. This means that $B \subseteq C$. Now suppose $B \subseteq C$. Then for any $b \in B$ we have $b \in C$ as well. If any pair $(a, b) \in A \times B$ it must be that $b \in B$, which implies $b \in C$ as well and therefore $(a, b) \in A \times C$.
+
+\begin{problem}
+Prove that $(\Z \times \N) \cap (\N \times \Z) = \N \times \N$.
+\end{problem}
+\textbf{Proof: show inclusion both ways}
+\\
+In forming the intersection, both the first and second coordinates must be numbers commong to both $\N$ and $\Z$. There are just the naturals $\N$, therefore $(\Z \times \N) \cap (\N \times \Z)$ is contained in $\N \times \N$. Conversely, for pair of naturals $(a, b) \in \N \times \N$ the numbers $a$ and $b$ are both naturals and integers, so $(a, b) \in \Z \times \N$ and $(a, b) \in \N \times \Z$, therefore $(a, b) \in (\Z \times \N) \cap (\N \times \Z)$.
+
+\begin{problem}
+Suppose $B \neq \varnothing$ and $A \times B \subseteq B \times C$. Prove that $A \subseteq C$.
+\end{problem}
+
+\textbf{Proof: use direct proof with a bit of contradition.}
+Since $A \times B \subseteq B \times C$ we must have $A \subseteq B$ and $B \subseteq C$ and inclusion is transitive therefore $A \subseteq C$. If we did not have $A \subseteq B$ there could be an $a \in A\setminus B$ and then the pair $(a, b)$ could not belong to $B \times C$. Likewise if $B$ was not contained in $C$ then it would have some $b$ for which $(a, b)$ would belong to $A \times B$ but not $B \times C$.
+\end{document}
+
+

@@ -1,0 +1,701 @@
+\documentclass{article}
+\input{preamble.tex}
+
+% Title
+\title{Your Document Title}
+\author{Your Name}
+\date{\today} % or specify a date like {December 2020}
+
+\begin{document}
+
+\maketitle
+
+\begin{problem}
+Prove that $1 + 2 + 3 + 4 + \ldots + n = \frac{n^2 + n}{2}$ for every positive integer $n$.
+\end{problem}
+
+\textbf{Proof: induction on $n$.}
+\\
+\textbf{Base case:} $n = 1$. For $n = 1$:
+$$\frac{1^2 + 1}{2} = \frac{2}{2} = 1 = 1.$$
+\\
+
+\textbf{Inductive step:} Assume that the formula holds for a positive integer $n$. Using the inductive hypothesis, we need to show that $\frac{n^2 + n}{2} + (n + 1) = \frac{(n + 1)^2 + (n + 1)}{2}$. Algebraically:
+\begin{align*}
+    1 + 2 + \ldots + n + (n + 1) & = \frac{n^2 + n}{2} + (n + 1)          \\
+                                 & = \frac{n^2 + n}{2} + \frac{2n + 2}{2} \\
+                                 & = \frac{n^2 + 3n + 2}{2}               \\
+                                 & = \frac{(n^2 + 2n + 1) + (n + 1)}{2}   \\
+                                 & = \frac{(n + 1)^2 + (n + 1)}{2}.
+\end{align*}
+
+\begin{problem}
+Prove that $1^2 + 2^2 + 3^2 + 4^2 + \ldots + n^2 = \frac{n(n + 1)(2n + 1)}{6}$ for every positive integer $n$.
+\end{problem}
+
+\textbf{Proof: induction on $n$.}
+\\
+
+\textbf{Base case:} $n = 1$. For $n = 1$, $\frac{1(2(3))}{6} = 5$.
+\\
+
+\textbf{Inductive step:} Assume the formula holds for a positive integer $n$. For scratch work, write out and expand the target expression:
+$$\frac{(n+1)(n+2)(2(n+1)+1)}{6} = \frac{2n^3 + 9n^2 + 13n + 6}{6}$$
+Now use the inductive hypothesis and algebra to show if the formula holds for $n$ then it holds for $n+1$:
+\begin{align*}
+    1^2 + 2^2 + \ldots + n^2 + (n + 1)^2 & = \frac{n(n + 1)(2n + 1)}{6} + (n + 1)^2               \\
+                                         & = \frac{n(n + 1)(2n + 1) + 6(n + 1)^2}{6}              \\
+                                         & = \frac{2n^3 + 3n^2 + n}{6} + \frac{6n^2 + 12n + 6}{6} \\
+                                         & = \frac{2n^3 + 9n^2 + 13n + 6}{6}                      \\
+                                         & = \frac{(n + 1)(n + 2)(2(n + 1) + 1)}{6}.
+\end{align*}
+
+\begin{problem}
+Prove that $1^3 + 2^3 + 3^3 + 4^3 + \ldots + n^3 = \frac{n^2(n + 1)^2}{4}$ for every positive integer $n$.
+\end{problem}
+
+\textbf{Proof: induction on $n$.}
+\\
+
+\textbf{Base case:} $n = 1$. For $n = 1$, $\frac{1^2(1 + 1)^2}{4} = 1$.
+\\
+
+\textbf{Inductive step:} To simplify the algebra a bit assume the formula holds for $n - 1$. Then our target expression is $\frac{n^2(n+1)^2}{4}$ which expands to $\frac{n^4 + 2n^3 + n^2}{4}$. Using the inductive hypothesis:
+\begin{align*}
+    1^3 + 2^3 + \ldots + (n-1)^3 + n^3 & = (1^3 + \ldots + (n-1)^3) + n^3        \\
+                                       & = \frac{(n-1)^2n^2}{4} + n^3            \\
+                                       & = \frac{(n-1)^2n^2}{4} + \frac{4n^3}{4} \\
+                                       & = \frac{(n^4 - 2n^3 + n^2) + 4n^3}{4}   \\
+                                       & = \frac{n^4 + 2n^3 + n^2}{4}            \\
+                                       & = \frac{n^2(n+1)^2}{4}.
+\end{align*}
+
+\begin{problem}
+If $n \in \N$, then $1\cdot 2 + 2\cdot 3 + 3\cdot 4 + 4\cdot 5 + \ldots + n(n-1) = \frac{n(n+1)(n+2)}{3}$.
+\end{problem}
+
+\textbf{Proof: induction on $n$.}
+\\
+
+\textbf{Base case:} $n = 1$. For $n = 1$, $1\cdot 2 = 2$ and $\frac{1(1+1)(1+2)}{3} = 2$.
+\\
+
+\textbf{Inductive step:} To simplify the algebra, assume the formula holds for $n - 1$. Then our target expression is $\frac{n(n+1)(n+2)}{3}$. The inductive hypothesis becomes:
+$$1\cdot 2 + 2\cdot 3 + \ldots + (n-1)n = \frac{(n-1)n(n+1)}{3}.$$
+Now use the inductive hypothesis and algebra to show if the formula holds for $n-1$ then it holds for $n$:
+\begin{align*}
+    1\cdot 2 + 2\cdot 3 + \ldots + (n-1)n + n(n+1) & = (1\cdot 2 + \ldots + (n-1)n) + n(n+1)     \\
+                                                   & = \frac{(n-1)n(n+1)}{3} + \frac{3n(n+1)}{3} \\
+                                                   & = \frac{(n-1)n(n+1) + 3n(n+1)}{3}           \\
+                                                   & = \frac{(n^3 - n) + 3n^2 + 3n}{3}           \\
+                                                   & = \frac{n^3 + 3n^2 + 2n}{3}                 \\
+                                                   & = \frac{n(n+1)(n+2)}{3}.
+\end{align*}
+
+\begin{problem}
+If $n \in \N$, then $2^1 + 2^2 + 2^3 + \ldots + 2^n = 2^{n+1} - 2$.
+\end{problem}
+
+\textbf{Proof: induction on $n$.}
+\\
+
+\textbf{Base case:} $n = 1$. For $n = 1$, $2^1 = 2$ and $2^{1+1} - 2 = 2$.
+\\
+
+\textbf{Inductive step:} Assume the formula holds for a positive integer $n$. Then $1^2 + \ldots + 2^n + 2^{n+1} = (2^{n+1} - 2) + 2^{n+1} = 2^{n+2} - 2$.
+
+\begin{problem}
+Prove that $\sum\limits_{i=1}^n (8i - 5) = 4n^2 - n$ for every positive integer $n$.
+\end{problem}
+
+\textbf{Base case:} $n = 1$. For $n = 1$, $8(1) - 5 = 3$ and $4(1)^2 - 1 = 3$.
+\\
+
+\textbf{Inductive step:} Assume the formula holds for a positive integer $n$. Our target expression becomes:
+$$4(n+1)^2 - n+1 = 4n^2 + 7n + 3.$$
+Now use the inductive hypothesis and algebra to show if the formula holds for $n$ then it holds for $n+1$:
+\begin{align*}
+    \sum_{i=1}^{n+1} (8i - 5) & = \sum_{i=1}^{n} (8i - 5) + 8(n+1) - 5 \\
+                              & = 4n^2 - n + 8n + 3                    \\
+                              & = 4n^2 + 7n + 3                        \\
+                              & = 4(n+1)^2 - (n+1).
+\end{align*}
+
+\begin{problem}
+If $n \in \N$, then $1\cdot 3 + 2\cdot 4 + 3\cdot 5 + 4\cdot 6 + \ldots + n(n+2) = \frac{n(n+1)(2n+7)}{6}$.
+\end{problem}
+\textbf{Proof: induction on $n$.}
+\\
+
+\textbf{Base case:} $n = 1$. For $n = 1$, $1\cdot 3 = 3$ and $\frac{1(1+1)(2+7)}{6} = 3$.
+\\
+
+\textbf{Inductive step:} Assume the formula holds for a positive integer $n$. Then our target expression is $\frac{(n+1)(n+2)(2(n+1)+7)}{6}$. Expand it to make it more recognizable:
+$$\frac{(n+1)(n+2)(2(n+1) + 7)}{6} = \frac{2n^3 + 15n^2 + 31n + 18}{6}$$
+Now use the inductive hypothesis and algebra to show if the formula holds for $n$ then it holds for $n+1$:
+\begin{align*}
+    1\cdot 3 + 2\cdot 4 + \ldots + n(n+2) + (n+1)(n+3) & = \frac{n(n+1)(2n+7)}{6} + (n+1)(n+3)  \\
+                                                       & = \frac{n(n+1)(2n+7) + 6(n+1)(n+3)}{6} \\
+                                                       & = \frac{2n^3 + 15n^2 + 31n + 18}{6}    \\
+                                                       & = \frac{(n+1)(n+2)(2(n+1) + 7)}{6}.
+\end{align*}
+
+\begin{problem}
+If $n \in \N$, then $\frac{1}{2!} + \frac{2}{3!} + \frac{3}{4!} + \ldots + \frac{n}{(n+1)!} = 1 - \frac{1}{(n+1)!}$.
+\end{problem}
+
+\textbf{Proof: induction on $n$.}
+\\
+
+\textbf{Base case:} $n = 1$. For $n = 1$, $\frac{1}{2!} = \frac{1}{2}$ and $1 - \frac{1}{2} = \frac{1}{2}$.
+\\
+
+\textbf{Inductive step:} Assume the formula holds for a positive integer $n$.
+\begin{align*}
+    \frac{1}{2!} + \frac{2}{3!} + \ldots + \frac{n}{(n+1)!} + \frac{n+1}{(n+2)!} & = 1 - \frac{1}{(n+1)!} + \frac{n+1}{(n+2)!}   \\
+                                                                                 & = 1 - \frac{n+2}{(n+2)!} + \frac{n+1}{(n+2)!} \\
+                                                                                 & = 1 - \frac{1}{(n+2)!}.
+\end{align*}
+
+\begin{problem}
+Prove that $24 \mid (5^{2n} - 1)$ for every positive integer $n \geq 0$.
+\end{problem}
+\textbf{Proof: induction on $n$.}
+\\
+
+\textbf{Base case: $n = 0$.} If $n = 0$ then $5^{2(0)} - 1 = 1 - 1 = 0$ which is divisible by 24.
+\\
+
+\textbf{Inductive step:} Assume the formula holds for a positive integer $n$. Then
+$$5^{2(n+1)} - 1 = 5^{2n}5^2 - 1 = 25(5^{2n}) - 1$$
+The inductive hypothesis gives us 24 divides $5^{2n} - 1$, so to group it with the 25 factor, write $1 = -25 + 24$:
+$$25(5^{2n}) - 1 = 25(5^{2n}) - 25 + 24 = 25(5^{2n} - 1) + 24(25)$$
+Now we have 24 dividing the first term from the inductive hypothesis, and it divides the second term since it is a factor.
+
+\begin{problem}
+Prove that $3 \mid (5^{2n} - 1)$ for every positive integer $n \geq 0$.
+\end{problem}
+
+\textbf{Proof: use a handy theorem}
+\\
+
+We already proved that $24 \mid (5^{2n} - 1)$ for every positive integer $n \geq 0$. Since $3 \cdot 8 = 24$, 3 divides $5^{2n} - 1$ as well.
+
+\begin{problem}
+Prove that $3 \mid (n^3 + 5n + 6)$ for every integer $n \geq 0$.
+\end{problem}
+
+\textbf{Proof: induction on $n$.}
+\\
+
+\textbf{Base case: $n = 0$.} If $n = 0$ then $0^3 + 5(0) + 6 = 6$ which is divisible by 3.
+\\
+
+\textbf{Inductive step:} Assume the formula holds for a positive integer $n$. Expand the target expression:
+$$(n+1)^3 + 5(n+1) + 6 = n^3 + 3n^2 + 8n + 12$$
+To use the inductive hypothesis, take this expanded expression and separate $n^3 + 5n + 6$:
+\begin{align*}
+    n^3 + 3n^2 + 8n + 12 & = (n^3 + 5n + 6) + (3n^2 + 3n + 6) \\
+                         & = (n^3 + 5n + 6) + 3(n^2 + n+2).
+\end{align*}
+The inductive hypothesis gives us that $3 \mid (n^3 + 5n + 6)$, and 3 divides the second term since it is a factor.
+
+\begin{problem}
+Prove that $9 \mid (4^{3n} + 8)$ for every integer $n \geq 0$.
+\end{problem}
+
+\textbf{Proof: induction on $n$.}
+\\
+
+\textbf{Base case: $n = 0$.} If $n = 0$ then $4^{3(0)} + 8 = 9$ which is divisible by 9.
+\\
+
+\textbf{Inductive step:} Assume the formula holds for a positive integer $n$. Expand the target expression $4^{3(n+1)} + 8 = 64(4^{3n}) + 8$. To use the inductive hypothesis, we wish we had 64 multiplying $4^{3n} + 8$ rather than just $4^{3n}$, so we add and subtract $8 \cdot 64$:
+\begin{align*}
+    64\cdot 4^{3n} + 8 & = 64 \cdot 4^{3n} + 512 - 8 - 512 \\
+                       & = 64(4^{3n} + 8) - 504
+\end{align*}
+The inductive hypothesis gives us that $9 \mid (4^{3n} + 8)$, and 9 divides the second term since $504 = 9 \cdot 56$.
+
+\begin{problem}
+Prove that $6 \mid (n^3 - n)$ for ever integer $n \geq 0$.
+\end{problem}
+
+\textbf{Proof: induction on $n$.}
+\\
+
+\textbf{Base case: $n = 0$.} If $n = 0$ then $0^3 - 0 = 0$ which is divisible by 6.
+\\
+
+\textbf{Inductive step:} Assume the formula holds for a positive integer $n$. Expand the target expression $(n+1)^3 - (n+1) = n^3 + 3n^2 + 3n + 1 - n - 1 = n^3 + 3n^2 + 2n$, which factors to $n(n+1)(n+2)$. To deduce this is a multiple of 6, notice that these are three consecutive integers. By the pigeonhole principle at least one of them must be even and have a factor of 2, and one of the must be a factor of 3. Therefore $n(n+1)(n+2)$ must have both 2 and 3 in its prime factorization, which means it must be a multiple of 6.
+
+\begin{problem}
+Suppose $a \in \Z$. Prove that $5 \mid 2^n a$ implies $5 \mid a$ for any $n \in \N$.
+\end{problem}
+\textbf{Solution: use prime factorization}
+\\
+
+View $2^n a$ by its prime factorization, which means any factor of 5 must come from $a$. Therefore if $5 \mid 2^n a$ then $5 \mid a$.
+
+\begin{problem}
+If $n \in \N$, then $\frac{1}{1\cdot 2} + \frac{1}{2\cdot 3} + \frac{1}{3\cdot 4} + \frac{1}{4\cdot 5}+ \ldots + \frac{1}{n(n+1)} = 1 - \frac{1}{n+1}$.
+\end{problem}
+\textbf{Proof: induction on $n$.}
+\\
+
+\textbf{Base case: $n = 1$.}
+$$\frac{1}{1\cdot 2} = 1 - \frac{1}{1+1} = 1 - \frac{1}{2}.$$
+\\
+
+\textbf{Inductive step:} Assume the formula holds for a positive integer $n - 1$ (this will simplify the algebra). Then we have:
+\begin{align*}
+    \frac{1}{2\cdot 3} + \ldots + \frac{1}{(n-1)n} + \frac{1}{n(n+1)} & =  (\frac{1}{2\cdot 3} + \ldots + \frac{1}{(n-1)n}) + \frac{1}{n(n+1)} \\
+                                                                      & = \left(1 - \frac{1}{n}\right) + \frac{1}{n(n+1)}                      \\
+                                                                      & = 1 + \frac{1}{n(n+1)} - \frac{n+1}{n(n+1)}                            \\
+                                                                      & = 1 + \frac{1 - n - 1}{n(n+1)}                                         \\
+                                                                      & = 1 - \frac{n}{n(n+1)}                                                 \\
+                                                                      & = 1 - \frac{1}{n+1}.
+\end{align*}
+
+\begin{problem}
+Prove that $2^n + 1 \leq 3^n$ for every positive integer $n$.
+\end{problem}
+\textbf{Proof: direct}
+\\
+
+There is no need for an inductivy hypothesis here:
+\begin{align*}
+    2^n         & \leq 3^n              \\
+    2^{n+1}     & \leq 2\cdot 3^n       \\
+    2^{n+1} + 1 & \leq 2\cdot 3^n + 3^n \\
+    2^{n+1} + 1 & \leq 3^{n+1}.
+\end{align*}
+
+\begin{problem}
+Suppose that $A_1, A_2, \ldots, A_n$ are sets in some universal set $U$, and $n \geq 2$. Prove that $\overline{A_1 \cap A_2 \cap \ldots \cap A_n} = \overline{A_1} \cup \overline{A_2} \cup \ldots \cup \overline{A_n}$.
+\end{problem}
+\textbf{Proof: induction on $n$.}
+\\
+\textbf{Base case: $n = 2$.}
+\\
+
+De Morgan's law provides the base case: $\overline{A_1 \cap A_2} = \overline{A_1} \cup \overline{A_2}$. Now assume the result holds for the complent of $n$ intersections, and consider the $n+1$ case:
+$$\overline{A_1 \cap \ldots A_n \cap A_{n+1}} = \overline{(A_1 \cap \ldots \cap A_n) \cap A_{n+1}}$$
+Let $B = \overline{A_1 \cap \ldots \cap A_n}$. Then we have $\overline{B \cap A_{n+1}}$. Apply the base case to this to get $\overline{B} \cup \overline{A_{n+1}}$. Finally, apply the inductive hypothesis to $\overline{B}$ to get $\overline{A_1} \cup \ldots \cup \overline{A_n} \cup \overline{A_{n+1}}$.
+
+\begin{problem}
+(identical to problem 17)
+\end{problem}
+
+\begin{problem}
+Prove that $\frac{1}{1} + \frac{1}{4} + \frac{1}{9} + \ldots + \frac{1}{n^2} \leq 2 - \frac{1}{n}$ for every $n \in \N$.
+\end{problem}
+
+\textbf{Proof: induction on $n$.}
+\\
+
+\textbf{Base case: $n = 1$.} For $n = 1$, $\frac{1}{1} = 1$ and $2 - \frac{1}{1} = 1$.
+\\
+
+\textbf{Inductive step:} Assume the formula holds for a positive integer $n$. Use the inductive hypothesis to write:
+$$\frac{1}{1} + \frac{1}{4} + \frac{1}{9} + \ldots + \frac{1}{n^2} + \frac{1}{(n+1)^2} \leq \left(2 - \frac{1}{n}\right) + \frac{1}{(n+1)^2}$$
+
+The next task will be to put the fractions over a common denominator. However if we use $n(n+1)^2$ as the common denominator the algebra gets messy. But note that since we're proving an inequality we can make the right side bigger. So in an effort to keep the algebra simpler, we can change $(n+1)^2$ to $n(n+1)$; since it's in the denominator this will make the fraction larger:
+$$2 - \frac{1}{n} + \frac{1}{(n+1)^2} \leq 2 - \frac{1}{n} + \frac{1}{n(n+1)}$$
+
+Now we can put the fractions over a common denominator to get:
+\begin{align*}
+    2 - \frac{1}{n} + \frac{1}{(n+1)^2} & \leq 2 - \frac{1}{n} + \frac{1}{n(n+1)}     \\
+                                        & = 2 - \frac{n+1}{n(n+1)} + \frac{1}{n(n+1)} \\
+                                        & = 2 - \frac{n}{n(n+1)}                      \\
+                                        & = 2 - \frac{1}{n+1}.
+\end{align*}
+
+\begin{problem}
+Prove that $(1 + 2 + 3 + \ldots + n)^2 = 1^3 + 2^3 + 3^3 + \ldots + n^3$ for every $n \in \N$.
+\end{problem}
+
+\textbf{Proof: Combine previously proved results.} There is no need for induction here. We can use the formulas we proved earlier which are true for all $n \in \N$:
+\\
+
+$$1 + \ldots + n = \frac{n(n+1)}{2} \quad \text{and} \quad 1^3 + \ldots + n^3 = \frac{n^2(n+1)^2}{4}.$$
+
+Squaring the sum for the first $n$ integers gives the sum of the first $n$ cubes.
+
+\begin{problem}
+If $n \in \N$, then $\frac{1}{1} + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \frac{1}{5} + \ldots + \frac{1}{2^n - 1} + \frac{1}{2^n} \geq 1 + \frac{n}{2}$.
+\end{problem}
+
+\textbf{Proof: induction on $n$.}
+\\
+
+\textbf{Base case: $n = 1$.} For $n = 1$, $\frac{1}{1} \geq 1 + \frac{1}{2}$.
+\\
+
+\textbf{Inductive step:} Assume the formula holds for a positive integer $n$, applying the inductive hypothesis:
+
+$$\frac{1}{1} + \ldots + \frac{1}{2^n} + \frac{1}{2^n + 1} + \ldots \frac{1}{2^{n+1}} \geq 1 + \frac{n}{2} + \frac{1}{2^n + 1} + \ldots + \frac{1}{2^{n+1}}$$
+
+Note that the $n+1$ case gives us $2^n$ new terms:
+$$\underbrace{\frac{1}{2^n + 1} + \frac{1}{2^n + 2} + \ldots + \frac{1}{2^{n+1}}}_\text{$2^n$ terms}$$
+
+We can make the inequality's RHS smaller and keep it true, so set all of these terms to their minimum $\frac{1}{2^{n+1}}$
+
+$$\frac{1}{1} + \ldots + \frac{1}{2^n} + \frac{1}{2^n + 1} + \ldots \frac{1}{2^{n+1}} \geq 1 + \frac{n}{2} + 2^n \cdot \frac{1}{2^{n+1}}$$
+
+Now the RHS simplifies to $1 + \frac{n}{2} + \frac{1}{2} = 1 + \frac{n+1}{2}$. So the inequality holds for $n+1$.
+
+\begin{problem}
+If $n \in \N$, then $\left(1 - \frac{1}{2}\right)\left(1 - \frac{1}{4}\right)\left(1 - \frac{1}{8}\right)\ldots\left(1 - \frac{1}{2^n}\right) \geq \frac{1}{4} + \frac{1}{2^{n+1}}$.
+\end{problem}
+
+\textbf{Proof: induction on $n$.}
+\\
+
+\textbf{Base case: $n = 1$.} For $n = 1$, $\left(1 - \frac{1}{2}\right) \geq \frac{1}{4} + \frac{1}{4}$.
+\\
+
+\textbf{Inductive step:} Assume the formula holds for a positive integer $n$, applying the inductive hypothesis:
+$$\left(\prod_{k=1}^{2^n}1-\frac{1}{k}\right)\left[\left(1 - \frac{1}{2^{n} + 1}\right) \ldots \left(1 - \frac{1}{2^{n+1}}\right)\right] \geq \left(\frac{1}{4} + \frac{1}{2^{n+1}}\right)\left[\left(1 - \frac{1}{2^{n} + 1}\right) \ldots \left(1 - \frac{1}{2^{n+1}}\right)\right] $$
+
+Notice we have $2^n$ new factors from the $n+1$ case, each of them at least $1 - \frac{1}{2^{n+1}}$, so the product of the new terms is at most $2^n \cdot \left(1 - \frac{1}{2^{n+1}}\right)$. The inequality simplifies to:
+$$\left(\frac{1}{4} + \frac{1}{2^{n+1}}\right)2^n\left(1 - \frac{1}{2^{n+1}}\right) = 2^{n-1} + \frac{1}{8} + \frac{1}{2} + \frac{1}{2^{n+2}}$$
+
+Throwing away the $2^{n-1}$ and $1/8$ terms, and reducing the $1/2$ term to $1/4$ all keep the inequality true, and leaves the desired $1/4 + 1/2^{n+2}$.
+
+\begin{problem}
+Use mathematical induction to prove the binomial theorem.
+\end{problem}
+
+\textbf{Proof: induction on $n$.}
+
+The binomial theorem states
+$$(x + y)^n = \sum_{k=0}^{n} \binom{n}{k}x^{n-k}y^k.$$
+
+The equation hinted at is
+$$\binom{n+1}{k} = \binom{n}{k-1} + \binom{n}{k}.$$
+
+For the base case $n = 1$, we have $(x + y)^1 = x + y$ and
+$$\sum_{k=0}^1 \binom{1}{k} x^{1-k}y^k = \binom{1}{0}x^1 y^0 + \binom{1}{1}x^0 y^1 = x + y.$$
+
+So the base case holds. Now assuming the theorem holds up to some arbitrary $n$:
+$$(x + y)^{n+1} = (x + y)(x + y)^n = (x + y)\sum_{k=0}^{n} \binom{n}{k}x^{n-k}y^k = x\sum_{k=0}^{n} \binom{n}{k}x^{n-k}y^k + y\sum_{k=0}^{n} \binom{n}{k}x^{n-k}y^k$$
+$$=\sum_{k=0}^{n} \binom{n}{k}x^{n-k+1}y^{k} + \sum_{k=0}^{n} \binom{n}{k}x^{n-k}y^{k+1}$$
+by distributing $x$ and $y$ over the summation. Expanding the summations gives:
+$$\binom{n}{0}x^{n+1}y^0 + \binom{n}{1}x^n y^1 + \ldots + \binom{n}{n}x^0 y^{n+1}$$
+$$ + \binom{n}{0}x^n y^1 + \binom{n}{1}x^{n-1}y^2 + \ldots + \binom{n}{n}x^0 y^{n+1}.$$
+
+Next we use the identity $\binom{n+1}{k} = \binom{n}{k-1} + \binom{n}{k}$ to combine terms:
+$$\binom{n}{0}x^{n+1}y^0 + \left(\binom{n}{0} + \binom{n}{1}\right)x^n y^1 + \ldots + \left(\binom{n}{n-1} + \binom{n}{n}\right)x^1 y^n + \binom{n}{n}x^0 y^{n+1}$$
+$$=\binom{n}{0}x^{n+1}y^0 + \binom{n+1}{1}x^n y^1 + \ldots + \binom{n+1}{n}x^1 y^n + \binom{n}{n}x^0 y^{n+1}.$$
+
+Finally, we can put the first and last binominal coefficients in terms of $n+1$, since for any $n$ the binominal coefficient $\binom{n}{0} = \binom{n+1}{0} = 1$ and likewise $\binom{n}{n} = \binom{n+1}{n+1} = 1$:
+$$\binom{n+1}{0}x^{n+1}y^0 + \binom{n+1}{1}x^n y^1 + \ldots + \binom{n+1}{n}x^1 y^n + \binom{n+1}{n+1}x^0 y^{n+1}$$
+$$ = \sum_{k=0}^{n+1} \binom{n+1}{k}x^{(n+1)-k}y^k.$$
+
+This shows the theorem holds for any $n > 1$.
+
+\begin{problem}
+Prove that $\sum_{k=1}^n k \binom{n}{k} = n2^{n-1}$ for every positive integer $n$ for each natural number $n$.
+\end{problem}
+
+\textbf{Proof: induction on $n$.}
+
+For the base case $n = 1$:
+$$\sum_{k=1}^n k \binom{n}{k} = 1\binom{1}{1} = 1 = 1\cdot 2^{1-1}$$
+
+so the base case holds. Assume the theorem holds for $n$, then we take the inductive step:
+$$\sum_{k=1}^{n+1} k \binom{n+1}{k}$$
+
+We can use Pascal's rule, $\binom{n + 1}{k} = \binom{n}{k} + \binom{n}{k-1}$ to break apart the binomial:
+\begin{align*}
+    \sum_{k=1}^{n+1} k \binom{n+1}{k} & = \sum_{k=1}^{n+1}k\left(\binom{n}{k} + \binom{n}{k-1}             \right) & \text{Pascal's Identity} \\
+                                      & = \sum_{k=1}^{n+1}k\binom{n}{k} + \sum_{k=1}^{n+1} k \binom{n}{k-1}        &                          \\
+\end{align*}
+
+To apply the inductive hypothesis we need to write the summations in terms of $k = 1$ to $n$, so we break off the last term of each:
+$$\sum_{k=1}^n k \binom{n}{k} + (n+1)\binom{n}{n+1} + \sum_{k=1}^{n+1} k \binom{n}{k-1}$$
+
+We can apply the inductive hypothesis on the first term, and since $\binom{n}{n+1} = 0$, the middle term disappears:
+$$n2^{n-1} +\sum_{k=1}^{n+1} k \binom{n}{k-1}$$
+
+Next we can do a change of variable on $k$ in the remaining summation to put it in the inductive hypothesis form. Let $j = k - 1$, then the sum ranges from $j = 0$ to $n$, and summation becomes:
+$$n2^{n-1} + \sum_{j=0}^n (j + 1)\binom{n}{j} = n2^{n-1} + \sum_{j=0}^n j\binom{n}{j} + \sum_{j=0}^n \binom{n}{j}$$
+
+In the first summation, when $j = 0$ the term is 0 as well, so this is equivalent to $\sum_{j=1}^n j \binom{n}{j} = n2^{n-1}$ by the inductive hypothesis. The second summation is the number of all subsets in a set size $n$, which is $2^n$:
+$$n2^{n-1} + n2^{n-1} + 2^n = (n+1)2^n$$
+
+and the proof is complete.
+
+\begin{problem}
+Concerning the Fibonacci sequence, prove that $F_1 + \ldots + F_n = F_{n+2} - 1$
+\end{problem}
+
+For the base case $n = 1$, $F_1 = 1$ and $F_3 - 1 = 2 - 1 = 1$, so the base case holds.
+
+Now assume the theorem holds for an arbitrary $n$. Take the sum $F_1 + \ldots + F_n + F_{n+1}$ and apply the inductive hypothesis to the first $n$ terms:
+$$F_1 + \ldots + F_n + F_{n+1} = F_{n+2} - 1 + F_{n+1}$$
+
+By definition of the Fibonacci sequence, $F_{n+2} + F_{n+1} = F_{n+3}$, making the sum equal to $F_{n+3} - 1$, so the theorem holds.
+
+\begin{problem}
+Concerning the Fibonacci sequence, prove that $\sum_{k=1}^n F^2_k = F_n F_{n+1}$
+\end{problem}
+
+For the base case $n = 1$, we have $F_1^2 = 1^2 = 1$ and $F_1 F_2 = 1\cdot1 = 1$, so the base case holds.
+
+Now assume the theorem holds for an arbitrary $n$:
+\begin{align*}
+    \sum_{k=1}^{n+1} F_k^2 & = \sum_{k=1}^n F_k^2 + F_{n+1}F_{n+1} \\
+                           & = F_n F_{n+1} + F_{n+1}F_{n+1}        \\
+                           & = F_{n+1}(F_n + F_{n+1})              \\
+                           & = F_{n+1}F_{n+2}
+\end{align*}
+
+\begin{problem}
+Concerning the Fibonacci sequence, prove that $F_1 + F_3 + F_5 + F_7 + \ldots + F_{2n-1} = F_{2n}$.
+\end{problem}
+
+Here we the sum of all odd terms up to some cutoff equals the next even term. For the base case $n = 1$, $F_1 = 1 = F_2$. Now assume this holds for some arbitrary $n$:
+\begin{align*}
+    F_1 + \ldots F_{2n-1} + F_{2n+1} & = F_{2n} + F_{2n+1} \\
+                                     & = F_{2n+2}          \\
+                                     & = F_{2(n+1)}
+\end{align*}
+
+\begin{problem}
+Concerning the Fibonacci sequence, prove that $F_2 + F_4 + F_6 + F_8 + \ldots + F_{2n} = F_{2n+1} - 1$.
+\end{problem}
+
+This theorem states the sum of the even terms up to some cutoff equals the next odd term minus 1. Knowing this will be an inductive proof, our inductive case will sum terms up to $2(n+1) = 2n + 2$ and this should equal $F_{2(n+1) + 1} - 1 = F_{2n+3} - 1$.
+
+For the base case $n = 1$, we have $F_2 = 1$ and $F_3 - 1 = 2 - 1 = 1$, so the base case holds. Assuming this holds for an aribtrary $n$:
+
+\begin{align*}
+    \sum_{j=1}^{n+1} F_{2j} & = (F_2 + F_4 + \ldots F_{2n}) + F_{2n+2} \\
+                            & = F_{2n+1} + F_{2n + 1} - 1              \\
+                            & = F_{2n+3} - 1
+\end{align*}
+
+\begin{problem}
+The indicated diagonals of Pascal's triangle sum to Fibonacci numbers. Prove that this pattern continues forever.
+\end{problem}
+
+The claim is that that $n$th diagonal sum corresponds to $F_n$. The diagonal sums follow the pattern:
+$$\sum_{k=0}^{\lceil n/2 \rceil} \binom{n - 1 - k}{k}$$
+
+The base case holds by checking manually for $F_1, F_2, F_3, F_4$. Using the pattern above as the inductive hypothesis, we next consider the $n+1$ case.
+
+Suppose $n + 1$ is even, then $n$ is odd, and more importantly, $\lceil (n+1) / 2 \rceil = \lceil n / 2 \rceil$. Then we can write the $n+1$ case as:
+$$\sum_{k=0}^{\lceil n / 2 \rceil} \binom{n - k}{k}$$
+
+Using the identity $\binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}$, we can rewrite this as:
+$$\sum_{k=0}^{\lceil n / 2 \rceil} \binom{n - k - 1}{k - 1} + \sum_{k=0}^{\lceil n / 2 \rceil} \binom{n-k-1}{k}$$
+
+The term on the right is $F_n$ by the inductive hypothesis. It remains to show the term on the left is $F_{n-1}$ so that the sum is indeed $F_{n+1}$. To do this we apply a change of variable after noting that for the $k = 0$ term in the summation we have $k - 1 = -1$ in the binomial, so that's necessarily 0. So we can drop that term, apply the change of variable $j = k-1$, and reindex:
+$$\sum_{k=0}^{\lceil n / 2 \rceil} \binom{n - k - 1}{k - 1} = \sum_{k=1}^{\lceil n / 2 \rceil} \binom{n - k - 1}{k - 1} = \sum_{j=0}^{\lceil n / 2 \rceil - 1} \binom{(n - 1) - 1 - j}{j}$$
+
+Finally, note that since $n$ is odd, the ceiling $\lceil n / 2 \rceil$ decreases by 1 if $n$ decreases by 1, so $\lceil n / 2 \rceil - 1 = \lceil (n - 1) / 2\rceil$. This leaves the sum exactly as the $n - 1$ case:
+$$\sum_{j=0}^{\lceil (n - 1) / 2\rceil} \binom{(n-1) - 1 - j}{j} = F_{n-1}$$
+
+\begin{problem}
+Here $F_n$ is the $n$th Fibonacci number. Prove that
+$$F_n = \frac{\left(\frac{1 + \sqrt{5}}{2}\right)^n - \left(\frac{1 - \sqrt{5}}{2}\right)^n}{\sqrt{5}}$$
+\end{problem}
+
+\textbf{Solution: strong induction with lots of algebra}
+The base case holds for $n = 1$. Now assume it holds up to some arbitrary $n$ (strong induction). By definition:
+
+
+\begin{align*}
+    F_{n+1} & = F_n + F_{n-1}                                                                                                                                                                                           \\
+            & = \frac{1}{\sqrt{5}}\left[ \left(\frac{1 + \sqrt{5}}{2} \right)^n - \left(\frac{1 - \sqrt{5}}{2}\right)^n + \left(\frac{1 + \sqrt{5}}{2}\right)^{n-1} - \left(\frac{1 - \sqrt{5}}{2}\right)^{n-1} \right] \\
+            & = \frac{1}{\sqrt{5}}\left[ \left( \frac{1 + \sqrt{5}}{2}\right)^n + \left(\frac{1 + \sqrt{5}}{2}\right)^{n-1} - \left(\frac{1 - \sqrt{5}}{2}\right)^n - \left(\frac{1 - \sqrt{5}}{2}\right)^{n-1}\right]  \\
+            & = \frac{1}{\sqrt{5}}\left[ \left(\frac{1 + \sqrt{5}}{2}\right)^n\left(1 + \frac{2}{1 + \sqrt{5}}\right)  - \left(\frac{1 - \sqrt{5}}{2}\right)^n\left(1 + \frac{2}{1 - \sqrt{5}}\right)\right]            \\
+            & = \frac{1}{\sqrt{5}}\left[ \left(\frac{1 + \sqrt{5}}{2}\right)^n\left(1 + \frac{2 - 2\sqrt{5}}{-4}\right)  - \left(\frac{1 - \sqrt{5}}{2}\right)^n\left(1 + \frac{2 + 2\sqrt{5}}{-4}\right)\right]        \\
+            & = \frac{1}{\sqrt{5}}\left[ \left(\frac{1 + \sqrt{5}}{2}\right)^n\left(\frac{1 + \sqrt{5}}{2}\right)  - \left(\frac{1 - \sqrt{5}}{2}\right)^n\left(\frac{1 -  2\sqrt{5}}{2}\right)\right]                  \\
+            & = \frac{1}{\sqrt{5}}\left[ \left(\frac{1 + \sqrt{5}}{2}\right)^{n+1} - \left(\frac{1 - \sqrt{5}}{2}\right)^{n+1}\right]
+\end{align*}
+
+\begin{problem}
+Prove that $\sum\limits_{k=0}^n \binom{k}{r} = \binom{n + 1}{r + 1}$ where $1 \leq r \leq n$.
+\end{problem}
+
+The base case $n = 1$ holds. Now assume it holds up to some arbitrary $n$ and take the inductive step:
+$$\sum_{k=0}^{n+1}\binom{k}{r} = \sum_{k=0}^n \binom{k}{r} + \binom{n + 1}{r} = \binom{n + 1}{r + 1} + \binom{n + 1}{r}$$
+
+Use the identity $\binom{n}{k} = \binom{n-1}{k - 1} + \binom{n-1}{k}$ to write the above as $\binom{n+2}{r + 1}$, and the proof is complete.
+
+\begin{problem}
+Prove that the number of $n$-digit binary numbers that have no consecutive 1's is the Fibonacci number $F_{n+2}$.
+\end{problem}
+
+\textbf{Solution: strong induction}
+
+Let $b_n$ be the number of bitstrings length $n$ with no consecutive 1's. The empty string has no consecutive 1's so $b_0 = 1 = F_2$. Likewise the number of length 1 strings with no consecutive 1's is 2 so $b_1 = 2 = F_3$. And we have the number $b_3 = 5 = F_4$, so $b_3 = b_2 + b_1$, the Fibonacci recurrence relation.
+
+Now assume the Fibonacci relation $b_n = b_{n-1} + b_{n-2}$ for all cases up to some arbitrary $n$.
+
+We now want to show that $b_{n+1} = b_n + b_{n-1}$. Using the inductive hypothesis we can rewrite $b_n + b_{n-1} = 2b_{n-1} + b_{n-2}$. Now consider how strings length $n-2$ or $n-1$ can contribute to strings length $n+1$. For strings counted in $b_{n-2}$, append $010$ so they are length $n+1$. This means for each string counted in $b_{n-2}$ it contributes one string to $b_{n+1}$ by this extension. For each string counted in $b_{n-1}$, we can append $00$ or $01$. These are different from the strings we extended from $b_{n-2}$ since these have a 0 in the penultimate digit. Furthermore each string counted in $b_{n-1}$ contributes exactly 2 strings in $b_{n+2}$ by this extension. So $b_{n+1} = 2b_{n-1} + b_{n+2}$. To ensure we have counted all the strings in $b_{n+1}$, we can split the strings into 4 cases: those ending in 00, 01, 10, or 11. Of course we aren't counting strings ending in 11 because those have consecutive 1's. The remaining cases have all been accounted for, so the proof is complete.
+
+\begin{problem}
+Suppose $n$ (infinitely long) straight lines lie on a plane in such a way that no two of the lines are parallel, and no three of the lines intersect at a single point. Show that this arrangement divides the plane into $\frac{n^2 + n + 2}{2}$ regions.
+\end{problem}
+The problem asks us to demonstrate the relation that $n$ such lines divide the plane into a certain number of regions. It may be simpler to prove the equivalent statement regarding how many more regions each new lines generates. The difference between the $n+1$ case and the $n$ case should be:
+$$\frac{(n+1)^2 + (n+1) + 2}{2} - \frac{n^2 + n + 2}{2} = n+1$$
+That is, as we add the $n+1$th line does it increase the total number of regions by $n+1$?
+
+For base cases, when $n = 0$ the plane is one undivided region, when $n = 1$ we have $2 = 4/2$ regions. So for the base cases, $n$ lines with distinct intersections divide the plane into $n+1$ regions.
+
+Now as we add the $n+1$th line it intersects each of the other $n$ lines defining $n+1$ regions exactly once. Since each of the $n+1$ regions has a new line going through it, it creates 2 regions out of each one. Therefore the total number of regions increases by $n+1$.
+
+\begin{problem}
+Prove that $3^1 + 3^2 + 3^3 + \ldots + 3^n = \frac{3^{n+1} - 3}{2}$ for every $n \in \N$.
+\end{problem}
+
+The base case $n = 1$ holds so assume it holds up for some arbitrary $n$:
+
+\begin{align*}
+    \sum_{k=1}^{n+1} & = \sum_{k=1}^n 3^k + 3^{n+1}                          \\
+                     & = \frac{3^{n+1} - 3}{2} + 3^{n+1}                     \\
+                     & = \frac{3^{n+1} - 3}{2} + \frac{3^{n+1} + 3^{n+1}}{2} \\
+                     & = \frac{3\cdot 3^{n+1} - 3}{2}                        \\
+                     & = \frac{3^{n+2} - 3}{2}
+\end{align*}
+
+\begin{problem}
+Prove that if $n, k \in \N$ and $n$ is even and $k$ is odd, then $\binom{n}{k}$ is even.
+\end{problem}
+
+Since $n$ must be even let $n = 2m$ and proceed with induction on $m$. For the base case $m = 1$ we have $\binom{2}{k}$, and the only valid odd $k$ here is 1. So we have $\binom{2}{1} = 2$, which is even.
+
+Now assume it holds for some value $m$. By using Pascal's Identity twice we obtain:
+$$\binom{2(m+1)}{k} = \binom{2m + 1}{k-1} + \binom{2m+1}{k} = \binom{2m}{k-2} + 2\binom{2m}{k-1} + \binom{2m}{k}$$
+In the RHS the first and last terms are even by the inductive hypothesis. The middle term is even because it has a factor of 2. The sum of three even numbers is even, so the inductive case holds as well.
+
+\begin{problem}
+Prove that if $n = 2^k - 1$ for some $k \in \N$, then every entry in the $n$th row of Pascal's triangle is odd.
+\end{problem}
+
+This can be proven directly using the previous result. If $k = 1$ then the property holds since the $n = 1$ row is just the entry $\binom{1}{1} = 1$. Suppose you have $n = 2^k -1 \geq 2$. The entries in the $n$th row of Pascal's triangle have the form
+$$\binom{2^k - 1}{j}$$
+for some $j$ between 0 and $n$. Each entry is the sum of two previous entries by Pascal's Identity:
+$$\binom{2^k - 1}{j} = \binom{2^k - 2}{j-1} + \binom{2^k - 2}{j}$$
+Since $j-1$ and $j$ are consecutive naturals, one must be odd and the other even. Then by the previous result, one of the terms will be odd. WLOG assum $j-1$ is odd, then since $2^k - 2$ is even we have $\binom{2^k - 2}{j-1}$ is (even) Choose (odd) which is odd.
+
+Now I claim that $\binom{2^k - 2}{j}$ is even. To prove this, perform the same induction as the previous part but assuming $k$ is even. Therefore $\binom{2^k - 1}{j}$ is the sum of an even and an odd, which must be odd.
+
+\begin{problem}
+Prove that if $m, n \in \N$, then $\sum\limits_{k=0}^{n} k\binom{m+k}{m} = n\binom{m + n + 1}{m+1} - \binom{m + n + 1}{m+2}$.
+\end{problem}
+
+Proceed by induction on $n$. To be clear, the proposition $P(n)$ stands for the equality above is true for this value of $n$ and any $m \in \N$. Then our target will for the $n+1$ summation to equal
+$$(n+1)\binom{m+n+2}{m+1} - \binom{m+n+2}{m+2}$$
+
+For the base case $n = 1$, the summation on the LHS simplifies to:
+$$\sum_{k=0}^1 = 0\binom{m+0}{m} + 1\cdot \binom{m+1}{m} = m + 1$$
+
+On the RHS we have:
+$$1\cdot\binom{m + 2}{m+1} - \binom{m + 2}{m + 2} = (m + 2) - 1 = m + 1$$
+
+So the base case holds for any natural $m$.
+
+Now assume this holds up to an $n > 1$ and we take the inductive step:
+$$\sum_{k=0}^{n+1} k\binom{m+k}{m} = \left(n\binom{m+n+1}{m+1} - \binom{m+n+1}{m+2}\right) + (n + 1)\binom{m+n+1}{m}$$
+
+Distributing and rearranging terms:
+$$n\left[\binom{m+n+1}{m+1} + \binom{m+n+1}{m}\right] + \binom{m+n+1}{m} - \binom{m+n+1}{m+2}$$
+
+Using Pascal's identity in the brackets simplifies to:
+$$n\binom{m+n+2}{m+1} + \binom{m+n+1}{m} - \binom{m+n+1}{m+2}$$
+
+We see our first term is nearly what we're after, but in order to do anything with the other two terms we need to simplify them or use another binomial identity somehow. They have the same set size $m +n+1$ and their subset size differs by 2, so if we add a form of 0 based on the same set size and subset size in the middle, we might make good use of Pascal's identity again:
+$$n\binom{m+n+2}{m+1} + \binom{m+n+1}{m} + \binom{m+n+1}{m+1} - \binom{m+n+1}{m+1} - \binom{m+n+1}{m+2}$$
+$$=n\binom{m+n+2}{m+1} + \binom{m+n+2}{m+1} - \binom{m+n+2}{m+2}$$
+$$=(n+1)\binom{m+n+2}{m+1} - \binom{m+n+2}{m+2}$$
+as desired.
+
+\begin{problem}
+Prove that $\sum\limits_{k=0}^p \binom{m}{k}\binom{n}{p-k} = \binom{m+n}{p}$ for non-negative integers $m, n$ and $p$.
+\end{problem}
+
+Proceed by induction on $n$, and for each case we will prove or assume the equality holds for all $m$ and $p$.
+
+For the base case $n = 1$, if $p = 0$ then we have
+$$\sum_{k=0}^0 \binom{m}{k}\binom{1}{p-k} = \binom{m}{0}\binom{1}{0} = 1$$
+and likewise $\binom{m + 1}{0} = 1$ so the equality holds. If you prefer to take $p = 1$ we find both sides evaluate to $m + 1$.
+
+Now assume that up to some $n$, this holds for all $m$ and $p$. Take the $n+1$ case for the RHS, $\binom{m+n+1}{p}$. To apply the inductive hypothesis, use Pascal's identity to lower the set size:
+$$\binom{m+n+1}{p} = \binom{m+n}{p} + \binom{m+n}{p-1}$$
+
+Now rewrite as summations using the inductive hypotheses:
+$$\sum_{k=0}^p \binom{m}{k}\binom{n}{p-k} + \sum_{k=0}^{p-1}\binom{m}{k}\binom{n}{p-k-1}$$
+
+For all terms up to $p - 1$ we can combine terms with the common factor $\binom{m}{k}$, leaving only the last term from the first summation:
+$$\sum_{k=0}^{p-1}\binom{m}{k}\left[\binom{n}{p-k} + \binom{n}{p-k-1}\right] + \binom{m}{p}\binom{n}{0}$$
+
+Now we can apply Pascal's identity to the terms inside the bracket. And for the last term, note that $\binom{n}{0} = \binom{n+1}{0}$:
+$$\sum_{k=0}^{p-1} \binom{m}{k}\binom{n+1}{p-k} + \binom{m}{p}\binom{n+1}{0} = \sum_{k=0}^{p}\binom{m}{p}\binom{n+1}{p-k}$$
+
+which proves the result.
+
+\begin{problem}
+Prove that if $\sum\limits_{k=0}^m \binom{m}{k}\binom{n}{p+k} = \binom{m+n}{m+p}$ for non-negative integers $m, n$, and $p$.
+\end{problem}
+
+Again as a form of strong induction, we'll proceed by induction on $n$ and for each case assume or prove it holds for all $m, p \geq 0$.
+
+For the base case, $m = n = p = 0$, both sides of the equation evaluate to 1.
+
+Now assume for some $n > 1$, the equality holds for all $m, p \geq 0$. Apply Pascal's identity to the RHS:
+$$\binom{m+n+1}{m+p} = \binom{m+n}{m+p} + \binom{m+n}{m+p-1}$$
+
+and apply the inductive hypothesis:
+$$\sum_{k=0}^m \binom{m}{k}\binom{n}{p+k} + \sum_{k=0}^{m}\binom{m}{k}\binom{n}{p+k-1}$$
+
+combine like terms:
+$$= \sum_{k=0}^{m}\binom{m}{k}\left[\binom{n}{p+k} + \binom{n}{p+k-1}\right]$$
+
+and apply Pascal's identity again to obtain the result:
+$$=\sum_{k=0}^{m}\binom{m}{k}\binom{n+1}{p+k}$$
+
+\begin{problem}
+Use Exercise 38 above to prove that if $n \in \N$, then $\binom{n}{0}^2 + \binom{n}{1}^2 + \ldots + \binom{n}{n}^2 = \binom{2n}{n}$
+\end{problem}
+
+Setting it in the equality from exercise 38 view $\binom{2n}{n}$ as $\binom{n + n}{n}$ (where $m, p,$ and $n$ all have the same value). Then we have
+$$\binom{n + n}{n} = \sum_{k=0}^{n}\binom{n}{k}\binom{n}{n-k} = \sum_{k=0}^{n}\binom{n}{k}^2$$
+which is the desired result.
+
+\begin{problem}
+If $n$ and $k$ are non-negative integers, then $\binom{n+0}{0} + \binom{n+1}{1}+\binom{n+2}{2}+\ldots + \binom{n+k}{k} = \binom{n + k + 1}{k}$.
+\end{problem}
+
+For a base case $n = 1$ and $k = 0$, we have $\binom{1}{0} = 1 = \binom{1 + 1}{0}$. For another base case $n = 1, k = 1$ we have
+$$\binom{1}{0} + \binom{2}{1} = 3 = \binom{1+1+1}{1}$$
+
+Now assume for an arbitrary $n$ this holds for all $k$ and form the sum
+$$\binom{n+1}{0} + \binom{n + 1 + 1}{1} + \binom{n + 1 + 2}{2} + \ldots + \binom{n + 1 + k}{k}$$
+
+The term $\binom{n + 1 + 1}{1} = \binom{n + 1}{1} + \binom{n + 1}{0}$ by Pascal's identity. Likewise for the rest of the terms and rewriting $\binom{n+1}{0} = \binom{n}{0}$:
+$$\binom{n}{0} + \left[\binom{n+1}{1} + \binom{n+1}{0}\right] + \left[\binom{n+2}{2} + \binom{n+2}{1}\right] + \ldots + \left[\binom{n+k}{k} + \binom{n+k}{k-1}\right]$$
+
+Rearranging terms gives us:
+$$\left(\binom{n}{0} + \binom{n+1}{1} + \binom{n+2}{2} + \ldots \binom{n+k}{k}\right) + \left(\binom{n+1}{0} + \binom{n+2}{1} + \ldots + \binom{n+k}{k-1}\right)$$
+
+Invoking the inductive hypothesis on the left sum equates it to $\binom{n+k+1}{k}$. Invoking the inductive hypothesis on the right sum also works for $n + 1$ and $k-1$, so it's equal to $\binom{(n + 1) + (k - 1) + 1}{k - 1} = \binom{n+k + 1}{k-1}$ so overall we have
+
+$$\binom{n+k+1}{k} + \binom{n+k+1}{k-1} = \binom{n+k+2}{k}$$
+
+again by Pascal's identity.
+
+\begin{problem}
+Prove: the $n$th Fibonacci number $F_n$ is even if and only if $3 \mid n$.
+\end{problem}
+
+Observe that $F_1 = 1$ (odd), $F_2 = 1$ (odd), and $F_3 = F_2 + F_1 = 2$ which is even because it's the sum of 2 odds. So our base cases hold.
+
+Now assume this cycle of parity continues some arbitary number of times: (odd, odd, even, odd, odd, even, ...). For some arbitrary $F_n$, if it is even it must be the sum of two odds or the sum of two evens. However there are no two consecutive evens in the sequence so far, so the only possibility is that it's the sum of two odds. This happens every 3rd term, so $3 \mid n$. If $n$ is odd it must be the sum of an odd and an even, which happens when $n \equiv 1 \pmod{3}$ or $n \equiv 2 \pmod{3}$.
+
+
+\end{document}
